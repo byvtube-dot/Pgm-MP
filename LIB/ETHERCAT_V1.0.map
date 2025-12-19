@@ -1,0 +1,1250 @@
+ ETHERCAT_V1.0
+
+ Timestamp is 67e23310 (Tue Mar 25 13:37:36 2025)
+
+ Preferred load address is 0000000180000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000020H .text$di                CODE
+ 0001:00000020 00007010H .text$mn                CODE
+ 0001:00007030 00000040H .text$mn$00             CODE
+ 0001:00007070 00000230H .text$x                 CODE
+ 0001:000072a0 0000000cH .text$yd                CODE
+ 0002:00000000 00000218H .idata$5                DATA
+ 0002:00000218 00000038H .00cfg                  DATA
+ 0002:00000250 00000008H .CRT$XCA                DATA
+ 0002:00000258 00000008H .CRT$XCL                DATA
+ 0002:00000260 00000000H .CRT$XCU                DATA
+ 0002:00000260 00000008H .CRT$XCZ                DATA
+ 0002:00000268 00000008H .CRT$XIA                DATA
+ 0002:00000270 00000008H .CRT$XIZ                DATA
+ 0002:00000278 00000008H .CRT$XPA                DATA
+ 0002:00000280 00000008H .CRT$XPZ                DATA
+ 0002:00000288 00000008H .CRT$XTA                DATA
+ 0002:00000290 00000010H .CRT$XTZ                DATA
+ 0002:00000298 00000000H .gehcont$y              DATA
+ 0002:00000298 00000000H .gfids$y                DATA
+ 0002:000002a0 000044e0H .rdata                  DATA
+ 0002:00004780 00000000H .rdata$CastGuardVftablesA DATA
+ 0002:00004780 00000000H .rdata$CastGuardVftablesC DATA
+ 0002:00004780 000000ecH .rdata$r                DATA
+ 0002:0000486c 000000acH .rdata$voltmd           DATA
+ 0002:00004918 00000330H .rdata$zzzdbg           DATA
+ 0002:00004c48 00000008H .rtc$IAA                DATA
+ 0002:00004c50 00000008H .rtc$IZZ                DATA
+ 0002:00004c58 00000008H .rtc$TAA                DATA
+ 0002:00004c60 00000008H .rtc$TZZ                DATA
+ 0002:00004c68 000004c8H .xdata                  DATA
+ 0002:00005130 00000000H .xdata$x                DATA
+ 0002:00005130 00000000H ATL$__a                 DATA
+ 0002:00005130 00000000H ATL$__z                 DATA
+ 0002:00005130 00001274H .edata                  DATA
+ 0002:000063a4 00000078H .idata$2                DATA
+ 0002:0000641c 00000014H .idata$3                DATA
+ 0002:00006430 00000218H .idata$4                DATA
+ 0002:00006648 00000420H .idata$6                DATA
+ 0003:00000000 000000b8H .data                   DATA
+ 0003:000000b8 00000000H .data$r                 DATA
+ 0003:000000b8 00000048H .data$rs                DATA
+ 0003:00000100 00000690H .bss                    DATA
+ 0004:00000000 000005acH .pdata                  DATA
+ 0005:00000000 00000060H .rsrc$01                DATA
+ 0005:00000060 00000180H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base               Lib:Object
+
+ 0000:00000000       __AbsoluteZero             0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       __arm64x_extra_rfe_table   0000000000000000     <absolute>
+ 0000:00000000       __arm64x_extra_rfe_table_size 0000000000000000     <absolute>
+ 0000:00000000       __arm64x_native_entrypoint 0000000000000000     <absolute>
+ 0000:00000000       __arm64x_redirection_metadata 0000000000000000     <absolute>
+ 0000:00000000       __arm64x_redirection_metadata_count 0000000000000000     <absolute>
+ 0000:00000000       __dynamic_value_reloc_table 0000000000000000     <absolute>
+ 0000:00000000       __enclave_config           0000000000000000     <absolute>
+ 0000:00000000       __guard_check_icall_a64n_fptr 0000000000000000     <absolute>
+ 0000:00000000       __guard_eh_cont_count      0000000000000000     <absolute>
+ 0000:00000000       __guard_eh_cont_table      0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_count         0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_table         0000000000000000     <absolute>
+ 0000:00000000       __guard_iat_count          0000000000000000     <absolute>
+ 0000:00000000       __guard_iat_table          0000000000000000     <absolute>
+ 0000:00000000       __guard_longjmp_count      0000000000000000     <absolute>
+ 0000:00000000       __guard_longjmp_table      0000000000000000     <absolute>
+ 0000:00000000       __hybrid_auxiliary_delayload_iat 0000000000000000     <absolute>
+ 0000:00000000       __hybrid_auxiliary_delayload_iat_copy 0000000000000000     <absolute>
+ 0000:00000000       __hybrid_auxiliary_iat     0000000000000000     <absolute>
+ 0000:00000000       __hybrid_auxiliary_iat_copy 0000000000000000     <absolute>
+ 0000:00000000       __hybrid_code_map          0000000000000000     <absolute>
+ 0000:00000000       __hybrid_code_map_count    0000000000000000     <absolute>
+ 0000:00000000       __hybrid_image_info_bitfield 0000000000000000     <absolute>
+ 0000:00000000       __x64_code_ranges_to_entry_points 0000000000000000     <absolute>
+ 0000:00000000       __x64_code_ranges_to_entry_points_count 0000000000000000     <absolute>
+ 0000:00000100       __guard_flags              0000000000000100     <absolute>
+ 0000:00000000       __ImageBase                0000000180000000     <linker-defined>
+ 0001:00000020       DllMain                    0000000180001020 f   main.obj
+ 0001:00000070       ??4EtherCATMaster@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z 0000000180001070 f i main.obj
+ 0001:00000070       ??4EtherCATSlave@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z 0000000180001070 f i main.obj
+ 0001:000000a0       ??4PacketQueue@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z 00000001800010a0 f i main.obj
+ 0001:000000d0       ??4PacketTimer@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z 00000001800010d0 f i main.obj
+ 0001:00000100       ?GetTm@PacketTimer@EtherCATPacketCommLib@@CAAEAT_LARGE_INTEGER@@XZ 0000000180001100 f   EtherCATComm.obj
+ 0001:00000110       ?Frequency@PacketTimer@EtherCATPacketCommLib@@SAAEAT_LARGE_INTEGER@@XZ 0000000180001110 f   EtherCATComm.obj
+ 0001:00000120       ?Update@PacketTimer@EtherCATPacketCommLib@@SAXXZ 0000000180001120 f   EtherCATComm.obj
+ 0001:00000140       ?Reset@PacketTimer@EtherCATPacketCommLib@@QEAAHXZ 0000000180001140 f   EtherCATComm.obj
+ 0001:00000180       ?Reset@PacketTimer@EtherCATPacketCommLib@@QEAAHH@Z 0000000180001180 f   EtherCATComm.obj
+ 0001:000001b0       ?Elapsed_nSec@PacketTimer@EtherCATPacketCommLib@@QEAAJXZ 00000001800011b0 f   EtherCATComm.obj
+ 0001:00000240       ?Elapsed_mSec@PacketTimer@EtherCATPacketCommLib@@QEAANXZ 0000000180001240 f   EtherCATComm.obj
+ 0001:00000280       ?ElapsedSec@PacketTimer@EtherCATPacketCommLib@@QEAANXZ 0000000180001280 f   EtherCATComm.obj
+ 0001:000002c0       ?Elapsed@PacketTimer@EtherCATPacketCommLib@@QEAANXZ 00000001800012c0 f   EtherCATComm.obj
+ 0001:000002e0       ?TmOver@PacketTimer@EtherCATPacketCommLib@@QEAAHK@Z 00000001800012e0 f   EtherCATComm.obj
+ 0001:00000320       ?TmOverSec@PacketTimer@EtherCATPacketCommLib@@QEAAHN@Z 0000000180001320 f   EtherCATComm.obj
+ 0001:00000360       ??0PacketTimer@EtherCATPacketCommLib@@QEAA@XZ 0000000180001360 f   EtherCATComm.obj
+ 0001:000003a0       ??1PacketTimer@EtherCATPacketCommLib@@QEAA@XZ 00000001800013a0 f   EtherCATComm.obj
+ 0001:000003b0       ?push@PacketQueue@EtherCATPacketCommLib@@QEAAXUtagDATA_INFO@2@@Z 00000001800013b0 f   EtherCATComm.obj
+ 0001:00000550       ?pop@PacketQueue@EtherCATPacketCommLib@@QEAA?AUtagDATA_INFO@2@XZ 0000000180001550 f   EtherCATComm.obj
+ 0001:00000620       ?peek@PacketQueue@EtherCATPacketCommLib@@QEAA?AUtagDATA_INFO@2@XZ 0000000180001620 f   EtherCATComm.obj
+ 0001:000006a0       ?empty@PacketQueue@EtherCATPacketCommLib@@QEAA_NXZ 00000001800016a0 f   EtherCATComm.obj
+ 0001:000006d0       ?size@PacketQueue@EtherCATPacketCommLib@@QEAA_KXZ 00000001800016d0 f   EtherCATComm.obj
+ 0001:00000710       ?clear@PacketQueue@EtherCATPacketCommLib@@QEAAXXZ 0000000180001710 f   EtherCATComm.obj
+ 0001:00000740       ??0PacketQueue@EtherCATPacketCommLib@@QEAA@XZ 0000000180001740 f   EtherCATComm.obj
+ 0001:00000770       ??1PacketQueue@EtherCATPacketCommLib@@QEAA@XZ 0000000180001770 f   EtherCATComm.obj
+ 0001:00000780       ?Frequency@CTimer@@SAAEAT_LARGE_INTEGER@@XZ 0000000180001780 f i EtherCATComm.obj
+ 0001:00000790       ?_AtlInitializeCriticalSectionEx@ATL@@YAHPEAU_RTL_CRITICAL_SECTION@@KK@Z 0000000180001790 f i EtherCATComm.obj
+ 0001:000007c0       __local_stdio_printf_options 00000001800017c0 f i EtherCATComm.obj
+ 0001:000007d0       ?SendCycle@EtherCATMaster@EtherCATPacketCommLib@@AEAAXXZ 00000001800017d0 f   EtherCATMaster.obj
+ 0001:00001190       ?RecvCycle@EtherCATMaster@EtherCATPacketCommLib@@AEAAXXZ 0000000180002190 f   EtherCATMaster.obj
+ 0001:00001780       ?SendCommand@EtherCATMaster@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 0000000180002780 f   EtherCATMaster.obj
+ 0001:00001c40       ?UpdateProcess@EtherCATMaster@EtherCATPacketCommLib@@CAXPEAX@Z 0000000180002c40 f   EtherCATMaster.obj
+ 0001:00001ca0       ?SendPacketInfo@EtherCATMaster@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ 0000000180002ca0 f   EtherCATMaster.obj
+ 0001:00001cc0       ?RecvPacketInfo@EtherCATMaster@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ 0000000180002cc0 f   EtherCATMaster.obj
+ 0001:00001ce0       ?Open@EtherCATMaster@EtherCATPacketCommLib@@QEAAHPEB_W_N@Z 0000000180002ce0 f   EtherCATMaster.obj
+ 0001:00001fd0       ?Close@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ 0000000180002fd0 f   EtherCATMaster.obj
+ 0001:00002090       ?GetSendPacketInfoAddr@EtherCATMaster@EtherCATPacketCommLib@@QEAAPEAEXZ 0000000180003090 f   EtherCATMaster.obj
+ 0001:000020b0       ?GetRecvPacketInfoAddr@EtherCATMaster@EtherCATPacketCommLib@@QEAAPEAEXZ 00000001800030b0 f   EtherCATMaster.obj
+ 0001:000020d0       ?GetReadSendPacketInfoAddr@EtherCATMaster@EtherCATPacketCommLib@@QEAAPEAEXZ 00000001800030d0 f   EtherCATMaster.obj
+ 0001:00002100       ?Update@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ 0000000180003100 f   EtherCATMaster.obj
+ 0001:000021e0       ?Send@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEHHK@Z 00000001800031e0 f   EtherCATMaster.obj
+ 0001:00002260       ?Recv@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 0000000180003260 f   EtherCATMaster.obj
+ 0001:000024f0       ?AOn@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z 00000001800034f0 f   EtherCATMaster.obj
+ 0001:000025b0       ?AOff@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z 00000001800035b0 f   EtherCATMaster.obj
+ 0001:00002670       ?Set@EtherCATMaster@EtherCATPacketCommLib@@QEAAXH_N@Z 0000000180003670 f   EtherCATMaster.obj
+ 0001:00002790       ?IsOn@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z 0000000180003790 f   EtherCATMaster.obj
+ 0001:00002850       ?IsOff@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z 0000000180003850 f   EtherCATMaster.obj
+ 0001:00002910       ??0EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ 0000000180003910 f   EtherCATMaster.obj
+ 0001:00002a20       ??1EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ 0000000180003a20 f   EtherCATMaster.obj
+ 0001:00002b90       ??0CEnterMutex@@QEAA@PEAXK@Z 0000000180003b90 f i EtherCATMaster.obj
+ 0001:00002c00       ??1CEnterMutex@@UEAA@XZ    0000000180003c00 f i EtherCATMaster.obj
+ 0001:00002c40       ??_ECEnterMutex@@UEAAPEAXI@Z 0000000180003c40 f i EtherCATMaster.obj
+ 0001:00002c40       ??_GCEnterMutex@@UEAAPEAXI@Z 0000000180003c40 f i EtherCATMaster.obj
+ 0001:00002c80       ?Result@CEnterMutex@@QEBAKXZ 0000000180003c80 f i EtherCATMaster.obj
+ 0001:00002c90       ?SendCycle@EtherCATSlave@EtherCATPacketCommLib@@AEAAXXZ 0000000180003c90 f   EtherCATSlave.obj
+ 0001:00003650       ?RecvCycle@EtherCATSlave@EtherCATPacketCommLib@@AEAAXXZ 0000000180004650 f   EtherCATSlave.obj
+ 0001:00003c40       ?SendCommand@EtherCATSlave@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 0000000180004c40 f   EtherCATSlave.obj
+ 0001:00004100       ?UpdateProcess@EtherCATSlave@EtherCATPacketCommLib@@CAXPEAX@Z 0000000180005100 f   EtherCATSlave.obj
+ 0001:00004160       ?SendPacketInfo@EtherCATSlave@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ 0000000180005160 f   EtherCATSlave.obj
+ 0001:00004180       ?RecvPacketInfo@EtherCATSlave@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ 0000000180005180 f   EtherCATSlave.obj
+ 0001:000041a0       ?Open@EtherCATSlave@EtherCATPacketCommLib@@QEAAHPEB_W_N@Z 00000001800051a0 f   EtherCATSlave.obj
+ 0001:00004550       ?Close@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ 0000000180005550 f   EtherCATSlave.obj
+ 0001:00004770       ?GetSendPacketInfoAddr@EtherCATSlave@EtherCATPacketCommLib@@QEAAPEAEXZ 0000000180005770 f   EtherCATSlave.obj
+ 0001:00004790       ?GetRecvPacketInfoAddr@EtherCATSlave@EtherCATPacketCommLib@@QEAAPEAEXZ 0000000180005790 f   EtherCATSlave.obj
+ 0001:000047b0       ?GetReadSendPacketInfoAddr@EtherCATSlave@EtherCATPacketCommLib@@QEAAPEAEXZ 00000001800057b0 f   EtherCATSlave.obj
+ 0001:000047e0       ?Update@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ 00000001800057e0 f   EtherCATSlave.obj
+ 0001:00004bc0       ?Send@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEHHK@Z 0000000180005bc0 f   EtherCATSlave.obj
+ 0001:00004c40       ?Recv@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 0000000180005c40 f   EtherCATSlave.obj
+ 0001:00004ed0       ?AOn@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z 0000000180005ed0 f   EtherCATSlave.obj
+ 0001:00004f90       ?AOff@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z 0000000180005f90 f   EtherCATSlave.obj
+ 0001:00005050       ?Set@EtherCATSlave@EtherCATPacketCommLib@@QEAAXH_N@Z 0000000180006050 f   EtherCATSlave.obj
+ 0001:00005170       ?IsOn@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z 0000000180006170 f   EtherCATSlave.obj
+ 0001:00005230       ?IsOff@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z 0000000180006230 f   EtherCATSlave.obj
+ 0001:000052f0       ??0EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ 00000001800062f0 f   EtherCATSlave.obj
+ 0001:00005400       ??1EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ 0000000180006400 f   EtherCATSlave.obj
+ 0001:00005568       xDriverOpen                0000000180006568 f   cifX32DLL64:cifX32DLL.dll
+ 0001:0000556e       xDriverClose               000000018000656e f   cifX32DLL64:cifX32DLL.dll
+ 0001:00005574       xDriverGetErrorDescription 0000000180006574 f   cifX32DLL64:cifX32DLL.dll
+ 0001:0000557a       xChannelOpen               000000018000657a f   cifX32DLL64:cifX32DLL.dll
+ 0001:00005580       xChannelClose              0000000180006580 f   cifX32DLL64:cifX32DLL.dll
+ 0001:00005586       xChannelHostState          0000000180006586 f   cifX32DLL64:cifX32DLL.dll
+ 0001:0000558c       xChannelBusState           000000018000658c f   cifX32DLL64:cifX32DLL.dll
+ 0001:00005592       xChannelIORead             0000000180006592 f   cifX32DLL64:cifX32DLL.dll
+ 0001:00005598       xChannelIOWrite            0000000180006598 f   cifX32DLL64:cifX32DLL.dll
+ 0001:0000559e       xChannelIOReadSendData     000000018000659e f   cifX32DLL64:cifX32DLL.dll
+ 0001:000055b0       ?configure_argv@__scrt_narrow_argv_policy@@SAHXZ 00000001800065b0 f i MSVCRTD:utility.obj
+ 0001:000056a0       ?initialize_environment@__scrt_narrow_environment_policy@@SAHXZ 00000001800066a0 f i MSVCRTD:utility.obj
+ 0001:00005740       NtCurrentTeb               0000000180006740 f i MSVCRTD:utility.obj
+ 0001:00005750       __scrt_acquire_startup_lock 0000000180006750 f   MSVCRTD:utility.obj
+ 0001:000057c0       __scrt_dllmain_after_initialize_c 00000001800067c0 f   MSVCRTD:utility.obj
+ 0001:000057f0       __scrt_dllmain_before_initialize_c 00000001800067f0 f   MSVCRTD:utility.obj
+ 0001:00005810       __scrt_dllmain_crt_thread_attach 0000000180006810 f   MSVCRTD:utility.obj
+ 0001:00005840       __scrt_dllmain_crt_thread_detach 0000000180006840 f   MSVCRTD:utility.obj
+ 0001:00005860       __scrt_dllmain_exception_filter 0000000180006860 f   MSVCRTD:utility.obj
+ 0001:000058d0       __scrt_dllmain_uninitialize_c 00000001800068d0 f   MSVCRTD:utility.obj
+ 0001:00005900       __scrt_dllmain_uninitialize_critical 0000000180006900 f   MSVCRTD:utility.obj
+ 0001:00005920       __scrt_initialize_crt      0000000180006920 f   MSVCRTD:utility.obj
+ 0001:00005970       __scrt_initialize_onexit_tables 0000000180006970 f   MSVCRTD:utility.obj
+ 0001:00005a80       __scrt_is_nonwritable_in_current_image 0000000180006a80 f   MSVCRTD:utility.obj
+ 0001:00005b10       __scrt_release_startup_lock 0000000180006b10 f   MSVCRTD:utility.obj
+ 0001:00005b40       __scrt_uninitialize_crt    0000000180006b40 f   MSVCRTD:utility.obj
+ 0001:00005b80       _onexit                    0000000180006b80 f   MSVCRTD:utility.obj
+ 0001:00005c00       atexit                     0000000180006c00 f   MSVCRTD:utility.obj
+ 0001:00005c40       __GSHandlerCheck           0000000180006c40 f   MSVCRTD:gshandler.obj
+ 0001:00005c80       __GSHandlerCheckCommon     0000000180006c80 f   MSVCRTD:gshandler.obj
+ 0001:00005d90       __security_check_cookie    0000000180006d90 f   MSVCRTD:amdsecgs.obj
+ 0001:00005db0       ??1type_info@@UEAA@XZ      0000000180006db0 f   MSVCRTD:std_type_info_static.obj
+ 0001:00005dd0       ??_Etype_info@@UEAAPEAXI@Z 0000000180006dd0 f i MSVCRTD:std_type_info_static.obj
+ 0001:00005dd0       ??_Gtype_info@@UEAAPEAXI@Z 0000000180006dd0 f i MSVCRTD:std_type_info_static.obj
+ 0001:00005e10       ??3@YAXPEAX@Z              0000000180006e10 f   MSVCRTD:delete_scalar.obj
+ 0001:00005e30       ??3@YAXPEAX_K@Z            0000000180006e30 f   MSVCRTD:delete_scalar_size.obj
+ 0001:00005e50       __GSHandlerCheck_EH4       0000000180006e50 f   MSVCRTD:gshandlereh4.obj
+ 0001:00006310       _DllMainCRTStartup         0000000180007310 f   MSVCRTD:dll_dllmain.obj
+ 0001:00006350       __isa_available_init       0000000180007350 f   MSVCRTD:cpu_disp.obj
+ 0001:00006840       _get_startup_argv_mode     0000000180007840 f   MSVCRTD:argv_mode.obj
+ 0001:00006850       __scrt_is_ucrt_dll_in_use  0000000180007850 f   MSVCRTD:ucrt_detection.obj
+ 0001:00006880       __crt_debugger_hook        0000000180007880 f   MSVCRTD:utility_desktop.obj
+ 0001:00006890       __scrt_fastfail            0000000180007890 f   MSVCRTD:utility_desktop.obj
+ 0001:00006a30       _guard_check_icall_nop     0000000180007a30 f i MSVCRTD:guard_support.obj
+ 0001:00006a40       __raise_securityfailure    0000000180007a40 f   MSVCRTD:gs_report.obj
+ 0001:00006a80       __report_gsfailure         0000000180007a80 f   MSVCRTD:gs_report.obj
+ 0001:00006ce0       __security_init_cookie     0000000180007ce0 f   MSVCRTD:gs_support.obj
+ 0001:00006d60       ?__scrt_initialize_type_info@@YAXXZ 0000000180007d60 f   MSVCRTD:tncleanup.obj
+ 0001:00006d80       ?__scrt_uninitialize_type_info@@YAXXZ 0000000180007d80 f   MSVCRTD:tncleanup.obj
+ 0001:00006da0       __local_stdio_scanf_options 0000000180007da0 f i MSVCRTD:default_local_stdio_options.obj
+ 0001:00006db0       __scrt_initialize_default_local_stdio_options 0000000180007db0 f   MSVCRTD:default_local_stdio_options.obj
+ 0001:00006e00       __scrt_get_dyn_tls_init_callback 0000000180007e00 f   MSVCRTD:dyn_tls_init.obj
+ 0001:00006e10       _RTC_Initialize            0000000180007e10 f   MSVCRTD:initsect.obj
+ 0001:00006e60       _RTC_Terminate             0000000180007e60 f   MSVCRTD:initsect.obj
+ 0001:00006eb0       ??0CAtlBaseModule@ATL@@QEAA@XZ 0000000180007eb0 f   atls:atlbase.obj
+ 0001:00006f58       ??1CAtlBaseModule@ATL@@QEAA@XZ 0000000180007f58 f   atls:atlbase.obj
+ 0001:00006f8c       memcpy                     0000000180007f8c f   vcruntimed:VCRUNTIME140D.dll
+ 0001:00006f92       memset                     0000000180007f92 f   vcruntimed:VCRUNTIME140D.dll
+ 0001:00006f98       __CxxFrameHandler4         0000000180007f98 f   vcruntimed:VCRUNTIME140_1D.dll
+ 0001:00006f9e       __C_specific_handler       0000000180007f9e f   vcruntimed:VCRUNTIME140D.dll
+ 0001:00006fa4       __std_type_info_destroy_list 0000000180007fa4 f   vcruntimed:VCRUNTIME140D.dll
+ 0001:00006faa       free                       0000000180007faa f   ucrtd:ucrtbased.dll
+ 0001:00006fb0       _seh_filter_dll            0000000180007fb0 f   ucrtd:ucrtbased.dll
+ 0001:00006fb6       _configure_narrow_argv     0000000180007fb6 f   ucrtd:ucrtbased.dll
+ 0001:00006fbc       _initialize_narrow_environment 0000000180007fbc f   ucrtd:ucrtbased.dll
+ 0001:00006fc2       _initialize_onexit_table   0000000180007fc2 f   ucrtd:ucrtbased.dll
+ 0001:00006fc8       _register_onexit_function  0000000180007fc8 f   ucrtd:ucrtbased.dll
+ 0001:00006fce       _execute_onexit_table      0000000180007fce f   ucrtd:ucrtbased.dll
+ 0001:00006fd4       _crt_atexit                0000000180007fd4 f   ucrtd:ucrtbased.dll
+ 0001:00006fda       _cexit                     0000000180007fda f   ucrtd:ucrtbased.dll
+ 0001:00006fe0       _free_dbg                  0000000180007fe0 f   ucrtd:ucrtbased.dll
+ 0001:00006fe6       _initterm                  0000000180007fe6 f   ucrtd:ucrtbased.dll
+ 0001:00006fec       _initterm_e                0000000180007fec f   ucrtd:ucrtbased.dll
+ 0001:00007000       __acrt_initialize          0000000180008000 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007000       __acrt_thread_attach       0000000180008000 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007000       __acrt_thread_detach       0000000180008000 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007000       __scrt_stub_for_acrt_initialize 0000000180008000 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007000       __scrt_stub_for_acrt_thread_attach 0000000180008000 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007000       __scrt_stub_for_acrt_thread_detach 0000000180008000 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007000       __vcrt_initialize          0000000180008000 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007000       __vcrt_thread_attach       0000000180008000 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007000       __vcrt_thread_detach       0000000180008000 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007010       __acrt_uninitialize        0000000180008010 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007010       __acrt_uninitialize_critical 0000000180008010 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007010       __scrt_stub_for_acrt_uninitialize 0000000180008010 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007010       __scrt_stub_for_acrt_uninitialize_critical 0000000180008010 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007010       __vcrt_uninitialize        0000000180008010 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007010       __vcrt_uninitialize_critical 0000000180008010 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007020       __scrt_stub_for_is_c_termination_complete 0000000180008020 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007020       _is_c_termination_complete 0000000180008020 f   MSVCRTD:ucrt_stubs.obj
+ 0001:00007040       _guard_dispatch_icall_nop  0000000180008040 f   MSVCRTD:guard_dispatch.obj
+ 0001:00007060       _guard_xfg_dispatch_icall_nop 0000000180008060 f   MSVCRTD:guard_xfg_dispatch.obj
+ 0002:00000000       __imp_GetLastError         0000000180009000     Kernel32:KERNEL32.dll
+ 0002:00000008       __imp_QueryPerformanceCounter 0000000180009008     Kernel32:KERNEL32.dll
+ 0002:00000010       __imp_InitializeCriticalSectionEx 0000000180009010     Kernel32:KERNEL32.dll
+ 0002:00000018       __imp_DeleteCriticalSection 0000000180009018     Kernel32:KERNEL32.dll
+ 0002:00000020       __imp_CloseHandle          0000000180009020     Kernel32:KERNEL32.dll
+ 0002:00000028       __imp_SetEvent             0000000180009028     Kernel32:KERNEL32.dll
+ 0002:00000030       __imp_ResetEvent           0000000180009030     Kernel32:KERNEL32.dll
+ 0002:00000038       __imp_ReleaseMutex         0000000180009038     Kernel32:KERNEL32.dll
+ 0002:00000040       __imp_WaitForSingleObject  0000000180009040     Kernel32:KERNEL32.dll
+ 0002:00000048       __imp_CreateMutexW         0000000180009048     Kernel32:KERNEL32.dll
+ 0002:00000050       __imp_CreateEventW         0000000180009050     Kernel32:KERNEL32.dll
+ 0002:00000058       __imp_OpenEventW           0000000180009058     Kernel32:KERNEL32.dll
+ 0002:00000060       __imp_Sleep                0000000180009060     Kernel32:KERNEL32.dll
+ 0002:00000068       __imp_ExitProcess          0000000180009068     Kernel32:KERNEL32.dll
+ 0002:00000070       __imp_CreateThread         0000000180009070     Kernel32:KERNEL32.dll
+ 0002:00000078       __imp_OutputDebugStringW   0000000180009078     Kernel32:KERNEL32.dll
+ 0002:00000080       __imp_InitializeSListHead  0000000180009080     Kernel32:KERNEL32.dll
+ 0002:00000088       __imp_GetSystemTimeAsFileTime 0000000180009088     Kernel32:KERNEL32.dll
+ 0002:00000090       __imp_GetCurrentThreadId   0000000180009090     Kernel32:KERNEL32.dll
+ 0002:00000098       __imp_GetCurrentProcessId  0000000180009098     Kernel32:KERNEL32.dll
+ 0002:000000a0       __imp_TerminateProcess     00000001800090a0     Kernel32:KERNEL32.dll
+ 0002:000000a8       __imp_GetCurrentProcess    00000001800090a8     Kernel32:KERNEL32.dll
+ 0002:000000b0       __imp_IsProcessorFeaturePresent 00000001800090b0     Kernel32:KERNEL32.dll
+ 0002:000000b8       __imp_SetUnhandledExceptionFilter 00000001800090b8     Kernel32:KERNEL32.dll
+ 0002:000000c0       __imp_UnhandledExceptionFilter 00000001800090c0     Kernel32:KERNEL32.dll
+ 0002:000000c8       __imp_IsDebuggerPresent    00000001800090c8     Kernel32:KERNEL32.dll
+ 0002:000000d0       __imp_RtlVirtualUnwind     00000001800090d0     Kernel32:KERNEL32.dll
+ 0002:000000d8       __imp_RtlLookupFunctionEntry 00000001800090d8     Kernel32:KERNEL32.dll
+ 0002:000000e0       __imp_RtlCaptureContext    00000001800090e0     Kernel32:KERNEL32.dll
+ 0002:000000e8       \177KERNEL32_NULL_THUNK_DATA 00000001800090e8     Kernel32:KERNEL32.dll
+ 0002:000000f0       __imp_MessageBoxW          00000001800090f0     user32:USER32.dll
+ 0002:000000f8       \177USER32_NULL_THUNK_DATA 00000001800090f8     user32:USER32.dll
+ 0002:00000100       __imp_memset               0000000180009100     vcruntimed:VCRUNTIME140D.dll
+ 0002:00000108       __imp_memcpy               0000000180009108     vcruntimed:VCRUNTIME140D.dll
+ 0002:00000110       __imp___C_specific_handler 0000000180009110     vcruntimed:VCRUNTIME140D.dll
+ 0002:00000118       __imp___std_type_info_destroy_list 0000000180009118     vcruntimed:VCRUNTIME140D.dll
+ 0002:00000120       \177VCRUNTIME140D_NULL_THUNK_DATA 0000000180009120     vcruntimed:VCRUNTIME140D.dll
+ 0002:00000128       __imp___CxxFrameHandler4   0000000180009128     vcruntimed:VCRUNTIME140_1D.dll
+ 0002:00000130       \177VCRUNTIME140_1D_NULL_THUNK_DATA 0000000180009130     vcruntimed:VCRUNTIME140_1D.dll
+ 0002:00000138       __imp_xDriverOpen          0000000180009138     cifX32DLL64:cifX32DLL.dll
+ 0002:00000140       __imp_xDriverGetErrorDescription 0000000180009140     cifX32DLL64:cifX32DLL.dll
+ 0002:00000148       __imp_xChannelOpen         0000000180009148     cifX32DLL64:cifX32DLL.dll
+ 0002:00000150       __imp_xChannelClose        0000000180009150     cifX32DLL64:cifX32DLL.dll
+ 0002:00000158       __imp_xChannelHostState    0000000180009158     cifX32DLL64:cifX32DLL.dll
+ 0002:00000160       __imp_xChannelBusState     0000000180009160     cifX32DLL64:cifX32DLL.dll
+ 0002:00000168       __imp_xChannelIORead       0000000180009168     cifX32DLL64:cifX32DLL.dll
+ 0002:00000170       __imp_xChannelIOWrite      0000000180009170     cifX32DLL64:cifX32DLL.dll
+ 0002:00000178       __imp_xChannelIOReadSendData 0000000180009178     cifX32DLL64:cifX32DLL.dll
+ 0002:00000180       __imp_xDriverClose         0000000180009180     cifX32DLL64:cifX32DLL.dll
+ 0002:00000188       \177cifX32DLL_NULL_THUNK_DATA 0000000180009188     cifX32DLL64:cifX32DLL.dll
+ 0002:00000190       __imp__execute_onexit_table 0000000180009190     ucrtd:ucrtbased.dll
+ 0002:00000198       __imp__crt_atexit          0000000180009198     ucrtd:ucrtbased.dll
+ 0002:000001a0       __imp__cexit               00000001800091a0     ucrtd:ucrtbased.dll
+ 0002:000001a8       __imp__free_dbg            00000001800091a8     ucrtd:ucrtbased.dll
+ 0002:000001b0       __imp__initterm            00000001800091b0     ucrtd:ucrtbased.dll
+ 0002:000001b8       __imp__initterm_e          00000001800091b8     ucrtd:ucrtbased.dll
+ 0002:000001c0       __imp_free                 00000001800091c0     ucrtd:ucrtbased.dll
+ 0002:000001c8       __imp_round                00000001800091c8     ucrtd:ucrtbased.dll
+ 0002:000001d0       __imp__register_onexit_function 00000001800091d0     ucrtd:ucrtbased.dll
+ 0002:000001d8       __imp__initialize_narrow_environment 00000001800091d8     ucrtd:ucrtbased.dll
+ 0002:000001e0       __imp__configure_narrow_argv 00000001800091e0     ucrtd:ucrtbased.dll
+ 0002:000001e8       __imp__seh_filter_dll      00000001800091e8     ucrtd:ucrtbased.dll
+ 0002:000001f0       __imp__wassert             00000001800091f0     ucrtd:ucrtbased.dll
+ 0002:000001f8       __imp_strncmp              00000001800091f8     ucrtd:ucrtbased.dll
+ 0002:00000200       __imp_wcscat               0000000180009200     ucrtd:ucrtbased.dll
+ 0002:00000208       __imp__initialize_onexit_table 0000000180009208     ucrtd:ucrtbased.dll
+ 0002:00000210       \177ucrtbased_NULL_THUNK_DATA 0000000180009210     ucrtd:ucrtbased.dll
+ 0002:00000218       __guard_check_icall_fptr   0000000180009218     MSVCRTD:guard_support.obj
+ 0002:00000220       __guard_xfg_check_icall_fptr 0000000180009220     MSVCRTD:guard_support.obj
+ 0002:00000228       __guard_dispatch_icall_fptr 0000000180009228     MSVCRTD:guard_support.obj
+ 0002:00000230       __guard_xfg_dispatch_icall_fptr 0000000180009230     MSVCRTD:guard_support.obj
+ 0002:00000238       __guard_xfg_table_dispatch_icall_fptr 0000000180009238     MSVCRTD:guard_support.obj
+ 0002:00000240       __castguard_check_failure_os_handled_fptr 0000000180009240     MSVCRTD:guard_support.obj
+ 0002:00000248       __guard_memcpy_fptr        0000000180009248     vcruntimed:softmemtag.obj
+ 0002:00000250       __xc_a                     0000000180009250     MSVCRTD:initializers.obj
+ 0002:00000260       __xc_z                     0000000180009260     MSVCRTD:initializers.obj
+ 0002:00000268       __xi_a                     0000000180009268     MSVCRTD:initializers.obj
+ 0002:00000270       __xi_z                     0000000180009270     MSVCRTD:initializers.obj
+ 0002:00000278       __xp_a                     0000000180009278     MSVCRTD:initializers.obj
+ 0002:00000280       __xp_z                     0000000180009280     MSVCRTD:initializers.obj
+ 0002:00000288       __xt_a                     0000000180009288     MSVCRTD:initializers.obj
+ 0002:00000290       __xt_z                     0000000180009290     MSVCRTD:initializers.obj
+ 0002:000002a0       ?m_maxCnt@PacketQueue@EtherCATPacketCommLib@@0HB 00000001800092a0     main.obj
+ 0002:000015b8       __real@408f400000000000    000000018000a5b8     EtherCATComm.obj
+ 0002:000015c0       __real@412e848000000000    000000018000a5c0     EtherCATComm.obj
+ 0002:00002d40       ??_7CEnterMutex@@6B@       000000018000bd40     EtherCATMaster.obj
+ 0002:000044c0       ??_7type_info@@6B@         000000018000d4c0     MSVCRTD:std_type_info_static.obj
+ 0002:000044c8       _pDefaultRawDllMain        000000018000d4c8     MSVCRTD:dll_dllmain.obj
+ 0002:000044c8       _pRawDllMain               000000018000d4c8     MSVCRTD:dll_dllmain.obj
+ 0002:000044e0       GUID_ATLVer110             000000018000d4e0     atls:atlbase.obj
+ 0002:000044f0       ??_C@_1IC@ONKHOIDK@?$AAE?$AAR?$AAR?$AAO?$AAR?$AA?5?$AA?3?$AA?5?$AAU?$AAn?$AAa?$AAb?$AAl?$AAe?$AA?5@ 000000018000d4f0     atls:atlbase.obj
+ 0002:00004580       _load_config_used          000000018000d580     MSVCRTD:loadcfg.obj
+ 0002:00004780       ??_R4CEnterMutex@@6B@      000000018000d780     EtherCATMaster.obj
+ 0002:000047a8       ??_R3CEnterMutex@@8        000000018000d7a8     EtherCATMaster.obj
+ 0002:000047c0       ??_R2CEnterMutex@@8        000000018000d7c0     EtherCATMaster.obj
+ 0002:000047d0       ??_R1A@?0A@EA@CEnterMutex@@8 000000018000d7d0     EtherCATMaster.obj
+ 0002:000047f8       ??_R4type_info@@6B@        000000018000d7f8     MSVCRTD:std_type_info_static.obj
+ 0002:00004820       ??_R3type_info@@8          000000018000d820     MSVCRTD:std_type_info_static.obj
+ 0002:00004838       ??_R2type_info@@8          000000018000d838     MSVCRTD:std_type_info_static.obj
+ 0002:00004848       ??_R1A@?0A@EA@type_info@@8 000000018000d848     MSVCRTD:std_type_info_static.obj
+ 0002:0000486c       __volatile_metadata        000000018000d86c     <linker-defined>
+ 0002:00004c48       __rtc_iaa                  000000018000dc48     MSVCRTD:initsect.obj
+ 0002:00004c50       __rtc_izz                  000000018000dc50     MSVCRTD:initsect.obj
+ 0002:00004c58       __rtc_taa                  000000018000dc58     MSVCRTD:initsect.obj
+ 0002:00004c60       __rtc_tzz                  000000018000dc60     MSVCRTD:initsect.obj
+ 0002:000063a4       __IMPORT_DESCRIPTOR_KERNEL32 000000018000f3a4     Kernel32:KERNEL32.dll
+ 0002:000063b8       __IMPORT_DESCRIPTOR_USER32 000000018000f3b8     user32:USER32.dll
+ 0002:000063cc       __IMPORT_DESCRIPTOR_cifX32DLL 000000018000f3cc     cifX32DLL64:cifX32DLL.dll
+ 0002:000063e0       __IMPORT_DESCRIPTOR_VCRUNTIME140D 000000018000f3e0     vcruntimed:VCRUNTIME140D.dll
+ 0002:000063f4       __IMPORT_DESCRIPTOR_VCRUNTIME140_1D 000000018000f3f4     vcruntimed:VCRUNTIME140_1D.dll
+ 0002:00006408       __IMPORT_DESCRIPTOR_ucrtbased 000000018000f408     ucrtd:ucrtbased.dll
+ 0002:0000641c       __NULL_IMPORT_DESCRIPTOR   000000018000f41c     Kernel32:KERNEL32.dll
+ 0003:00000000       __scrt_native_dllmain_reason 0000000180010000     MSVCRTD:utility.obj
+ 0003:00000040       __security_cookie          0000000180010040     MSVCRTD:gs_cookie.obj
+ 0003:00000080       __security_cookie_complement 0000000180010080     MSVCRTD:gs_cookie.obj
+ 0003:00000088       _fltused                   0000000180010088     MSVCRTD:fltused.obj
+ 0003:00000090       __isa_inverted             0000000180010090     MSVCRTD:cpu_disp.obj
+ 0003:00000098       __isa_available            0000000180010098     MSVCRTD:cpu_disp.obj
+ 0003:0000009c       __isa_enabled              000000018001009c     MSVCRTD:cpu_disp.obj
+ 0003:000000a0       __memset_fast_string_threshold 00000001800100a0     MSVCRTD:cpu_disp.obj
+ 0003:000000a8       __memset_nt_threshold      00000001800100a8     MSVCRTD:cpu_disp.obj
+ 0003:000000b0       __scrt_ucrt_dll_is_in_use  00000001800100b0     MSVCRTD:ucrt_stubs.obj
+ 0003:000000b8       ??_R0?AVCEnterMutex@@@8    00000001800100b8     EtherCATMaster.obj
+ 0003:000000e0       ??_R0?AVtype_info@@@8      00000001800100e0     MSVCRTD:std_type_info_static.obj
+ 0003:00000108       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 0000000180010108     EtherCATComm.obj
+ 0003:00000110       ?m_bInitFailed@CAtlBaseModule@ATL@@2_NA 0000000180010110     EtherCATComm.obj
+ 0003:00000118       ?frequency@?1??Frequency@CTimer@@SAAEAT_LARGE_INTEGER@@XZ@4T3@A 0000000180010118     EtherCATComm.obj
+ 0003:00000130       __scrt_current_native_startup_state 0000000180010130     MSVCRTD:utility.obj
+ 0003:00000138       __scrt_native_startup_lock 0000000180010138     MSVCRTD:utility.obj
+ 0003:0000017c       __avx10_version            000000018001017c     MSVCRTD:cpu_disp.obj
+ 0003:00000180       __favor                    0000000180010180     MSVCRTD:cpu_disp.obj
+ 0003:00000184       __scrt_debugger_hook_flag  0000000180010184     MSVCRTD:utility_desktop.obj
+ 0003:00000700       ?__type_info_root_node@@3U__type_info_node@@A 0000000180010700     MSVCRTD:tncleanup.obj
+ 0003:00000710       ?_OptionsStorage@?1??__local_stdio_scanf_options@@9@4_KA 0000000180010710     MSVCRTD:default_local_stdio_options.obj
+ 0003:00000720       ?_AtlBaseModule@ATL@@3VCAtlBaseModule@1@A 0000000180010720     atls:atlbase.obj
+ 0003:00000780       __@@_PchSym_@00@UzUPdlipUBUhUrmgvinvwrzgvUexHoryhUhsrkUzgonuxUhixUzgoUzgohUzgohOexckilqUlyqiPiUznwGEUhgwzucOlyq@4B2008FD98C1DD4 0000000180010780     atls:stdafx.obj
+ 0003:00000788       __dyn_tls_init_callback    0000000180010788     <common>
+
+ entry point at        0001:00006310
+
+ Static symbols
+
+ 0000:fffec000       .debug$S                   0000000180000000     ETHERCAT_V1.0.exp
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     ucrtd:ucrtbased.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     Kernel32:KERNEL32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     user32:USER32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     user32:USER32.dll
+ 0000:fffec000       .debug$S                   0000000180000000     msvcprtd:MSVCP140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     msvcprtd:MSVCP140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     msvcprtd:MSVCP140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     msvcprtd:MSVCP140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     msvcprtd:MSVCP140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     msvcprtd:MSVCP140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     msvcprtd:MSVCP140D.dll
+ 0002:ffff7000       .idata$6                   0000000180000000     msvcprtd:MSVCP140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     vcruntimed:VCRUNTIME140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     vcruntimed:VCRUNTIME140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     vcruntimed:VCRUNTIME140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     vcruntimed:VCRUNTIME140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     vcruntimed:VCRUNTIME140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     vcruntimed:VCRUNTIME140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     vcruntimed:VCRUNTIME140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     vcruntimed:VCRUNTIME140D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     vcruntimed:VCRUNTIME140_1D.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0000:fffec000       .debug$S                   0000000180000000     cifX32DLL64:cifX32DLL.dll
+ 0001:00000000       ??__E_AtlBaseModule@ATL@@YAXXZ 0000000180001000 f   atls:atlbase.obj
+ 0001:000055d0       ?find_pe_section@@YAPEAU_IMAGE_SECTION_HEADER@@QEAE_K@Z 00000001800065d0 f   MSVCRTD:utility.obj
+ 0001:000056b0       ?is_potentially_valid_image_base@@YA_NQEAX@Z 00000001800066b0 f   MSVCRTD:utility.obj
+ 0001:00005d80       $$000000                   0000000180006d80     MSVCRTD:amdsecgs.obj
+ 0001:00005f00       ?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180006f00 f   MSVCRTD:dll_dllmain.obj
+ 0001:00005f90       ?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 0000000180006f90 f   MSVCRTD:dll_dllmain.obj
+ 0001:000060d0       ?dllmain_crt_process_detach@@YAH_N@Z 00000001800070d0 f   MSVCRTD:dll_dllmain.obj
+ 0001:00006170       ?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180007170 f   MSVCRTD:dll_dllmain.obj
+ 0001:000062b0       ?dllmain_raw@@YAHQEAUHINSTANCE__@@KQEAX@Z 00000001800072b0 f   MSVCRTD:dll_dllmain.obj
+ 0001:00006b60       capture_previous_context   0000000180007b60 f   MSVCRTD:gs_report.obj
+ 0001:00006c20       __get_entropy              0000000180007c20 f   MSVCRTD:gs_support.obj
+ 0001:00007030       $$000000                   0000000180008030     MSVCRTD:guard_dispatch.obj
+ 0001:00007050       $$000000                   0000000180008050     MSVCRTD:guard_xfg_dispatch.obj
+ 0001:00007070       ?dtor$0@?0??SendCommand@EtherCATMaster@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z@4HA 0000000180008070 f   EtherCATMaster.obj
+ 0001:00007099       ?dtor$0@?0??Update@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ@4HA 0000000180008099 f   EtherCATMaster.obj
+ 0001:000070bf       ?dtor$0@?0??Recv@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z@4HA 00000001800080bf f   EtherCATMaster.obj
+ 0001:000070e5       ?dtor$0@?0???0EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ@4HA 00000001800080e5 f   EtherCATMaster.obj
+ 0001:00007110       ?dtor$0@?0??SendCommand@EtherCATSlave@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z@4HA 0000000180008110 f   EtherCATSlave.obj
+ 0001:00007139       ?dtor$0@?0??Update@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ@4HA 0000000180008139 f   EtherCATSlave.obj
+ 0001:0000715f       ?dtor$0@?0??Recv@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z@4HA 000000018000815f f   EtherCATSlave.obj
+ 0001:00007185       ?dtor$0@?0???0EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ@4HA 0000000180008185 f   EtherCATSlave.obj
+ 0001:000071b0       __scrt_is_nonwritable_in_current_image$filt$0 00000001800081b0 f   MSVCRTD:utility.obj
+ 0001:000071f0       ?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 00000001800081f0 f   MSVCRTD:dll_dllmain.obj
+ 0001:00007210       ?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 0000000180008210 f   MSVCRTD:dll_dllmain.obj
+ 0001:0000722b       ?fin$1@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 000000018000822b f   MSVCRTD:dll_dllmain.obj
+ 0001:00007250       ?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 0000000180008250 f   MSVCRTD:dll_dllmain.obj
+ 0001:000072a0       ??__F_AtlBaseModule@ATL@@YAXXZ 00000001800082a0 f   atls:atlbase.obj
+ 0002:00000258       ?_AtlBaseModule$initializer$@ATL@@3P6AXXZEA 0000000180009258     atls:atlbase.obj
+ 0002:000002b0       $SG246014                  00000001800092b0     EtherCATComm.obj
+ 0002:000002b8       $SG246057                  00000001800092b8     EtherCATComm.obj
+ 0002:000002c0       $SG205435                  00000001800092c0     EtherCATComm.obj
+ 0002:000002e4       $SG248427                  00000001800092e4     EtherCATComm.obj
+ 0002:000002e8       $SG205436                  00000001800092e8     EtherCATComm.obj
+ 0002:000002f0       $SG205437                  00000001800092f0     EtherCATComm.obj
+ 0002:000003cc       $SG227523                  00000001800093cc     EtherCATComm.obj
+ 0002:000003d0       $SG238330                  00000001800093d0     EtherCATComm.obj
+ 0002:00000438       $SG239160                  0000000180009438     EtherCATComm.obj
+ 0002:0000043c       $SG239162                  000000018000943c     EtherCATComm.obj
+ 0002:00000444       $SG239183                  0000000180009444     EtherCATComm.obj
+ 0002:00000448       $SG239189                  0000000180009448     EtherCATComm.obj
+ 0002:0000044c       $SG239191                  000000018000944c     EtherCATComm.obj
+ 0002:00000454       $SG239352                  0000000180009454     EtherCATComm.obj
+ 0002:00000458       $SG239354                  0000000180009458     EtherCATComm.obj
+ 0002:00000460       $SG239375                  0000000180009460     EtherCATComm.obj
+ 0002:00000464       $SG239381                  0000000180009464     EtherCATComm.obj
+ 0002:00000468       $SG239383                  0000000180009468     EtherCATComm.obj
+ 0002:00000470       $SG239480                  0000000180009470     EtherCATComm.obj
+ 0002:00000478       $SG239532                  0000000180009478     EtherCATComm.obj
+ 0002:00000480       $SG191003                  0000000180009480     EtherCATComm.obj
+ 0002:000004a0       $SG191076                  00000001800094a0     EtherCATComm.obj
+ 0002:000004b8       $SG248423                  00000001800094b8     EtherCATComm.obj
+ 0002:000004cc       $SG248424                  00000001800094cc     EtherCATComm.obj
+ 0002:000004d0       $SG248425                  00000001800094d0     EtherCATComm.obj
+ 0002:00000540       $SG248426                  0000000180009540     EtherCATComm.obj
+ 0002:00000610       $SG248428                  0000000180009610     EtherCATComm.obj
+ 0002:00000638       $SG191125                  0000000180009638     EtherCATComm.obj
+ 0002:00000650       $SG191174                  0000000180009650     EtherCATComm.obj
+ 0002:00000678       $SG191223                  0000000180009678     EtherCATComm.obj
+ 0002:000006a0       $SG191272                  00000001800096a0     EtherCATComm.obj
+ 0002:000006c8       $SG191321                  00000001800096c8     EtherCATComm.obj
+ 0002:000006f0       $SG191370                  00000001800096f0     EtherCATComm.obj
+ 0002:00000710       $SG191419                  0000000180009710     EtherCATComm.obj
+ 0002:00000738       $SG191468                  0000000180009738     EtherCATComm.obj
+ 0002:00000760       $SG191517                  0000000180009760     EtherCATComm.obj
+ 0002:00000780       $SG191566                  0000000180009780     EtherCATComm.obj
+ 0002:000007a0       $SG191615                  00000001800097a0     EtherCATComm.obj
+ 0002:000007c8       $SG191664                  00000001800097c8     EtherCATComm.obj
+ 0002:000007f0       $SG191713                  00000001800097f0     EtherCATComm.obj
+ 0002:00000810       $SG191762                  0000000180009810     EtherCATComm.obj
+ 0002:00000830       $SG191811                  0000000180009830     EtherCATComm.obj
+ 0002:00000850       $SG191860                  0000000180009850     EtherCATComm.obj
+ 0002:00000870       $SG191909                  0000000180009870     EtherCATComm.obj
+ 0002:00000888       $SG191914                  0000000180009888     EtherCATComm.obj
+ 0002:000008a8       $SG191963                  00000001800098a8     EtherCATComm.obj
+ 0002:000008d0       $SG192012                  00000001800098d0     EtherCATComm.obj
+ 0002:000008f0       $SG192061                  00000001800098f0     EtherCATComm.obj
+ 0002:00000910       $SG169053                  0000000180009910     EtherCATComm.obj
+ 0002:00000948       $SG227519                  0000000180009948     EtherCATComm.obj
+ 0002:00000968       $SG227520                  0000000180009968     EtherCATComm.obj
+ 0002:00000970       $SG227521                  0000000180009970     EtherCATComm.obj
+ 0002:000009e0       $SG227522                  00000001800099e0     EtherCATComm.obj
+ 0002:00000ab0       $SG227524                  0000000180009ab0     EtherCATComm.obj
+ 0002:00000af8       $SG227585                  0000000180009af8     EtherCATComm.obj
+ 0002:00000b18       $SG227586                  0000000180009b18     EtherCATComm.obj
+ 0002:00000b20       $SG227587                  0000000180009b20     EtherCATComm.obj
+ 0002:00000b90       $SG227588                  0000000180009b90     EtherCATComm.obj
+ 0002:00000c5c       $SG227589                  0000000180009c5c     EtherCATComm.obj
+ 0002:00000c60       $SG227590                  0000000180009c60     EtherCATComm.obj
+ 0002:00000ca4       $SG227672                  0000000180009ca4     EtherCATComm.obj
+ 0002:00000ca8       $SG227675                  0000000180009ca8     EtherCATComm.obj
+ 0002:00000cb4       $SG227678                  0000000180009cb4     EtherCATComm.obj
+ 0002:00000cb8       $SG227679                  0000000180009cb8     EtherCATComm.obj
+ 0002:00000cc4       $SG227741                  0000000180009cc4     EtherCATComm.obj
+ 0002:00000cc8       $SG227744                  0000000180009cc8     EtherCATComm.obj
+ 0002:00000cd4       $SG227747                  0000000180009cd4     EtherCATComm.obj
+ 0002:00000cd8       $SG227748                  0000000180009cd8     EtherCATComm.obj
+ 0002:00000ce8       $SG227788                  0000000180009ce8     EtherCATComm.obj
+ 0002:00000d08       $SG227789                  0000000180009d08     EtherCATComm.obj
+ 0002:00000d10       $SG227790                  0000000180009d10     EtherCATComm.obj
+ 0002:00000d80       $SG227791                  0000000180009d80     EtherCATComm.obj
+ 0002:00000e4c       $SG227792                  0000000180009e4c     EtherCATComm.obj
+ 0002:00000e50       $SG227793                  0000000180009e50     EtherCATComm.obj
+ 0002:00000e90       $SG227799                  0000000180009e90     EtherCATComm.obj
+ 0002:00000e98       $SG227802                  0000000180009e98     EtherCATComm.obj
+ 0002:00000ea4       $SG227805                  0000000180009ea4     EtherCATComm.obj
+ 0002:00000ea8       $SG227806                  0000000180009ea8     EtherCATComm.obj
+ 0002:00000eb8       $SG227847                  0000000180009eb8     EtherCATComm.obj
+ 0002:00000ed8       $SG227848                  0000000180009ed8     EtherCATComm.obj
+ 0002:00000ee0       $SG227849                  0000000180009ee0     EtherCATComm.obj
+ 0002:00000f50       $SG227850                  0000000180009f50     EtherCATComm.obj
+ 0002:0000101c       $SG227851                  000000018000a01c     EtherCATComm.obj
+ 0002:00001020       $SG227852                  000000018000a020     EtherCATComm.obj
+ 0002:00001060       $SG227858                  000000018000a060     EtherCATComm.obj
+ 0002:00001068       $SG227861                  000000018000a068     EtherCATComm.obj
+ 0002:00001074       $SG227864                  000000018000a074     EtherCATComm.obj
+ 0002:00001078       $SG227865                  000000018000a078     EtherCATComm.obj
+ 0002:00001088       $SG227932                  000000018000a088     EtherCATComm.obj
+ 0002:000010a8       $SG227933                  000000018000a0a8     EtherCATComm.obj
+ 0002:000010b0       $SG227934                  000000018000a0b0     EtherCATComm.obj
+ 0002:00001120       $SG227935                  000000018000a120     EtherCATComm.obj
+ 0002:000011ec       $SG227936                  000000018000a1ec     EtherCATComm.obj
+ 0002:000011f0       $SG227937                  000000018000a1f0     EtherCATComm.obj
+ 0002:00001230       $SG227943                  000000018000a230     EtherCATComm.obj
+ 0002:00001238       $SG227946                  000000018000a238     EtherCATComm.obj
+ 0002:00001244       $SG227949                  000000018000a244     EtherCATComm.obj
+ 0002:00001248       $SG227950                  000000018000a248     EtherCATComm.obj
+ 0002:00001258       $SG228021                  000000018000a258     EtherCATComm.obj
+ 0002:00001278       $SG228022                  000000018000a278     EtherCATComm.obj
+ 0002:00001280       $SG228023                  000000018000a280     EtherCATComm.obj
+ 0002:000012f0       $SG228024                  000000018000a2f0     EtherCATComm.obj
+ 0002:000013bc       $SG228025                  000000018000a3bc     EtherCATComm.obj
+ 0002:000013c0       $SG228026                  000000018000a3c0     EtherCATComm.obj
+ 0002:00001400       $SG228032                  000000018000a400     EtherCATComm.obj
+ 0002:00001408       $SG228035                  000000018000a408     EtherCATComm.obj
+ 0002:00001414       $SG228038                  000000018000a414     EtherCATComm.obj
+ 0002:00001418       $SG228039                  000000018000a418     EtherCATComm.obj
+ 0002:00001424       $SG203553                  000000018000a424     EtherCATComm.obj
+ 0002:00001428       $SG203555                  000000018000a428     EtherCATComm.obj
+ 0002:0000142c       $SG203557                  000000018000a42c     EtherCATComm.obj
+ 0002:00001430       $SG203559                  000000018000a430     EtherCATComm.obj
+ 0002:00001438       $SG203561                  000000018000a438     EtherCATComm.obj
+ 0002:00001440       $SG203563                  000000018000a440     EtherCATComm.obj
+ 0002:00001458       $SG203565                  000000018000a458     EtherCATComm.obj
+ 0002:00001470       $SG203567                  000000018000a470     EtherCATComm.obj
+ 0002:00001480       $SG204265                  000000018000a480     EtherCATComm.obj
+ 0002:00001490       $SG204266                  000000018000a490     EtherCATComm.obj
+ 0002:000014a0       $SG204267                  000000018000a4a0     EtherCATComm.obj
+ 0002:000014d0       $SG204268                  000000018000a4d0     EtherCATComm.obj
+ 0002:000014e8       $SG204269                  000000018000a4e8     EtherCATComm.obj
+ 0002:00001500       $SG204270                  000000018000a500     EtherCATComm.obj
+ 0002:00001518       $SG204271                  000000018000a518     EtherCATComm.obj
+ 0002:00001528       $SG204272                  000000018000a528     EtherCATComm.obj
+ 0002:00001530       $SG204273                  000000018000a530     EtherCATComm.obj
+ 0002:00001548       $SG204274                  000000018000a548     EtherCATComm.obj
+ 0002:00001558       $SG204275                  000000018000a558     EtherCATComm.obj
+ 0002:00001570       $SG204276                  000000018000a570     EtherCATComm.obj
+ 0002:00001580       $SG171837                  000000018000a580     EtherCATComm.obj
+ 0002:000015d0       $SG213215                  000000018000a5d0     EtherCATMaster.obj
+ 0002:000015f0       $SG213217                  000000018000a5f0     EtherCATMaster.obj
+ 0002:000015fc       $SG248584                  000000018000a5fc     EtherCATMaster.obj
+ 0002:00001600       $SG213218                  000000018000a600     EtherCATMaster.obj
+ 0002:00001650       $SG213219                  000000018000a650     EtherCATMaster.obj
+ 0002:00001670       $SG213248                  000000018000a670     EtherCATMaster.obj
+ 0002:000016a0       $SG213249                  000000018000a6a0     EtherCATMaster.obj
+ 0002:000016d8       $SG213250                  000000018000a6d8     EtherCATMaster.obj
+ 0002:00001710       $SG213251                  000000018000a710     EtherCATMaster.obj
+ 0002:000017a0       $SG213252                  000000018000a7a0     EtherCATMaster.obj
+ 0002:000017d0       $SG213253                  000000018000a7d0     EtherCATMaster.obj
+ 0002:00001860       $SG213254                  000000018000a860     EtherCATMaster.obj
+ 0002:00001890       $SG213255                  000000018000a890     EtherCATMaster.obj
+ 0002:00001920       $SG213256                  000000018000a920     EtherCATMaster.obj
+ 0002:00001950       $SG213257                  000000018000a950     EtherCATMaster.obj
+ 0002:000019e0       $SG213258                  000000018000a9e0     EtherCATMaster.obj
+ 0002:00001a04       $SG246171                  000000018000aa04     EtherCATMaster.obj
+ 0002:00001a0c       $SG246214                  000000018000aa0c     EtherCATMaster.obj
+ 0002:00001a18       $SG205435                  000000018000aa18     EtherCATMaster.obj
+ 0002:00001a40       $SG205436                  000000018000aa40     EtherCATMaster.obj
+ 0002:00001a50       $SG205437                  000000018000aa50     EtherCATMaster.obj
+ 0002:00001b30       $SG238487                  000000018000ab30     EtherCATMaster.obj
+ 0002:00001b98       $SG239317                  000000018000ab98     EtherCATMaster.obj
+ 0002:00001b9c       $SG239319                  000000018000ab9c     EtherCATMaster.obj
+ 0002:00001ba4       $SG239340                  000000018000aba4     EtherCATMaster.obj
+ 0002:00001ba8       $SG239346                  000000018000aba8     EtherCATMaster.obj
+ 0002:00001bac       $SG239348                  000000018000abac     EtherCATMaster.obj
+ 0002:00001bb4       $SG239509                  000000018000abb4     EtherCATMaster.obj
+ 0002:00001bb8       $SG239511                  000000018000abb8     EtherCATMaster.obj
+ 0002:00001bc0       $SG239532                  000000018000abc0     EtherCATMaster.obj
+ 0002:00001bc4       $SG239538                  000000018000abc4     EtherCATMaster.obj
+ 0002:00001bc8       $SG239540                  000000018000abc8     EtherCATMaster.obj
+ 0002:00001bd0       $SG239637                  000000018000abd0     EtherCATMaster.obj
+ 0002:00001bd8       $SG239689                  000000018000abd8     EtherCATMaster.obj
+ 0002:00001be0       $SG191003                  000000018000abe0     EtherCATMaster.obj
+ 0002:00001c00       $SG191076                  000000018000ac00     EtherCATMaster.obj
+ 0002:00001c18       $SG191125                  000000018000ac18     EtherCATMaster.obj
+ 0002:00001c30       $SG191174                  000000018000ac30     EtherCATMaster.obj
+ 0002:00001c58       $SG191223                  000000018000ac58     EtherCATMaster.obj
+ 0002:00001c80       $SG248580                  000000018000ac80     EtherCATMaster.obj
+ 0002:00001c94       $SG248581                  000000018000ac94     EtherCATMaster.obj
+ 0002:00001ca0       $SG248582                  000000018000aca0     EtherCATMaster.obj
+ 0002:00001d10       $SG248583                  000000018000ad10     EtherCATMaster.obj
+ 0002:00001de0       $SG248585                  000000018000ade0     EtherCATMaster.obj
+ 0002:00001e08       $SG191272                  000000018000ae08     EtherCATMaster.obj
+ 0002:00001e30       $SG191321                  000000018000ae30     EtherCATMaster.obj
+ 0002:00001e58       $SG191370                  000000018000ae58     EtherCATMaster.obj
+ 0002:00001e78       $SG191419                  000000018000ae78     EtherCATMaster.obj
+ 0002:00001ea0       $SG191468                  000000018000aea0     EtherCATMaster.obj
+ 0002:00001ec8       $SG191517                  000000018000aec8     EtherCATMaster.obj
+ 0002:00001ee8       $SG191566                  000000018000aee8     EtherCATMaster.obj
+ 0002:00001f08       $SG191615                  000000018000af08     EtherCATMaster.obj
+ 0002:00001f30       $SG191664                  000000018000af30     EtherCATMaster.obj
+ 0002:00001f58       $SG191713                  000000018000af58     EtherCATMaster.obj
+ 0002:00001f78       $SG191762                  000000018000af78     EtherCATMaster.obj
+ 0002:00001f98       $SG191811                  000000018000af98     EtherCATMaster.obj
+ 0002:00001fb8       $SG191860                  000000018000afb8     EtherCATMaster.obj
+ 0002:00001fd8       $SG191909                  000000018000afd8     EtherCATMaster.obj
+ 0002:00001ff0       $SG191914                  000000018000aff0     EtherCATMaster.obj
+ 0002:00002010       $SG191963                  000000018000b010     EtherCATMaster.obj
+ 0002:00002038       $SG192012                  000000018000b038     EtherCATMaster.obj
+ 0002:00002058       $SG192061                  000000018000b058     EtherCATMaster.obj
+ 0002:00002078       $SG169053                  000000018000b078     EtherCATMaster.obj
+ 0002:000020b0       $SG227676                  000000018000b0b0     EtherCATMaster.obj
+ 0002:000020d0       $SG227677                  000000018000b0d0     EtherCATMaster.obj
+ 0002:000020e0       $SG227678                  000000018000b0e0     EtherCATMaster.obj
+ 0002:00002150       $SG227679                  000000018000b150     EtherCATMaster.obj
+ 0002:0000221c       $SG227680                  000000018000b21c     EtherCATMaster.obj
+ 0002:00002220       $SG227681                  000000018000b220     EtherCATMaster.obj
+ 0002:00002268       $SG227742                  000000018000b268     EtherCATMaster.obj
+ 0002:00002288       $SG227743                  000000018000b288     EtherCATMaster.obj
+ 0002:00002290       $SG227744                  000000018000b290     EtherCATMaster.obj
+ 0002:00002300       $SG227745                  000000018000b300     EtherCATMaster.obj
+ 0002:000023cc       $SG227746                  000000018000b3cc     EtherCATMaster.obj
+ 0002:000023d0       $SG227747                  000000018000b3d0     EtherCATMaster.obj
+ 0002:00002414       $SG227829                  000000018000b414     EtherCATMaster.obj
+ 0002:00002418       $SG227832                  000000018000b418     EtherCATMaster.obj
+ 0002:00002424       $SG227835                  000000018000b424     EtherCATMaster.obj
+ 0002:00002428       $SG227836                  000000018000b428     EtherCATMaster.obj
+ 0002:00002434       $SG227898                  000000018000b434     EtherCATMaster.obj
+ 0002:00002438       $SG227901                  000000018000b438     EtherCATMaster.obj
+ 0002:00002444       $SG227904                  000000018000b444     EtherCATMaster.obj
+ 0002:00002448       $SG227905                  000000018000b448     EtherCATMaster.obj
+ 0002:00002458       $SG227945                  000000018000b458     EtherCATMaster.obj
+ 0002:00002478       $SG227946                  000000018000b478     EtherCATMaster.obj
+ 0002:00002480       $SG227947                  000000018000b480     EtherCATMaster.obj
+ 0002:000024f0       $SG227948                  000000018000b4f0     EtherCATMaster.obj
+ 0002:000025bc       $SG227949                  000000018000b5bc     EtherCATMaster.obj
+ 0002:000025c0       $SG227950                  000000018000b5c0     EtherCATMaster.obj
+ 0002:00002600       $SG227956                  000000018000b600     EtherCATMaster.obj
+ 0002:00002608       $SG227959                  000000018000b608     EtherCATMaster.obj
+ 0002:00002614       $SG227962                  000000018000b614     EtherCATMaster.obj
+ 0002:00002618       $SG227963                  000000018000b618     EtherCATMaster.obj
+ 0002:00002628       $SG228004                  000000018000b628     EtherCATMaster.obj
+ 0002:00002648       $SG228005                  000000018000b648     EtherCATMaster.obj
+ 0002:00002650       $SG228006                  000000018000b650     EtherCATMaster.obj
+ 0002:000026c0       $SG228007                  000000018000b6c0     EtherCATMaster.obj
+ 0002:0000278c       $SG228008                  000000018000b78c     EtherCATMaster.obj
+ 0002:00002790       $SG228009                  000000018000b790     EtherCATMaster.obj
+ 0002:000027d0       $SG228015                  000000018000b7d0     EtherCATMaster.obj
+ 0002:000027d8       $SG228018                  000000018000b7d8     EtherCATMaster.obj
+ 0002:000027e4       $SG228021                  000000018000b7e4     EtherCATMaster.obj
+ 0002:000027e8       $SG228022                  000000018000b7e8     EtherCATMaster.obj
+ 0002:000027f8       $SG228089                  000000018000b7f8     EtherCATMaster.obj
+ 0002:00002818       $SG228090                  000000018000b818     EtherCATMaster.obj
+ 0002:00002820       $SG228091                  000000018000b820     EtherCATMaster.obj
+ 0002:00002890       $SG228092                  000000018000b890     EtherCATMaster.obj
+ 0002:0000295c       $SG228093                  000000018000b95c     EtherCATMaster.obj
+ 0002:00002960       $SG228094                  000000018000b960     EtherCATMaster.obj
+ 0002:000029a0       $SG228100                  000000018000b9a0     EtherCATMaster.obj
+ 0002:000029a8       $SG228103                  000000018000b9a8     EtherCATMaster.obj
+ 0002:000029b4       $SG228106                  000000018000b9b4     EtherCATMaster.obj
+ 0002:000029b8       $SG228107                  000000018000b9b8     EtherCATMaster.obj
+ 0002:000029c4       $SG203553                  000000018000b9c4     EtherCATMaster.obj
+ 0002:000029c8       $SG203555                  000000018000b9c8     EtherCATMaster.obj
+ 0002:000029cc       $SG203557                  000000018000b9cc     EtherCATMaster.obj
+ 0002:000029d0       $SG203559                  000000018000b9d0     EtherCATMaster.obj
+ 0002:000029d8       $SG203561                  000000018000b9d8     EtherCATMaster.obj
+ 0002:000029e0       $SG203563                  000000018000b9e0     EtherCATMaster.obj
+ 0002:000029f8       $SG203565                  000000018000b9f8     EtherCATMaster.obj
+ 0002:00002a10       $SG203567                  000000018000ba10     EtherCATMaster.obj
+ 0002:00002a20       $SG228178                  000000018000ba20     EtherCATMaster.obj
+ 0002:00002a40       $SG228179                  000000018000ba40     EtherCATMaster.obj
+ 0002:00002a50       $SG228180                  000000018000ba50     EtherCATMaster.obj
+ 0002:00002ac0       $SG228181                  000000018000bac0     EtherCATMaster.obj
+ 0002:00002b8c       $SG228182                  000000018000bb8c     EtherCATMaster.obj
+ 0002:00002b90       $SG228183                  000000018000bb90     EtherCATMaster.obj
+ 0002:00002bd0       $SG228189                  000000018000bbd0     EtherCATMaster.obj
+ 0002:00002bd8       $SG228192                  000000018000bbd8     EtherCATMaster.obj
+ 0002:00002be4       $SG228195                  000000018000bbe4     EtherCATMaster.obj
+ 0002:00002be8       $SG228196                  000000018000bbe8     EtherCATMaster.obj
+ 0002:00002bf8       $SG204265                  000000018000bbf8     EtherCATMaster.obj
+ 0002:00002c08       $SG204266                  000000018000bc08     EtherCATMaster.obj
+ 0002:00002c18       $SG204267                  000000018000bc18     EtherCATMaster.obj
+ 0002:00002c48       $SG204268                  000000018000bc48     EtherCATMaster.obj
+ 0002:00002c60       $SG204269                  000000018000bc60     EtherCATMaster.obj
+ 0002:00002c78       $SG204270                  000000018000bc78     EtherCATMaster.obj
+ 0002:00002c90       $SG204271                  000000018000bc90     EtherCATMaster.obj
+ 0002:00002ca0       $SG204272                  000000018000bca0     EtherCATMaster.obj
+ 0002:00002ca8       $SG204273                  000000018000bca8     EtherCATMaster.obj
+ 0002:00002cc0       $SG204274                  000000018000bcc0     EtherCATMaster.obj
+ 0002:00002cd0       $SG204275                  000000018000bcd0     EtherCATMaster.obj
+ 0002:00002ce8       $SG204276                  000000018000bce8     EtherCATMaster.obj
+ 0002:00002cf8       $SG171837                  000000018000bcf8     EtherCATMaster.obj
+ 0002:00002d30       ?BITMASK8@EtherCATPacketCommLib@@3QBEB 000000018000bd30     EtherCATMaster.obj
+ 0002:00002d50       $SG213215                  000000018000bd50     EtherCATSlave.obj
+ 0002:00002d70       $SG213217                  000000018000bd70     EtherCATSlave.obj
+ 0002:00002d7c       $SG248617                  000000018000bd7c     EtherCATSlave.obj
+ 0002:00002d80       $SG213218                  000000018000bd80     EtherCATSlave.obj
+ 0002:00002dc8       $SG213219                  000000018000bdc8     EtherCATSlave.obj
+ 0002:00002de8       $SG213251                  000000018000bde8     EtherCATSlave.obj
+ 0002:00002df0       $SG213254                  000000018000bdf0     EtherCATSlave.obj
+ 0002:00002e1c       $SG227713                  000000018000be1c     EtherCATSlave.obj
+ 0002:00002e20       $SG213255                  000000018000be20     EtherCATSlave.obj
+ 0002:00002e58       $SG213256                  000000018000be58     EtherCATSlave.obj
+ 0002:00002e90       $SG213257                  000000018000be90     EtherCATSlave.obj
+ 0002:00002f1c       $SG227779                  000000018000bf1c     EtherCATSlave.obj
+ 0002:00002f20       $SG213258                  000000018000bf20     EtherCATSlave.obj
+ 0002:00002f50       $SG213259                  000000018000bf50     EtherCATSlave.obj
+ 0002:00002fe0       $SG213260                  000000018000bfe0     EtherCATSlave.obj
+ 0002:00003010       $SG213261                  000000018000c010     EtherCATSlave.obj
+ 0002:000030a0       $SG213262                  000000018000c0a0     EtherCATSlave.obj
+ 0002:000030d0       $SG213263                  000000018000c0d0     EtherCATSlave.obj
+ 0002:00003160       $SG213264                  000000018000c160     EtherCATSlave.obj
+ 0002:00003184       $SG213404                  000000018000c184     EtherCATSlave.obj
+ 0002:0000318c       $SG246204                  000000018000c18c     EtherCATSlave.obj
+ 0002:00003194       $SG246247                  000000018000c194     EtherCATSlave.obj
+ 0002:000031a0       $SG205435                  000000018000c1a0     EtherCATSlave.obj
+ 0002:000031c8       $SG205436                  000000018000c1c8     EtherCATSlave.obj
+ 0002:000031d0       $SG205437                  000000018000c1d0     EtherCATSlave.obj
+ 0002:000032b0       $SG238520                  000000018000c2b0     EtherCATSlave.obj
+ 0002:00003318       $SG239350                  000000018000c318     EtherCATSlave.obj
+ 0002:0000331c       $SG239352                  000000018000c31c     EtherCATSlave.obj
+ 0002:00003324       $SG239373                  000000018000c324     EtherCATSlave.obj
+ 0002:00003328       $SG239379                  000000018000c328     EtherCATSlave.obj
+ 0002:0000332c       $SG239381                  000000018000c32c     EtherCATSlave.obj
+ 0002:00003334       $SG239542                  000000018000c334     EtherCATSlave.obj
+ 0002:00003338       $SG239544                  000000018000c338     EtherCATSlave.obj
+ 0002:00003340       $SG239565                  000000018000c340     EtherCATSlave.obj
+ 0002:00003344       $SG239571                  000000018000c344     EtherCATSlave.obj
+ 0002:00003348       $SG239573                  000000018000c348     EtherCATSlave.obj
+ 0002:00003350       $SG239670                  000000018000c350     EtherCATSlave.obj
+ 0002:00003358       $SG239722                  000000018000c358     EtherCATSlave.obj
+ 0002:00003360       $SG191003                  000000018000c360     EtherCATSlave.obj
+ 0002:00003380       $SG191076                  000000018000c380     EtherCATSlave.obj
+ 0002:00003398       $SG191125                  000000018000c398     EtherCATSlave.obj
+ 0002:000033b0       $SG191174                  000000018000c3b0     EtherCATSlave.obj
+ 0002:000033d8       $SG191223                  000000018000c3d8     EtherCATSlave.obj
+ 0002:00003400       $SG248613                  000000018000c400     EtherCATSlave.obj
+ 0002:00003414       $SG248614                  000000018000c414     EtherCATSlave.obj
+ 0002:00003420       $SG248615                  000000018000c420     EtherCATSlave.obj
+ 0002:00003490       $SG248616                  000000018000c490     EtherCATSlave.obj
+ 0002:00003560       $SG191272                  000000018000c560     EtherCATSlave.obj
+ 0002:00003588       $SG248618                  000000018000c588     EtherCATSlave.obj
+ 0002:000035b0       $SG191321                  000000018000c5b0     EtherCATSlave.obj
+ 0002:000035d8       $SG191370                  000000018000c5d8     EtherCATSlave.obj
+ 0002:000035f8       $SG191419                  000000018000c5f8     EtherCATSlave.obj
+ 0002:00003620       $SG191468                  000000018000c620     EtherCATSlave.obj
+ 0002:00003648       $SG191517                  000000018000c648     EtherCATSlave.obj
+ 0002:00003668       $SG191566                  000000018000c668     EtherCATSlave.obj
+ 0002:00003688       $SG191615                  000000018000c688     EtherCATSlave.obj
+ 0002:000036b0       $SG191664                  000000018000c6b0     EtherCATSlave.obj
+ 0002:000036d8       $SG191713                  000000018000c6d8     EtherCATSlave.obj
+ 0002:000036f8       $SG191762                  000000018000c6f8     EtherCATSlave.obj
+ 0002:00003718       $SG191811                  000000018000c718     EtherCATSlave.obj
+ 0002:00003738       $SG191860                  000000018000c738     EtherCATSlave.obj
+ 0002:00003758       $SG191909                  000000018000c758     EtherCATSlave.obj
+ 0002:00003770       $SG191914                  000000018000c770     EtherCATSlave.obj
+ 0002:00003790       $SG191963                  000000018000c790     EtherCATSlave.obj
+ 0002:000037b8       $SG192012                  000000018000c7b8     EtherCATSlave.obj
+ 0002:000037d8       $SG192061                  000000018000c7d8     EtherCATSlave.obj
+ 0002:000037f8       $SG169053                  000000018000c7f8     EtherCATSlave.obj
+ 0002:00003830       $SG227709                  000000018000c830     EtherCATSlave.obj
+ 0002:00003850       $SG227710                  000000018000c850     EtherCATSlave.obj
+ 0002:00003860       $SG227711                  000000018000c860     EtherCATSlave.obj
+ 0002:000038d0       $SG227712                  000000018000c8d0     EtherCATSlave.obj
+ 0002:000039a0       $SG227714                  000000018000c9a0     EtherCATSlave.obj
+ 0002:000039e8       $SG227775                  000000018000c9e8     EtherCATSlave.obj
+ 0002:00003a08       $SG227776                  000000018000ca08     EtherCATSlave.obj
+ 0002:00003a10       $SG227777                  000000018000ca10     EtherCATSlave.obj
+ 0002:00003a80       $SG227778                  000000018000ca80     EtherCATSlave.obj
+ 0002:00003b50       $SG227780                  000000018000cb50     EtherCATSlave.obj
+ 0002:00003b94       $SG227862                  000000018000cb94     EtherCATSlave.obj
+ 0002:00003b98       $SG227865                  000000018000cb98     EtherCATSlave.obj
+ 0002:00003ba4       $SG227868                  000000018000cba4     EtherCATSlave.obj
+ 0002:00003ba8       $SG227869                  000000018000cba8     EtherCATSlave.obj
+ 0002:00003bb4       $SG227931                  000000018000cbb4     EtherCATSlave.obj
+ 0002:00003bb8       $SG227934                  000000018000cbb8     EtherCATSlave.obj
+ 0002:00003bc4       $SG227937                  000000018000cbc4     EtherCATSlave.obj
+ 0002:00003bc8       $SG227938                  000000018000cbc8     EtherCATSlave.obj
+ 0002:00003bd8       $SG227978                  000000018000cbd8     EtherCATSlave.obj
+ 0002:00003bf8       $SG227979                  000000018000cbf8     EtherCATSlave.obj
+ 0002:00003c00       $SG227980                  000000018000cc00     EtherCATSlave.obj
+ 0002:00003c70       $SG227981                  000000018000cc70     EtherCATSlave.obj
+ 0002:00003d3c       $SG227982                  000000018000cd3c     EtherCATSlave.obj
+ 0002:00003d40       $SG227983                  000000018000cd40     EtherCATSlave.obj
+ 0002:00003d80       $SG227989                  000000018000cd80     EtherCATSlave.obj
+ 0002:00003d88       $SG227992                  000000018000cd88     EtherCATSlave.obj
+ 0002:00003d94       $SG227995                  000000018000cd94     EtherCATSlave.obj
+ 0002:00003d98       $SG227996                  000000018000cd98     EtherCATSlave.obj
+ 0002:00003da8       $SG228037                  000000018000cda8     EtherCATSlave.obj
+ 0002:00003dc8       $SG228038                  000000018000cdc8     EtherCATSlave.obj
+ 0002:00003dd0       $SG228039                  000000018000cdd0     EtherCATSlave.obj
+ 0002:00003e40       $SG228040                  000000018000ce40     EtherCATSlave.obj
+ 0002:00003f0c       $SG228041                  000000018000cf0c     EtherCATSlave.obj
+ 0002:00003f10       $SG228042                  000000018000cf10     EtherCATSlave.obj
+ 0002:00003f50       $SG228048                  000000018000cf50     EtherCATSlave.obj
+ 0002:00003f58       $SG228051                  000000018000cf58     EtherCATSlave.obj
+ 0002:00003f64       $SG228054                  000000018000cf64     EtherCATSlave.obj
+ 0002:00003f68       $SG228055                  000000018000cf68     EtherCATSlave.obj
+ 0002:00003f78       $SG228122                  000000018000cf78     EtherCATSlave.obj
+ 0002:00003f98       $SG228123                  000000018000cf98     EtherCATSlave.obj
+ 0002:00003fa0       $SG228124                  000000018000cfa0     EtherCATSlave.obj
+ 0002:00004010       $SG228125                  000000018000d010     EtherCATSlave.obj
+ 0002:000040dc       $SG228126                  000000018000d0dc     EtherCATSlave.obj
+ 0002:000040e0       $SG228127                  000000018000d0e0     EtherCATSlave.obj
+ 0002:00004120       $SG203553                  000000018000d120     EtherCATSlave.obj
+ 0002:00004124       $SG203555                  000000018000d124     EtherCATSlave.obj
+ 0002:00004128       $SG228133                  000000018000d128     EtherCATSlave.obj
+ 0002:0000412c       $SG203557                  000000018000d12c     EtherCATSlave.obj
+ 0002:00004130       $SG203559                  000000018000d130     EtherCATSlave.obj
+ 0002:00004138       $SG228136                  000000018000d138     EtherCATSlave.obj
+ 0002:00004148       $SG203561                  000000018000d148     EtherCATSlave.obj
+ 0002:00004150       $SG228139                  000000018000d150     EtherCATSlave.obj
+ 0002:00004158       $SG203563                  000000018000d158     EtherCATSlave.obj
+ 0002:00004170       $SG228140                  000000018000d170     EtherCATSlave.obj
+ 0002:00004180       $SG203565                  000000018000d180     EtherCATSlave.obj
+ 0002:00004198       $SG203567                  000000018000d198     EtherCATSlave.obj
+ 0002:000041a8       $SG228211                  000000018000d1a8     EtherCATSlave.obj
+ 0002:000041c8       $SG228212                  000000018000d1c8     EtherCATSlave.obj
+ 0002:000041d0       $SG228213                  000000018000d1d0     EtherCATSlave.obj
+ 0002:00004240       $SG228214                  000000018000d240     EtherCATSlave.obj
+ 0002:0000430c       $SG228215                  000000018000d30c     EtherCATSlave.obj
+ 0002:00004310       $SG228216                  000000018000d310     EtherCATSlave.obj
+ 0002:00004350       $SG228222                  000000018000d350     EtherCATSlave.obj
+ 0002:00004358       $SG228225                  000000018000d358     EtherCATSlave.obj
+ 0002:00004364       $SG228228                  000000018000d364     EtherCATSlave.obj
+ 0002:00004368       $SG228229                  000000018000d368     EtherCATSlave.obj
+ 0002:00004378       $SG204265                  000000018000d378     EtherCATSlave.obj
+ 0002:00004388       $SG204266                  000000018000d388     EtherCATSlave.obj
+ 0002:00004398       $SG204267                  000000018000d398     EtherCATSlave.obj
+ 0002:000043c8       $SG204268                  000000018000d3c8     EtherCATSlave.obj
+ 0002:000043e0       $SG204269                  000000018000d3e0     EtherCATSlave.obj
+ 0002:000043f8       $SG204270                  000000018000d3f8     EtherCATSlave.obj
+ 0002:00004410       $SG204271                  000000018000d410     EtherCATSlave.obj
+ 0002:00004420       $SG204272                  000000018000d420     EtherCATSlave.obj
+ 0002:00004428       $SG204273                  000000018000d428     EtherCATSlave.obj
+ 0002:00004440       $SG204274                  000000018000d440     EtherCATSlave.obj
+ 0002:00004450       $SG204275                  000000018000d450     EtherCATSlave.obj
+ 0002:00004468       $SG204276                  000000018000d468     EtherCATSlave.obj
+ 0002:00004478       $SG171837                  000000018000d478     EtherCATSlave.obj
+ 0002:000044b0       ?BITMASK8@EtherCATPacketCommLib@@3QBEB 000000018000d4b0     EtherCATSlave.obj
+ 0002:000044d0       GS_ExceptionPointers       000000018000d4d0     MSVCRTD:gs_report.obj
+ 0002:00004c68       $unwind$??4EtherCATMaster@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z 000000018000dc68     main.obj
+ 0002:00004c68       $unwind$??4EtherCATSlave@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z 000000018000dc68     main.obj
+ 0002:00004c68       $unwind$??4PacketQueue@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z 000000018000dc68     main.obj
+ 0002:00004c68       $unwind$??4PacketTimer@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z 000000018000dc68     main.obj
+ 0002:00004c70       $unwind$DllMain            000000018000dc70     main.obj
+ 0002:00004c78       $unwind$?_AtlInitializeCriticalSectionEx@ATL@@YAHPEAU_RTL_CRITICAL_SECTION@@KK@Z 000000018000dc78     EtherCATComm.obj
+ 0002:00004c78       $unwind$_DllMainCRTStartup 000000018000dc78     MSVCRTD:dll_dllmain.obj
+ 0002:00004c80       $unwind$?Update@PacketTimer@EtherCATPacketCommLib@@SAXXZ 000000018000dc80     EtherCATComm.obj
+ 0002:00004c88       $unwind$?Reset@PacketTimer@EtherCATPacketCommLib@@QEAAHXZ 000000018000dc88     EtherCATComm.obj
+ 0002:00004c90       $unwind$?Reset@PacketTimer@EtherCATPacketCommLib@@QEAAHH@Z 000000018000dc90     EtherCATComm.obj
+ 0002:00004c98       $unwind$?Elapsed_nSec@PacketTimer@EtherCATPacketCommLib@@QEAAJXZ 000000018000dc98     EtherCATComm.obj
+ 0002:00004ca0       $unwind$?Elapsed_mSec@PacketTimer@EtherCATPacketCommLib@@QEAANXZ 000000018000dca0     EtherCATComm.obj
+ 0002:00004ca8       $unwind$?ElapsedSec@PacketTimer@EtherCATPacketCommLib@@QEAANXZ 000000018000dca8     EtherCATComm.obj
+ 0002:00004cb0       $unwind$?Elapsed@PacketTimer@EtherCATPacketCommLib@@QEAANXZ 000000018000dcb0     EtherCATComm.obj
+ 0002:00004cb8       $unwind$?TmOver@PacketTimer@EtherCATPacketCommLib@@QEAAHK@Z 000000018000dcb8     EtherCATComm.obj
+ 0002:00004cc0       $unwind$?TmOverSec@PacketTimer@EtherCATPacketCommLib@@QEAAHN@Z 000000018000dcc0     EtherCATComm.obj
+ 0002:00004cc8       $unwind$??0PacketTimer@EtherCATPacketCommLib@@QEAA@XZ 000000018000dcc8     EtherCATComm.obj
+ 0002:00004cd0       $unwind$?push@PacketQueue@EtherCATPacketCommLib@@QEAAXUtagDATA_INFO@2@@Z 000000018000dcd0     EtherCATComm.obj
+ 0002:00004ce4       $unwind$?pop@PacketQueue@EtherCATPacketCommLib@@QEAA?AUtagDATA_INFO@2@XZ 000000018000dce4     EtherCATComm.obj
+ 0002:00004cf0       $unwind$?peek@PacketQueue@EtherCATPacketCommLib@@QEAA?AUtagDATA_INFO@2@XZ 000000018000dcf0     EtherCATComm.obj
+ 0002:00004cfc       $unwind$??0PacketQueue@EtherCATPacketCommLib@@QEAA@XZ 000000018000dcfc     EtherCATComm.obj
+ 0002:00004d04       $unwind$??0CEnterMutex@@QEAA@PEAXK@Z 000000018000dd04     EtherCATMaster.obj
+ 0002:00004d0c       $unwind$??1CEnterMutex@@UEAA@XZ 000000018000dd0c     EtherCATMaster.obj
+ 0002:00004d0c       $unwind$??3@YAXPEAX@Z      000000018000dd0c     MSVCRTD:delete_scalar.obj
+ 0002:00004d0c       $unwind$__raise_securityfailure 000000018000dd0c     MSVCRTD:gs_report.obj
+ 0002:00004d0c       $unwind$?is_potentially_valid_image_base@@YA_NQEAX@Z 000000018000dd0c     MSVCRTD:utility.obj
+ 0002:00004d14       $unwind$??_GCEnterMutex@@UEAAPEAXI@Z 000000018000dd14     EtherCATMaster.obj
+ 0002:00004d14       $unwind$??_Gtype_info@@UEAAPEAXI@Z 000000018000dd14     MSVCRTD:std_type_info_static.obj
+ 0002:00004d1c       $unwind$?SendCycle@EtherCATMaster@EtherCATPacketCommLib@@AEAAXXZ 000000018000dd1c     EtherCATMaster.obj
+ 0002:00004d24       $unwind$?RecvCycle@EtherCATMaster@EtherCATPacketCommLib@@AEAAXXZ 000000018000dd24     EtherCATMaster.obj
+ 0002:00004d30       $unwind$?SendCommand@EtherCATMaster@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 000000018000dd30     EtherCATMaster.obj
+ 0002:00004d40       $cppxdata$?SendCommand@EtherCATMaster@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 000000018000dd40     EtherCATMaster.obj
+ 0002:00004d49       $stateUnwindMap$?SendCommand@EtherCATMaster@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 000000018000dd49     EtherCATMaster.obj
+ 0002:00004d4f       $ip2state$?SendCommand@EtherCATMaster@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 000000018000dd4f     EtherCATMaster.obj
+ 0002:00004d58       $unwind$?dtor$0@?0??SendCommand@EtherCATMaster@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z@4HA 000000018000dd58     EtherCATMaster.obj
+ 0002:00004d60       $unwind$?UpdateProcess@EtherCATMaster@EtherCATPacketCommLib@@CAXPEAX@Z 000000018000dd60     EtherCATMaster.obj
+ 0002:00004d68       $unwind$?SendPacketInfo@EtherCATMaster@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ 000000018000dd68     EtherCATMaster.obj
+ 0002:00004d70       $unwind$?RecvPacketInfo@EtherCATMaster@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ 000000018000dd70     EtherCATMaster.obj
+ 0002:00004d78       $unwind$?Open@EtherCATMaster@EtherCATPacketCommLib@@QEAAHPEB_W_N@Z 000000018000dd78     EtherCATMaster.obj
+ 0002:00004d8c       $unwind$?Close@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ 000000018000dd8c     EtherCATMaster.obj
+ 0002:00004d94       $unwind$?Update@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ 000000018000dd94     EtherCATMaster.obj
+ 0002:00004da4       $cppxdata$?Update@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ 000000018000dda4     EtherCATMaster.obj
+ 0002:00004dad       $stateUnwindMap$?Update@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ 000000018000ddad     EtherCATMaster.obj
+ 0002:00004db3       $ip2state$?Update@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ 000000018000ddb3     EtherCATMaster.obj
+ 0002:00004dbc       $unwind$?dtor$0@?0??Update@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ@4HA 000000018000ddbc     EtherCATMaster.obj
+ 0002:00004dc4       $unwind$?Send@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEHHK@Z 000000018000ddc4     EtherCATMaster.obj
+ 0002:00004dcc       $unwind$?Recv@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 000000018000ddcc     EtherCATMaster.obj
+ 0002:00004de0       $cppxdata$?Recv@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 000000018000dde0     EtherCATMaster.obj
+ 0002:00004de9       $stateUnwindMap$?Recv@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 000000018000dde9     EtherCATMaster.obj
+ 0002:00004def       $ip2state$?Recv@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 000000018000ddef     EtherCATMaster.obj
+ 0002:00004df8       $unwind$?dtor$0@?0??Recv@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z@4HA 000000018000ddf8     EtherCATMaster.obj
+ 0002:00004e00       $unwind$?AOn@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z 000000018000de00     EtherCATMaster.obj
+ 0002:00004e08       $unwind$?AOff@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z 000000018000de08     EtherCATMaster.obj
+ 0002:00004e10       $unwind$?Set@EtherCATMaster@EtherCATPacketCommLib@@QEAAXH_N@Z 000000018000de10     EtherCATMaster.obj
+ 0002:00004e18       $unwind$?IsOn@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z 000000018000de18     EtherCATMaster.obj
+ 0002:00004e20       $unwind$?IsOff@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z 000000018000de20     EtherCATMaster.obj
+ 0002:00004e28       $unwind$??0EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ 000000018000de28     EtherCATMaster.obj
+ 0002:00004e38       $cppxdata$??0EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ 000000018000de38     EtherCATMaster.obj
+ 0002:00004e41       $stateUnwindMap$??0EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ 000000018000de41     EtherCATMaster.obj
+ 0002:00004e47       $ip2state$??0EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ 000000018000de47     EtherCATMaster.obj
+ 0002:00004e50       $unwind$?dtor$0@?0???0EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ@4HA 000000018000de50     EtherCATMaster.obj
+ 0002:00004e58       $unwind$??1EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ 000000018000de58     EtherCATMaster.obj
+ 0002:00004e60       $unwind$?SendCycle@EtherCATSlave@EtherCATPacketCommLib@@AEAAXXZ 000000018000de60     EtherCATSlave.obj
+ 0002:00004e68       $unwind$?RecvCycle@EtherCATSlave@EtherCATPacketCommLib@@AEAAXXZ 000000018000de68     EtherCATSlave.obj
+ 0002:00004e74       $unwind$?SendCommand@EtherCATSlave@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 000000018000de74     EtherCATSlave.obj
+ 0002:00004e84       $cppxdata$?SendCommand@EtherCATSlave@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 000000018000de84     EtherCATSlave.obj
+ 0002:00004e8d       $stateUnwindMap$?SendCommand@EtherCATSlave@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 000000018000de8d     EtherCATSlave.obj
+ 0002:00004e93       $ip2state$?SendCommand@EtherCATSlave@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z 000000018000de93     EtherCATSlave.obj
+ 0002:00004e9c       $unwind$?dtor$0@?0??SendCommand@EtherCATSlave@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z@4HA 000000018000de9c     EtherCATSlave.obj
+ 0002:00004ea4       $unwind$?UpdateProcess@EtherCATSlave@EtherCATPacketCommLib@@CAXPEAX@Z 000000018000dea4     EtherCATSlave.obj
+ 0002:00004eac       $unwind$?SendPacketInfo@EtherCATSlave@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ 000000018000deac     EtherCATSlave.obj
+ 0002:00004eb4       $unwind$?RecvPacketInfo@EtherCATSlave@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ 000000018000deb4     EtherCATSlave.obj
+ 0002:00004ebc       $unwind$?Open@EtherCATSlave@EtherCATPacketCommLib@@QEAAHPEB_W_N@Z 000000018000debc     EtherCATSlave.obj
+ 0002:00004ed0       $unwind$?Close@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ 000000018000ded0     EtherCATSlave.obj
+ 0002:00004ee4       $unwind$?Update@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ 000000018000dee4     EtherCATSlave.obj
+ 0002:00004ef4       $cppxdata$?Update@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ 000000018000def4     EtherCATSlave.obj
+ 0002:00004efd       $stateUnwindMap$?Update@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ 000000018000defd     EtherCATSlave.obj
+ 0002:00004f03       $ip2state$?Update@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ 000000018000df03     EtherCATSlave.obj
+ 0002:00004f0c       $unwind$?dtor$0@?0??Update@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ@4HA 000000018000df0c     EtherCATSlave.obj
+ 0002:00004f14       $unwind$?Send@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEHHK@Z 000000018000df14     EtherCATSlave.obj
+ 0002:00004f1c       $unwind$?Recv@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 000000018000df1c     EtherCATSlave.obj
+ 0002:00004f30       $cppxdata$?Recv@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 000000018000df30     EtherCATSlave.obj
+ 0002:00004f39       $stateUnwindMap$?Recv@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 000000018000df39     EtherCATSlave.obj
+ 0002:00004f3f       $ip2state$?Recv@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z 000000018000df3f     EtherCATSlave.obj
+ 0002:00004f48       $unwind$?dtor$0@?0??Recv@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z@4HA 000000018000df48     EtherCATSlave.obj
+ 0002:00004f50       $unwind$?AOn@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z 000000018000df50     EtherCATSlave.obj
+ 0002:00004f58       $unwind$?AOff@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z 000000018000df58     EtherCATSlave.obj
+ 0002:00004f60       $unwind$?Set@EtherCATSlave@EtherCATPacketCommLib@@QEAAXH_N@Z 000000018000df60     EtherCATSlave.obj
+ 0002:00004f68       $unwind$?IsOn@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z 000000018000df68     EtherCATSlave.obj
+ 0002:00004f70       $unwind$?IsOff@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z 000000018000df70     EtherCATSlave.obj
+ 0002:00004f78       $unwind$??0EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ 000000018000df78     EtherCATSlave.obj
+ 0002:00004f88       $cppxdata$??0EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ 000000018000df88     EtherCATSlave.obj
+ 0002:00004f91       $stateUnwindMap$??0EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ 000000018000df91     EtherCATSlave.obj
+ 0002:00004f97       $ip2state$??0EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ 000000018000df97     EtherCATSlave.obj
+ 0002:00004fa0       $unwind$?dtor$0@?0???0EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ@4HA 000000018000dfa0     EtherCATSlave.obj
+ 0002:00004fa8       $unwind$??1EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ 000000018000dfa8     EtherCATSlave.obj
+ 0002:00004fb0       $unwind$__report_gsfailure 000000018000dfb0     MSVCRTD:gs_report.obj
+ 0002:00004fb0       $unwind$atexit             000000018000dfb0     MSVCRTD:utility.obj
+ 0002:00004fb8       $unwind$_onexit            000000018000dfb8     MSVCRTD:utility.obj
+ 0002:00004fc0       $unwind$__scrt_is_nonwritable_in_current_image 000000018000dfc0     MSVCRTD:utility.obj
+ 0002:00004fe0       $unwind$?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 000000018000dfe0     MSVCRTD:dll_dllmain.obj
+ 0002:00004fe0       $unwind$?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 000000018000dfe0     MSVCRTD:dll_dllmain.obj
+ 0002:00004fe0       $unwind$?fin$1@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 000000018000dfe0     MSVCRTD:dll_dllmain.obj
+ 0002:00004fe0       $unwind$__scrt_is_nonwritable_in_current_image$filt$0 000000018000dfe0     MSVCRTD:utility.obj
+ 0002:00004fe8       $unwind$__scrt_acquire_startup_lock 000000018000dfe8     MSVCRTD:utility.obj
+ 0002:00004ff0       $unwind$__scrt_initialize_crt 000000018000dff0     MSVCRTD:utility.obj
+ 0002:00004ff0       $unwind$__scrt_release_startup_lock 000000018000dff0     MSVCRTD:utility.obj
+ 0002:00004ff8       $unwind$__scrt_uninitialize_crt 000000018000dff8     MSVCRTD:utility.obj
+ 0002:00005000       $unwind$__scrt_initialize_onexit_tables 000000018000e000     MSVCRTD:utility.obj
+ 0002:0000500c       $unwind$__scrt_dllmain_exception_filter 000000018000e00c     MSVCRTD:utility.obj
+ 0002:00005014       $unwind$??__E_AtlBaseModule@ATL@@YAXXZ 000000018000e014     atls:atlbase.obj
+ 0002:00005014       $unwind$?__scrt_initialize_type_info@@YAXXZ 000000018000e014     MSVCRTD:tncleanup.obj
+ 0002:00005014       $unwind$?__scrt_uninitialize_type_info@@YAXXZ 000000018000e014     MSVCRTD:tncleanup.obj
+ 0002:00005014       $unwind$?configure_argv@__scrt_narrow_argv_policy@@SAHXZ 000000018000e014     MSVCRTD:utility.obj
+ 0002:00005014       $unwind$?initialize_environment@__scrt_narrow_environment_policy@@SAHXZ 000000018000e014     MSVCRTD:utility.obj
+ 0002:00005014       $unwind$__scrt_dllmain_after_initialize_c 000000018000e014     MSVCRTD:utility.obj
+ 0002:00005014       $unwind$__scrt_dllmain_before_initialize_c 000000018000e014     MSVCRTD:utility.obj
+ 0002:00005014       $unwind$__scrt_dllmain_crt_thread_attach 000000018000e014     MSVCRTD:utility.obj
+ 0002:00005014       $unwind$__scrt_dllmain_crt_thread_detach 000000018000e014     MSVCRTD:utility.obj
+ 0002:00005014       $unwind$__scrt_dllmain_uninitialize_c 000000018000e014     MSVCRTD:utility.obj
+ 0002:00005014       $unwind$__scrt_dllmain_uninitialize_critical 000000018000e014     MSVCRTD:utility.obj
+ 0002:0000501c       $unwind$?find_pe_section@@YAPEAU_IMAGE_SECTION_HEADER@@QEAE_K@Z 000000018000e01c     MSVCRTD:utility.obj
+ 0002:00005024       $unwind$__GSHandlerCheckCommon 000000018000e024     MSVCRTD:gshandler.obj
+ 0002:0000502c       $unwind$__GSHandlerCheck   000000018000e02c     MSVCRTD:gshandler.obj
+ 0002:00005038       $xdatasym                  000000018000e038     MSVCRTD:amdsecgs.obj
+ 0002:0000503c       $unwind$??3@YAXPEAX_K@Z    000000018000e03c     MSVCRTD:delete_scalar_size.obj
+ 0002:00005044       $unwind$__GSHandlerCheck_EH4 000000018000e044     MSVCRTD:gshandlereh4.obj
+ 0002:0000504c       $unwind$?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 000000018000e04c     MSVCRTD:dll_dllmain.obj
+ 0002:0000506c       $unwind$?dllmain_crt_process_detach@@YAH_N@Z 000000018000e06c     MSVCRTD:dll_dllmain.obj
+ 0002:0000509c       $unwind$?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 000000018000e09c     MSVCRTD:dll_dllmain.obj
+ 0002:0000509c       $unwind$?dllmain_raw@@YAHQEAUHINSTANCE__@@KQEAX@Z 000000018000e09c     MSVCRTD:dll_dllmain.obj
+ 0002:000050a4       $unwind$?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 000000018000e0a4     MSVCRTD:dll_dllmain.obj
+ 0002:000050c4       $unwind$?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 000000018000e0c4     MSVCRTD:dll_dllmain.obj
+ 0002:000050cc       $unwind$__isa_available_init 000000018000e0cc     MSVCRTD:cpu_disp.obj
+ 0002:000050dc       $unwind$__scrt_is_ucrt_dll_in_use 000000018000e0dc     MSVCRTD:ucrt_detection.obj
+ 0002:000050e4       $unwind$__scrt_fastfail    000000018000e0e4     MSVCRTD:utility_desktop.obj
+ 0002:000050f0       $unwind$capture_previous_context 000000018000e0f0     MSVCRTD:gs_report.obj
+ 0002:000050f8       $unwind$__scrt_initialize_default_local_stdio_options 000000018000e0f8     MSVCRTD:default_local_stdio_options.obj
+ 0002:000050f8       $unwind$__security_init_cookie 000000018000e0f8     MSVCRTD:gs_support.obj
+ 0002:00005100       $unwind$__get_entropy      000000018000e100     MSVCRTD:gs_support.obj
+ 0002:00005108       $unwind$??0CAtlBaseModule@ATL@@QEAA@XZ 000000018000e108     atls:atlbase.obj
+ 0002:00005108       $unwind$_RTC_Initialize    000000018000e108     MSVCRTD:initsect.obj
+ 0002:00005108       $unwind$_RTC_Terminate     000000018000e108     MSVCRTD:initsect.obj
+ 0002:00005118       $xdatasym                  000000018000e118     MSVCRTD:guard_dispatch.obj
+ 0002:00005120       $xdatasym                  000000018000e120     MSVCRTD:guard_xfg_dispatch.obj
+ 0002:00005124       $unwind$??1CAtlBaseModule@ATL@@QEAA@XZ 000000018000e124     atls:atlbase.obj
+ 0002:00005130       .edata                     000000018000e130     ETHERCAT_V1.0.exp
+ 0002:00005158       rgpv                       000000018000e158     ETHERCAT_V1.0.exp
+ 0002:00005268       rgszName                   000000018000e268     ETHERCAT_V1.0.exp
+ 0002:00005378       rgwOrd                     000000018000e378     ETHERCAT_V1.0.exp
+ 0002:00005400       szName                     000000018000e400     ETHERCAT_V1.0.exp
+ 0002:00005412       $N00001                    000000018000e412     ETHERCAT_V1.0.exp
+ 0002:00005443       $N00002                    000000018000e443     ETHERCAT_V1.0.exp
+ 0002:00005473       $N00003                    000000018000e473     ETHERCAT_V1.0.exp
+ 0002:000054a1       $N00004                    000000018000e4a1     ETHERCAT_V1.0.exp
+ 0002:000054cf       $N00005                    000000018000e4cf     ETHERCAT_V1.0.exp
+ 0002:00005500       $N00006                    000000018000e500     ETHERCAT_V1.0.exp
+ 0002:00005530       $N00007                    000000018000e530     ETHERCAT_V1.0.exp
+ 0002:0000555e       $N00008                    000000018000e55e     ETHERCAT_V1.0.exp
+ 0002:0000558c       $N00009                    000000018000e58c     ETHERCAT_V1.0.exp
+ 0002:000055ca       $N00010                    000000018000e5ca     ETHERCAT_V1.0.exp
+ 0002:00005607       $N00011                    000000018000e607     ETHERCAT_V1.0.exp
+ 0002:00005642       $N00012                    000000018000e642     ETHERCAT_V1.0.exp
+ 0002:0000567d       $N00013                    000000018000e67d     ETHERCAT_V1.0.exp
+ 0002:000056b3       $N00014                    000000018000e6b3     ETHERCAT_V1.0.exp
+ 0002:000056e8       $N00015                    000000018000e6e8     ETHERCAT_V1.0.exp
+ 0002:0000571d       $N00016                    000000018000e71d     ETHERCAT_V1.0.exp
+ 0002:00005751       $N00017                    000000018000e751     ETHERCAT_V1.0.exp
+ 0002:00005786       $N00018                    000000018000e786     ETHERCAT_V1.0.exp
+ 0002:000057ba       $N00019                    000000018000e7ba     ETHERCAT_V1.0.exp
+ 0002:000057ee       $N00020                    000000018000e7ee     ETHERCAT_V1.0.exp
+ 0002:00005825       $N00021                    000000018000e825     ETHERCAT_V1.0.exp
+ 0002:0000585e       $N00022                    000000018000e85e     ETHERCAT_V1.0.exp
+ 0002:00005897       $N00023                    000000018000e897     ETHERCAT_V1.0.exp
+ 0002:000058de       $N00024                    000000018000e8de     ETHERCAT_V1.0.exp
+ 0002:0000592a       $N00025                    000000018000e92a     ETHERCAT_V1.0.exp
+ 0002:00005975       $N00026                    000000018000e975     ETHERCAT_V1.0.exp
+ 0002:000059bd       $N00027                    000000018000e9bd     ETHERCAT_V1.0.exp
+ 0002:00005a04       $N00028                    000000018000ea04     ETHERCAT_V1.0.exp
+ 0002:00005a4c       $N00029                    000000018000ea4c     ETHERCAT_V1.0.exp
+ 0002:00005a93       $N00030                    000000018000ea93     ETHERCAT_V1.0.exp
+ 0002:00005ad6       $N00031                    000000018000ead6     ETHERCAT_V1.0.exp
+ 0002:00005b0d       $N00032                    000000018000eb0d     ETHERCAT_V1.0.exp
+ 0002:00005b43       $N00033                    000000018000eb43     ETHERCAT_V1.0.exp
+ 0002:00005b79       $N00034                    000000018000eb79     ETHERCAT_V1.0.exp
+ 0002:00005bae       $N00035                    000000018000ebae     ETHERCAT_V1.0.exp
+ 0002:00005be9       $N00036                    000000018000ebe9     ETHERCAT_V1.0.exp
+ 0002:00005c23       $N00037                    000000018000ec23     ETHERCAT_V1.0.exp
+ 0002:00005c62       $N00038                    000000018000ec62     ETHERCAT_V1.0.exp
+ 0002:00005ca0       $N00039                    000000018000eca0     ETHERCAT_V1.0.exp
+ 0002:00005cd9       $N00040                    000000018000ecd9     ETHERCAT_V1.0.exp
+ 0002:00005d11       $N00041                    000000018000ed11     ETHERCAT_V1.0.exp
+ 0002:00005d63       $N00042                    000000018000ed63     ETHERCAT_V1.0.exp
+ 0002:00005db4       $N00043                    000000018000edb4     ETHERCAT_V1.0.exp
+ 0002:00005de7       $N00044                    000000018000ede7     ETHERCAT_V1.0.exp
+ 0002:00005e19       $N00045                    000000018000ee19     ETHERCAT_V1.0.exp
+ 0002:00005e55       $N00046                    000000018000ee55     ETHERCAT_V1.0.exp
+ 0002:00005e90       $N00047                    000000018000ee90     ETHERCAT_V1.0.exp
+ 0002:00005ed3       $N00048                    000000018000eed3     ETHERCAT_V1.0.exp
+ 0002:00005f15       $N00049                    000000018000ef15     ETHERCAT_V1.0.exp
+ 0002:00005f4e       $N00050                    000000018000ef4e     ETHERCAT_V1.0.exp
+ 0002:00005f86       $N00051                    000000018000ef86     ETHERCAT_V1.0.exp
+ 0002:00005fd8       $N00052                    000000018000efd8     ETHERCAT_V1.0.exp
+ 0002:00006029       $N00053                    000000018000f029     ETHERCAT_V1.0.exp
+ 0002:0000605f       $N00054                    000000018000f05f     ETHERCAT_V1.0.exp
+ 0002:00006094       $N00055                    000000018000f094     ETHERCAT_V1.0.exp
+ 0002:000060c8       $N00056                    000000018000f0c8     ETHERCAT_V1.0.exp
+ 0002:000060ff       $N00057                    000000018000f0ff     ETHERCAT_V1.0.exp
+ 0002:00006135       $N00058                    000000018000f135     ETHERCAT_V1.0.exp
+ 0002:0000616a       $N00059                    000000018000f16a     ETHERCAT_V1.0.exp
+ 0002:0000619b       $N00060                    000000018000f19b     ETHERCAT_V1.0.exp
+ 0002:000061da       $N00061                    000000018000f1da     ETHERCAT_V1.0.exp
+ 0002:00006218       $N00062                    000000018000f218     ETHERCAT_V1.0.exp
+ 0002:0000624a       $N00063                    000000018000f24a     ETHERCAT_V1.0.exp
+ 0002:0000627d       $N00064                    000000018000f27d     ETHERCAT_V1.0.exp
+ 0002:000062ae       $N00065                    000000018000f2ae     ETHERCAT_V1.0.exp
+ 0002:000062f0       $N00066                    000000018000f2f0     ETHERCAT_V1.0.exp
+ 0002:00006331       $N00067                    000000018000f331     ETHERCAT_V1.0.exp
+ 0002:00006372       $N00068                    000000018000f372     ETHERCAT_V1.0.exp
+ 0002:0000674a       .idata$6                   000000018000f74a     Kernel32:KERNEL32.dll
+ 0002:00006766       .idata$6                   000000018000f766     user32:USER32.dll
+ 0002:00006772       .idata$6                   000000018000f772     cifX32DLL64:cifX32DLL.dll
+ 0002:000067e2       .idata$6                   000000018000f7e2     vcruntimed:VCRUNTIME140D.dll
+ 0002:000067f4       .idata$6                   000000018000f7f4     vcruntimed:VCRUNTIME140_1D.dll
+ 0002:00006914       .idata$6                   000000018000f914     ucrtd:ucrtbased.dll
+ 0003:00000100       ?g_hModule@@3PEAUHINSTANCE__@@EA 0000000180010100     main.obj
+ 0003:00000120       ?getTime@?1??GetTm@PacketTimer@EtherCATPacketCommLib@@CAAEAT_LARGE_INTEGER@@XZ@4T4@A 0000000180010120     EtherCATComm.obj
+ 0003:00000128       ?frequency@?1??Frequency@PacketTimer@EtherCATPacketCommLib@@SAAEAT_LARGE_INTEGER@@XZ@4T4@A 0000000180010128     EtherCATComm.obj
+ 0003:00000140       ?is_initialized_as_dll@@3_NA 0000000180010140     MSVCRTD:utility.obj
+ 0003:00000141       ?module_local_atexit_table_initialized@@3_NA 0000000180010141     MSVCRTD:utility.obj
+ 0003:00000148       ?module_local_atexit_table@@3U_onexit_table_t@@A 0000000180010148     MSVCRTD:utility.obj
+ 0003:00000160       ?module_local_at_quick_exit_table@@3U_onexit_table_t@@A 0000000180010160     MSVCRTD:utility.obj
+ 0003:00000178       ?__proc_attached@@3HA      0000000180010178     MSVCRTD:dll_dllmain.obj
+ 0003:00000190       GS_ExceptionRecord         0000000180010190     MSVCRTD:gs_report.obj
+ 0003:00000230       GS_ContextRecord           0000000180010230     MSVCRTD:gs_report.obj
+ 0005:00000060       $R000000                   0000000180012060     * linker generated manifest res *
+
+ Exports
+
+  ordinal    name
+
+        1    ??0EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ (public: __cdecl EtherCATPacketCommLib::EtherCATMaster::EtherCATMaster(void))
+        2    ??0EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ (public: __cdecl EtherCATPacketCommLib::EtherCATSlave::EtherCATSlave(void))
+        3    ??0PacketQueue@EtherCATPacketCommLib@@QEAA@XZ (public: __cdecl EtherCATPacketCommLib::PacketQueue::PacketQueue(void))
+        4    ??0PacketTimer@EtherCATPacketCommLib@@QEAA@XZ (public: __cdecl EtherCATPacketCommLib::PacketTimer::PacketTimer(void))
+        5    ??1EtherCATMaster@EtherCATPacketCommLib@@QEAA@XZ (public: __cdecl EtherCATPacketCommLib::EtherCATMaster::~EtherCATMaster(void))
+        6    ??1EtherCATSlave@EtherCATPacketCommLib@@QEAA@XZ (public: __cdecl EtherCATPacketCommLib::EtherCATSlave::~EtherCATSlave(void))
+        7    ??1PacketQueue@EtherCATPacketCommLib@@QEAA@XZ (public: __cdecl EtherCATPacketCommLib::PacketQueue::~PacketQueue(void))
+        8    ??1PacketTimer@EtherCATPacketCommLib@@QEAA@XZ (public: __cdecl EtherCATPacketCommLib::PacketTimer::~PacketTimer(void))
+        9    ??4EtherCATMaster@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z (public: class EtherCATPacketCommLib::EtherCATMaster & __cdecl EtherCATPacketCommLib::EtherCATMaster::operator=(class EtherCATPacketCommLib::EtherCATMaster const &))
+       10    ??4EtherCATSlave@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z (public: class EtherCATPacketCommLib::EtherCATSlave & __cdecl EtherCATPacketCommLib::EtherCATSlave::operator=(class EtherCATPacketCommLib::EtherCATSlave const &))
+       11    ??4PacketQueue@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z (public: class EtherCATPacketCommLib::PacketQueue & __cdecl EtherCATPacketCommLib::PacketQueue::operator=(class EtherCATPacketCommLib::PacketQueue const &))
+       12    ??4PacketTimer@EtherCATPacketCommLib@@QEAAAEAV01@AEBV01@@Z (public: class EtherCATPacketCommLib::PacketTimer & __cdecl EtherCATPacketCommLib::PacketTimer::operator=(class EtherCATPacketCommLib::PacketTimer const &))
+       13    ?AOff@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATMaster::AOff(int))
+       14    ?AOff@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATSlave::AOff(int))
+       15    ?AOn@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATMaster::AOn(int))
+       16    ?AOn@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATSlave::AOn(int))
+       17    ?Close@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ (public: int __cdecl EtherCATPacketCommLib::EtherCATMaster::Close(void))
+       18    ?Close@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ (public: int __cdecl EtherCATPacketCommLib::EtherCATSlave::Close(void))
+       19    ?Elapsed@PacketTimer@EtherCATPacketCommLib@@QEAANXZ (public: double __cdecl EtherCATPacketCommLib::PacketTimer::Elapsed(void))
+       20    ?ElapsedSec@PacketTimer@EtherCATPacketCommLib@@QEAANXZ (public: double __cdecl EtherCATPacketCommLib::PacketTimer::ElapsedSec(void))
+       21    ?Elapsed_mSec@PacketTimer@EtherCATPacketCommLib@@QEAANXZ (public: double __cdecl EtherCATPacketCommLib::PacketTimer::Elapsed_mSec(void))
+       22    ?Elapsed_nSec@PacketTimer@EtherCATPacketCommLib@@QEAAJXZ (public: long __cdecl EtherCATPacketCommLib::PacketTimer::Elapsed_nSec(void))
+       23    ?Frequency@PacketTimer@EtherCATPacketCommLib@@SAAEAT_LARGE_INTEGER@@XZ (public: static union _LARGE_INTEGER & __cdecl EtherCATPacketCommLib::PacketTimer::Frequency(void))
+       24    ?GetReadSendPacketInfoAddr@EtherCATMaster@EtherCATPacketCommLib@@QEAAPEAEXZ (public: unsigned char * __cdecl EtherCATPacketCommLib::EtherCATMaster::GetReadSendPacketInfoAddr(void))
+       25    ?GetReadSendPacketInfoAddr@EtherCATSlave@EtherCATPacketCommLib@@QEAAPEAEXZ (public: unsigned char * __cdecl EtherCATPacketCommLib::EtherCATSlave::GetReadSendPacketInfoAddr(void))
+       26    ?GetRecvPacketInfoAddr@EtherCATMaster@EtherCATPacketCommLib@@QEAAPEAEXZ (public: unsigned char * __cdecl EtherCATPacketCommLib::EtherCATMaster::GetRecvPacketInfoAddr(void))
+       27    ?GetRecvPacketInfoAddr@EtherCATSlave@EtherCATPacketCommLib@@QEAAPEAEXZ (public: unsigned char * __cdecl EtherCATPacketCommLib::EtherCATSlave::GetRecvPacketInfoAddr(void))
+       28    ?GetSendPacketInfoAddr@EtherCATMaster@EtherCATPacketCommLib@@QEAAPEAEXZ (public: unsigned char * __cdecl EtherCATPacketCommLib::EtherCATMaster::GetSendPacketInfoAddr(void))
+       29    ?GetSendPacketInfoAddr@EtherCATSlave@EtherCATPacketCommLib@@QEAAPEAEXZ (public: unsigned char * __cdecl EtherCATPacketCommLib::EtherCATSlave::GetSendPacketInfoAddr(void))
+       30    ?GetTm@PacketTimer@EtherCATPacketCommLib@@CAAEAT_LARGE_INTEGER@@XZ (private: static union _LARGE_INTEGER & __cdecl EtherCATPacketCommLib::PacketTimer::GetTm(void))
+       31    ?IsOff@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATMaster::IsOff(int))
+       32    ?IsOff@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATSlave::IsOff(int))
+       33    ?IsOn@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NH@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATMaster::IsOn(int))
+       34    ?IsOn@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NH@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATSlave::IsOn(int))
+       35    ?Open@EtherCATMaster@EtherCATPacketCommLib@@QEAAHPEB_W_N@Z (public: int __cdecl EtherCATPacketCommLib::EtherCATMaster::Open(wchar_t const *,bool))
+       36    ?Open@EtherCATSlave@EtherCATPacketCommLib@@QEAAHPEB_W_N@Z (public: int __cdecl EtherCATPacketCommLib::EtherCATSlave::Open(wchar_t const *,bool))
+       37    ?Recv@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATMaster::Recv(unsigned char *,int &,int &,unsigned long))
+       38    ?Recv@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEAEAH1K@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATSlave::Recv(unsigned char *,int &,int &,unsigned long))
+       39    ?RecvCycle@EtherCATMaster@EtherCATPacketCommLib@@AEAAXXZ (private: void __cdecl EtherCATPacketCommLib::EtherCATMaster::RecvCycle(void))
+       40    ?RecvCycle@EtherCATSlave@EtherCATPacketCommLib@@AEAAXXZ (private: void __cdecl EtherCATPacketCommLib::EtherCATSlave::RecvCycle(void))
+       41    ?RecvPacketInfo@EtherCATMaster@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ (private: struct EtherCATPacketCommLib::tagPACKET_INFO & __cdecl EtherCATPacketCommLib::EtherCATMaster::RecvPacketInfo(void))
+       42    ?RecvPacketInfo@EtherCATSlave@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ (private: struct EtherCATPacketCommLib::tagPACKET_INFO & __cdecl EtherCATPacketCommLib::EtherCATSlave::RecvPacketInfo(void))
+       43    ?Reset@PacketTimer@EtherCATPacketCommLib@@QEAAHH@Z (public: int __cdecl EtherCATPacketCommLib::PacketTimer::Reset(int))
+       44    ?Reset@PacketTimer@EtherCATPacketCommLib@@QEAAHXZ (public: int __cdecl EtherCATPacketCommLib::PacketTimer::Reset(void))
+       45    ?Send@EtherCATMaster@EtherCATPacketCommLib@@QEAA_NPEAEHHK@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATMaster::Send(unsigned char *,int,int,unsigned long))
+       46    ?Send@EtherCATSlave@EtherCATPacketCommLib@@QEAA_NPEAEHHK@Z (public: bool __cdecl EtherCATPacketCommLib::EtherCATSlave::Send(unsigned char *,int,int,unsigned long))
+       47    ?SendCommand@EtherCATMaster@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z (private: bool __cdecl EtherCATPacketCommLib::EtherCATMaster::SendCommand(unsigned char *,int,int,unsigned long))
+       48    ?SendCommand@EtherCATSlave@EtherCATPacketCommLib@@AEAA_NPEAEHHK@Z (private: bool __cdecl EtherCATPacketCommLib::EtherCATSlave::SendCommand(unsigned char *,int,int,unsigned long))
+       49    ?SendCycle@EtherCATMaster@EtherCATPacketCommLib@@AEAAXXZ (private: void __cdecl EtherCATPacketCommLib::EtherCATMaster::SendCycle(void))
+       50    ?SendCycle@EtherCATSlave@EtherCATPacketCommLib@@AEAAXXZ (private: void __cdecl EtherCATPacketCommLib::EtherCATSlave::SendCycle(void))
+       51    ?SendPacketInfo@EtherCATMaster@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ (private: struct EtherCATPacketCommLib::tagPACKET_INFO & __cdecl EtherCATPacketCommLib::EtherCATMaster::SendPacketInfo(void))
+       52    ?SendPacketInfo@EtherCATSlave@EtherCATPacketCommLib@@AEAAAEAUtagPACKET_INFO@2@XZ (private: struct EtherCATPacketCommLib::tagPACKET_INFO & __cdecl EtherCATPacketCommLib::EtherCATSlave::SendPacketInfo(void))
+       53    ?Set@EtherCATMaster@EtherCATPacketCommLib@@QEAAXH_N@Z (public: void __cdecl EtherCATPacketCommLib::EtherCATMaster::Set(int,bool))
+       54    ?Set@EtherCATSlave@EtherCATPacketCommLib@@QEAAXH_N@Z (public: void __cdecl EtherCATPacketCommLib::EtherCATSlave::Set(int,bool))
+       55    ?TmOver@PacketTimer@EtherCATPacketCommLib@@QEAAHK@Z (public: int __cdecl EtherCATPacketCommLib::PacketTimer::TmOver(unsigned long))
+       56    ?TmOverSec@PacketTimer@EtherCATPacketCommLib@@QEAAHN@Z (public: int __cdecl EtherCATPacketCommLib::PacketTimer::TmOverSec(double))
+       57    ?Update@EtherCATMaster@EtherCATPacketCommLib@@QEAAHXZ (public: int __cdecl EtherCATPacketCommLib::EtherCATMaster::Update(void))
+       58    ?Update@EtherCATSlave@EtherCATPacketCommLib@@QEAAHXZ (public: int __cdecl EtherCATPacketCommLib::EtherCATSlave::Update(void))
+       59    ?Update@PacketTimer@EtherCATPacketCommLib@@SAXXZ (public: static void __cdecl EtherCATPacketCommLib::PacketTimer::Update(void))
+       60    ?UpdateProcess@EtherCATMaster@EtherCATPacketCommLib@@CAXPEAX@Z (private: static void __cdecl EtherCATPacketCommLib::EtherCATMaster::UpdateProcess(void *))
+       61    ?UpdateProcess@EtherCATSlave@EtherCATPacketCommLib@@CAXPEAX@Z (private: static void __cdecl EtherCATPacketCommLib::EtherCATSlave::UpdateProcess(void *))
+       62    ?clear@PacketQueue@EtherCATPacketCommLib@@QEAAXXZ (public: void __cdecl EtherCATPacketCommLib::PacketQueue::clear(void))
+       63    ?empty@PacketQueue@EtherCATPacketCommLib@@QEAA_NXZ (public: bool __cdecl EtherCATPacketCommLib::PacketQueue::empty(void))
+       64    ?m_maxCnt@PacketQueue@EtherCATPacketCommLib@@0HB (private: static int const EtherCATPacketCommLib::PacketQueue::m_maxCnt)
+       65    ?peek@PacketQueue@EtherCATPacketCommLib@@QEAA?AUtagDATA_INFO@2@XZ (public: struct EtherCATPacketCommLib::tagDATA_INFO __cdecl EtherCATPacketCommLib::PacketQueue::peek(void))
+       66    ?pop@PacketQueue@EtherCATPacketCommLib@@QEAA?AUtagDATA_INFO@2@XZ (public: struct EtherCATPacketCommLib::tagDATA_INFO __cdecl EtherCATPacketCommLib::PacketQueue::pop(void))
+       67    ?push@PacketQueue@EtherCATPacketCommLib@@QEAAXUtagDATA_INFO@2@@Z (public: void __cdecl EtherCATPacketCommLib::PacketQueue::push(struct EtherCATPacketCommLib::tagDATA_INFO))
+       68    ?size@PacketQueue@EtherCATPacketCommLib@@QEAA_KXZ (public: unsigned __int64 __cdecl EtherCATPacketCommLib::PacketQueue::size(void))

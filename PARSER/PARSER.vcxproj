@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--*********************************************************************************-->
+  <!--                                                                                 -->
+  <!-- This file was generated using the Application Template for Visual Studio. -->
+  <!--                                                                                 -->
+  <!-- Created: 10/18/2022 4:50:12 PM                                                 -->
+  <!-- User: Jin-Seong Choi                                                                      -->
+  <!--                                                                                 -->
+  <!--*********************************************************************************-->
+  <!-- **************************  -->
+  <!--                             -->
+  <!--   Project Configurations    -->
+  <!--                             -->
+  <!-- **************************  -->
+  <ItemGroup Label="ProjectConfigurations">
+    <!-- Debug x64 configurations -->
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <!-- Release x64 configurations -->
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <!-- RtssDebug x64 configurations -->
+    <!-- RtssRelease x64 configurations -->
+  </ItemGroup>
+  <!-- **************************  -->
+  <!--                             -->
+  <!-- Files contained in project  -->
+  <!--                             -->
+  <!-- **************************  -->
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SRC\Parser.cpp" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SRC\Parser.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4DED1A89-E211-4E5F-BE48-DBD0E9929453}</ProjectGuid>
+    <RootNamespace>PARSER</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>PARSER</ProjectName>
+  </PropertyGroup>
+  <!-- Default props -->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <!--Set the .rtss target extension -->
+  <!-- **************************  -->
+  <!--                             -->
+  <!-- Configurations              -->
+  <!--                             -->
+  <!-- **************************  -->
+  <!-- Debug x64 Project Configuration -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <!-- Release x64 Project Configuration -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <!-- RtssDebug x64 Project Configuration -->
+  <!-- RtssRelease x64 Project Configuration -->
+  <!-- **************************  -->
+  <!--                             -->
+  <!-- Configuration props         -->
+  <!--                             -->
+  <!-- **************************  -->
+  <!-- Default props -->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <!-- Release x64 props -->
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(RTX64SDKDir3)\include\RTX64.Cpp.$(Platform).user.props" Condition="exists('$(RTX64SDKDir3)\include\RTX64.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <!-- Debug x64 props -->
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(RTX64SDKDir3)\include\RTX64.Cpp.$(Platform).user.props" Condition="exists('$(RTX64SDKDir3)\include\RTX64.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <!-- RtssRelease x64 props -->
+  <!-- RtssDebug x64 props -->
+  <PropertyGroup Label="UserMacros" />
+  <!-- Add .rtdll extension to RtssDebug and RtssRelease -->
+  <!-- Turn off Manifest and Incremental Linker for RTSS -->
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)LIB\</OutDir>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <IntDir>$(SolutionDir).vs\x64\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)LIB\</OutDir>
+    <LinkIncremental>false</LinkIncremental>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
+    <IntDir>$(SolutionDir).vs\x64\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <!-- **************************  -->
+  <!--                             -->
+  <!-- Compile/Link Configurations -->
+  <!--                             -->
+  <!-- **************************  -->
+  <!-- Release x64 -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)LIB;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CONSOLE;_AMD64_;NDEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <AssemblerOutput>All</AssemblerOutput>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <AdditionalOptions>/wd26812 /utf-8 /MP %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib;kernel32.lib;user32.lib;shlwapi.lib;winmm.lib;AdvancedMotionApi.lib;ApiBufferApi.lib;CompensationApi.lib;CoreMotionApi.lib;CyclicBufferApi.lib;EcApi.lib;EcApi_Win.lib;EventApi.lib;IMDll.lib;IOApi.lib;LogApi.lib;PMMotionApi.lib;SimuApi.lib;UserMemoryApi.lib;WMX3Api.lib;kamelaslibDU_x64.lib;KASIO_x64_D_V2.0.lib;slogD_x64.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)LIB;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>NotSet</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <StackReserveSize>300000000</StackReserveSize>
+      <StackCommitSize>300000000</StackCommitSize>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>true</MapExports>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <LinkTimeCodeGeneration />
+      <HeapReserveSize>
+      </HeapReserveSize>
+      <HeapCommitSize>
+      </HeapCommitSize>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(RTX64SDKDir3)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>copy /Y "$(WMX3)\Lib\AdvancedMotionApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\ApiBufferApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\CompensationApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\ComputerId.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\ComputerId_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\CoreMotionApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\CyclicBufferApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\EcApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\EventApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\HaspDongle_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\IMDll.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\IOApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\LogApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\PMMotionApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\SimuApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\UserMemoryApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\WMX3Api_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\AdvancedMotionApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\ApiBufferApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\CompensationApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\CoreMotionApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\CyclicBufferApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\EcApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\EcApi_Win.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\EventApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\IMDll.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\IMDll_RT.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\IOApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\LogApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\PMMotionApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\SimuApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\UserMemoryApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\WMX3Api.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Include\AdvancedMotionApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\ApiBufferApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\CompensationApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\CoreMotionApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\CyclicBufferApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\EcApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\EventApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\IOApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\LogApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\PMMotionApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\SimuApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\UserMemoryApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\WMX3Api.h" "$(SolutionDir)SEQ\HW\WMX\"
+if not exist "C:\KOSES\SEQ\kamelaslibDU_x64.dll" (copy /Y "$(TargetDir)kamelaslibDU_x64.dll" "C:\KOSES\SEQ\")
+if not exist "C:\KOSES\SEQ\Revision.template" (copy /Y "$(TargetDir)Revision.template" "C:\KOSES\SEQ\")
+if not exist "C:\KOSES\SEQ\KASIO_V2.0.dll" (copy /Y "$(TargetDir)KASIO_V2.0.dll" "C:\KOSES\SEQ\")
+if not exist "C:\KOSES\SEQ\wmx_parameters.xml" (copy /Y "$(TargetDir)wmx_parameters.xml" "C:\KOSES\SEQ\")</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>if exist "$(SolutionDir)LIB\PARSER.exe" call "$(SolutionDir)LIB\PARSER.exe"</Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <!-- Debug x64 -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)LIB;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CONSOLE;_AMD64_;_DEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <MinimalRebuild>false</MinimalRebuild>
+      <AssemblerOutput>All</AssemblerOutput>
+      <AdditionalOptions>/wd26812 /utf-8 /MP /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>$(SolutionDir)LIB;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib;kernel32.lib;user32.lib;shlwapi.lib;winmm.lib</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>NotSet</SubSystem>
+      <StackReserveSize>300000000</StackReserveSize>
+      <StackCommitSize>300000000</StackCommitSize>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <MapExports>true</MapExports>
+      <GenerateMapFile>true</GenerateMapFile>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <HeapReserveSize>
+      </HeapReserveSize>
+      <HeapCommitSize>
+      </HeapCommitSize>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(RTX64SDKDir3)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>copy /Y "$(WMX3)\Lib\AdvancedMotionApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\ApiBufferApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\CompensationApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\ComputerId.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\ComputerId_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\CoreMotionApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\CyclicBufferApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\EcApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\EventApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\HaspDongle_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\IMDll.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\IOApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\LogApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\PMMotionApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\SimuApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\UserMemoryApi_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\WMX3Api_CLRLib.dll" "C:\KOSES\SEQ\"
+copy /Y "$(WMX3)\Lib\AdvancedMotionApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\ApiBufferApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\CompensationApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\CoreMotionApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\CyclicBufferApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\EcApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\EcApi_Win.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\EventApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\IMDll.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\IMDll_RT.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\IOApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\LogApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\PMMotionApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\SimuApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\UserMemoryApi.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Lib\WMX3Api.lib" "$(SolutionDir)LIB\"
+copy /Y "$(WMX3)\Include\AdvancedMotionApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\ApiBufferApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\CompensationApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\CoreMotionApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\CyclicBufferApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\EcApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\EventApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\IOApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\LogApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\PMMotionApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\SimuApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\UserMemoryApi.h" "$(SolutionDir)SEQ\HW\WMX\"
+copy /Y "$(WMX3)\Include\WMX3Api.h" "$(SolutionDir)SEQ\HW\WMX\"
+if not exist "C:\KOSES\SEQ\kamelaslibDU_x64.dll" (copy /Y "$(TargetDir)kamelaslibDU_x64.dll" "C:\KOSES\SEQ\")
+if not exist "C:\KOSES\SEQ\Revision.template" (copy /Y "$(TargetDir)Revision.template" "C:\KOSES\SEQ\")
+if not exist "C:\KOSES\SEQ\KASIO_V2.0.dll" (copy /Y "$(TargetDir)KASIO_V2.0.dll" "C:\KOSES\SEQ\")
+if not exist "C:\KOSES\SEQ\wmx_parameters.xml" (copy /Y "$(TargetDir)wmx_parameters.xml" "C:\KOSES\SEQ\")</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>if exist "$(SolutionDir)LIB\PARSER.exe" call "$(SolutionDir)LIB\PARSER.exe"</Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <!-- RtssRelease x64 -->
+  <!-- RtssDebug x64 -->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(RTX64Common)\DebuggerExtensions\IntervalZero.targets" Condition="exists('$(RTX64Common)\DebuggerExtensions\IntervalZero.targets')" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

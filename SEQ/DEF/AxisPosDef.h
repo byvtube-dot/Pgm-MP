@@ -1,0 +1,228 @@
+﻿#pragma once
+enum PosOfInPkX
+{
+	P_IN_PK_X_READY							= 0,
+	P_IN_PK_X_BTM_FOAM_VI_1ST				= 1,
+	P_IN_PK_X_BTM_FOAM_VI_2ND				= 2,
+	P_IN_PK_X_PICK							= 3,
+	P_IN_PK_X_BAND_VI_1ST					= 4,
+	P_IN_PK_X_BAND_VI_2ND					= 5,
+	P_IN_PK_X_BAND_VI_3RD					= 6,
+	P_IN_PK_X_PLACE							= 7,
+	P_IN_PK_X_TRAY_VI						= 8,
+	P_IN_PK_X_LABEL_VI						= 9,
+	P_IN_PK_X_MAX,
+};
+
+enum PosOfInPkZ
+{
+	P_IN_PK_Z_READY							= 0,
+	P_IN_PK_Z_BTM_FOAM_VI_NORMAL			= 1,
+	P_IN_PK_Z_BTM_FOAM_VI_PARTIAL			= 2,
+	P_IN_PK_Z_PICK							= 3,
+	P_IN_PK_Z_BAND_VI						= 4,
+	P_IN_PK_Z_PLACE_NORMAL					= 5,
+	P_IN_PK_Z_PLACE_PARTIAL					= 6,
+	P_IN_PK_Z_TRAY_VI						= 7,
+	P_IN_PK_Z_LABEL_VI						= 8,
+
+	P_IN_PK_Z_SLOW_UP_OFFSET				= 11,
+	P_IN_PK_Z_SLOW_DN_OFFSET				= 12,
+	P_IN_PK_Z_MAX,
+};
+
+enum PosOfTrayShuttleY
+{
+	P_TRAY_SHUTTLE_Y_READY					= 0,
+	P_TRAY_SHUTTLE_Y_RECV					= 1,
+	P_TRAY_SHUTTLE_Y_SEND					= 2,
+	P_TRAY_SHUTTLE_Y_MAX,
+};
+
+enum PosOfTrayPusherX
+{
+	P_TRAY_PUSHER_X_READY					= 0,
+	P_TRAY_PUSHER_X_1ST_END					= 1,
+	P_TRAY_PUSHER_X_2ND_END					= 2,
+	P_TRAY_PUSHER_X_END_TOLERANCE			= 3,
+	P_TRAY_PUSHER_X_MAX,
+};
+
+enum PosOfMbbOpenZ
+{
+	P_MBB_OPEN_Z_READY						= 0,
+	P_MBB_OPEN_Z_PICK						= 1,
+	P_MBB_OPEN_Z_WORK						= 2,
+
+	P_MBB_OPEN_Z_SLOW_UP_OFFSET				= 11,
+	P_MBB_OPEN_Z_SLOW_DN_OFFSET				= 12,
+	P_MBB_OPEN_Z_MAX,
+};
+
+enum PosOfElevZ
+{
+	P_ELEV_Z_BTM							= 0,
+	P_ELEV_Z_TOP							= 1,
+	P_ELEV_Z_PITCH							= 2,
+	P_ELEV_Z_MAX,
+};
+
+enum PosOfFoamTurnT
+{
+	P_FOAM_FLIP_T_SEND						= 0,
+	P_FOAM_FLIP_T_PICK						= 1,
+	P_FOAM_FLIP_T_SLOW_SEND_OFFSET			= 11,
+	P_FOAM_FLIP_T_MAX,
+};
+
+enum PosOfFoamPkX
+{
+	P_FOAM_PK_X_READY						= 0,
+	P_FOAM_PK_X_LT_CST_PICK					= 1,
+	P_FOAM_PK_X_RT_CST_PICK					= 2,
+	P_FOAM_PK_X_LT_CST_LT_CHECK_MIX_FLIP	= 3,
+	P_FOAM_PK_X_LT_CST_RT_CHECK_MIX_FLIP	= 4,
+	P_FOAM_PK_X_RT_CST_LT_CHECK_MIX_FLIP	= 5,
+	P_FOAM_PK_X_RT_CST_RT_CHECK_MIX_FLIP	= 6,
+	P_FOAM_PK_X_LT_ELEV_PLACE				= 7,
+	P_FOAM_PK_X_RT_ELEV_PLACE				= 8,
+	P_FOAM_PK_X_LT_CST_WORK_SAFETY			= 9,	//	Right Pos
+	P_FOAM_PK_X_RT_CST_WORK_SAFETY			= 10,	//	Left Pos
+	P_FOAM_PK_X_MAX,
+};
+
+enum PosOfFoamPkY
+{
+	P_FOAM_PK_Y_READY						= 0,
+	P_FOAM_PK_Y_LT_CST_PICK					= 1,
+	P_FOAM_PK_Y_RT_CST_PICK					= 2,
+	P_FOAM_PK_Y_LT_CST_LT_CHECK_MIX_FLIP	= 3,
+	P_FOAM_PK_Y_LT_CST_RT_CHECK_MIX_FLIP	= 4,
+	P_FOAM_PK_Y_RT_CST_LT_CHECK_MIX_FLIP	= 5,
+	P_FOAM_PK_Y_RT_CST_RT_CHECK_MIX_FLIP	= 6,
+	P_FOAM_PK_Y_LT_ELEV_PLACE				= 7,
+	P_FOAM_PK_Y_RT_ELEV_PLACE				= 8,
+
+	P_FOAM_PK_Y_SAFETY						= 10,
+	P_FOAM_PK_Y_MAX,
+};
+
+enum PosOfFoamPkZ
+{
+	P_FOAM_PK_Z_READY						= 0,
+	P_FOAM_PK_Z_LT_CST_PICK					= 1,
+	P_FOAM_PK_Z_RT_CST_PICK					= 2,
+	P_FOAM_PK_Z_LT_CST_CHECK_MIX_FLIP		= 3,
+
+	P_FOAM_PK_Z_RT_CST_CHECK_MIX_FLIP		= 5,
+
+	P_FOAM_PK_Z_LT_ELEV_PLACE				= 7,
+	P_FOAM_PK_Z_RT_ELEV_PLACE				= 8,
+	P_FOAM_PK_Z_MAX,
+};
+
+enum PosOfMbbShuttleY
+{
+	P_MBB_SHUTTLE_Y_READY					= 0,
+	P_MBB_SHUTTLE_Y_RECV					= 1,
+	P_MBB_SHUTTLE_Y_SEAL					= 2,
+	P_MBB_SHUTTLE_Y_SEND					= 3,
+	P_MBB_SHUTTLE_Y_MAX,
+};
+
+enum PosOfMbbShuttleConv
+{
+	P_MBB_SHUTTLE_T_READY					= 0,
+	P_MBB_SHUTTLE_T_RECV_VEL				= 1,
+	P_MBB_SHUTTLE_T_BACK_PITCH				= 2,
+	P_MBB_SHUTTLE_T_LEVEL_VEL				= 3,
+	P_MBB_SHUTTLE_T_SEAL_PITCH				= 4,
+	P_MBB_SHUTTLE_T_SEND_VEL				= 5,
+	P_MBB_SHUTTLE_T_MAX,
+};
+
+enum PosOfMbbQcViY
+{
+	P_MBB_QC_VI_Y_READY						= 0,
+	P_MBB_QC_VI_Y_WORK						= 1,
+	P_MBB_QC_VI_Y_MARK_INSP					= 2,
+	P_MBB_QC_VI_Y_MAX,
+};
+
+enum PosOfMbbFoldPkX
+{
+	P_MBB_FOLD_PK_X_READY					= 0,
+	P_MBB_FOLD_PK_X_PICK					= 1,
+	P_MBB_FOLD_PK_X_PLACE					= 2,
+	P_MBB_FOLD_PK_X_ALIGN					= 3,
+	P_MBB_FOLD_PK_X_CLAMP					= 4,
+
+	P_MBB_FOLD_PK_X_RIGHT_ATTACH_START		= 7,
+	P_MBB_FOLD_PK_X_RIGHT_ATTACH_END		= 8,
+	P_MBB_FOLD_PK_X_RIGHT_CLAMP				= 9,
+	P_MBB_FOLD_PK_X_LEFT_TURN				= 10,
+	P_MBB_FOLD_PK_X_LEFT_TURN_CLAMP			= 11,
+	P_MBB_FOLD_PK_X_MAX,
+};
+
+enum PosOfMbbFoldPkZ
+{
+	P_MBB_FOLD_PK_Z_READY					= 0,
+	P_MBB_FOLD_PK_Z_PICK					= 1,
+	P_MBB_FOLD_PK_Z_PICK_					= 2,
+	P_MBB_FOLD_PK_Z_PLACE					= 3,
+
+	P_MBB_FOLD_PK_Z_RIGHT_ATTACH			= 7,
+
+	P_MBB_FOLD_PK_Z_SLOW_PICK_OFFSET		= 11,
+	P_MBB_FOLD_PK_Z_SLOW_PLACE_OFFSET		= 12,
+	P_MBB_FOLD_PK_Z_MAX,
+};
+
+enum PosOfLabelShttleY
+{
+	P_LABEL_SHUTTLE_Y_READY					= 0,
+	P_LABEL_SHUTTLE_Y_RECV					= 1,
+	P_LABEL_SHUTTLE_Y_QC					= 2,
+	P_LABEL_SHUTTLE_Y_SEND					= 3,
+	P_LABEL_SHUTTLE_Y_MAX,
+};
+
+enum PosOfLabelLaserX
+{
+	P_LASER_X_READY							= 0,
+	P_LASER_X_LT_EXIST						= 1,
+	P_LASER_X_RT_EXIST						= 2,
+	P_LASER_X_LT_PRS_LT						= 3,
+	P_LASER_X_LT_PRS_RT						= 4,
+	P_LASER_X_RT_PRS_LT						= 5,
+	P_LASER_X_RT_PRS_RT						= 6,
+	P_LASER_X_LT_LASER						= 7,
+	P_LASER_X_RT_LASER						= 8,
+	P_LASER_X_POWER_METER					= 9,
+	P_LASER_X_MAX,
+};
+
+enum PosOfLabelFeed
+{
+	P_LABEL_T_READY							= 0,
+	P_LABEL_T_FEED							= 1,
+	P_LABEL_T_FEED_FAST						= 2,
+	P_LABEL_T_MAX,
+};
+
+enum PosOfMbbQcX
+{
+	P_MBB_QC_X_READY						= 0,
+	P_MBB_QC_X_RECV							= 1,
+	P_MBB_QC_X_WORK_3EA						= 2,
+	P_MBB_QC_X_WORK_4EA						= 3,
+	P_MBB_QC_X_WORK_5EA						= 4,
+	P_MBB_QC_X_WORK_6EA						= 5,
+	P_MBB_QC_X_WORK_7EA						= 6,
+	P_MBB_QC_X_WORK_8EA						= 7,
+	P_MBB_QC_X_WORK_9EA						= 8,
+	P_MBB_QC_X_WORK_10EA					= 9,
+	P_MBB_QC_X_WORK_11EA					= 10,
+	P_MBB_QC_X_MAX,
+};

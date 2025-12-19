@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SRC">
+      <UniqueIdentifier>{6d1009c2-265a-4a72-8887-e11cbc2101ee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SRC\debuglog.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\kamelasbase.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\kamelasconfig.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\kamelasfactory.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\kamelasmanager.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\sharedmemory.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SRC\debuglog.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\kamelasbase.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\kamelasconfig.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\kamelasfactory.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\kamelaslib.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\kamelasmanager.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\sharedmemory.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

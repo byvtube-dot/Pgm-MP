@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="COM">
+      <UniqueIdentifier>{21dffb10-da65-4c14-8aad-3ed045a08eaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DEF">
+      <UniqueIdentifier>{b5ddd304-c7ac-4c4e-a216-b2df08f3e117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HW">
+      <UniqueIdentifier>{cb2a9872-ef3a-4fbe-8ce7-24a936418176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SRC">
+      <UniqueIdentifier>{3f53c04c-69a0-43a2-bb3d-95ac5c94f01f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SRC\PART">
+      <UniqueIdentifier>{b9d62f17-fde8-413f-a508-d104e48c2d04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ROBOT">
+      <UniqueIdentifier>{155fb3cd-a9de-4e46-a6e7-e3aa0a2d7445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ROBOT\MODBUS">
+      <UniqueIdentifier>{57dbf41f-a8e8-4196-ba10-61e84a610f7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ROBOT\MODBUS\BASE">
+      <UniqueIdentifier>{b36e5771-9ee7-43cb-bd23-56ba994e2c1a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="COM\AntiCollision.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\ApiBuffer.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\Error.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\FSM.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\Log.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\Notice.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\TenkeyOpr.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\UpdateMMI.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\WmxLib.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\IO.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\LampBuzzer.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\Motor.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\Tenkey.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\Vacuum.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\Vision.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\RecipeCopy.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\SharedIO.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\CommonParam.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_01_InPk.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_02_FoamRail.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_03_FoamElev.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_04_FoamConv.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_05_FoamPk.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_07_TrayShuttle.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_08_MBBShuttle.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_09_MBBQC.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_13_LaserCoord.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\SEQ.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_01_Init.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_02_Error.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_03_Auto.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_04_Common.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_05_Manual.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_06_Home.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_07_LotEnd.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_08_DryRun.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_09_OpButton.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_10_Notice.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_11_CanMove.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\IPC_LASER.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\IPC_MMI.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\SLog.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\Cylinder.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\Laser.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\_12_Event.cpp">
+      <Filter>SRC</Filter>
+    </ClCompile>
+    <ClCompile Include="COM\ProcessCapa.cpp">
+      <Filter>COM</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_10_BtmFoldConv.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_11_FoldPk.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_12_LabelFeeder.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_13_LabelLaser.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_14_LabelShuttle.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_15_MBBStack.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_16_LtCoBot.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_17_RtCoBot.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\Conveyor.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\PART\_06_FoamBox.cpp">
+      <Filter>SRC\PART</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\Sealing.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="HW\SealingLib.cpp">
+      <Filter>HW</Filter>
+    </ClCompile>
+    <ClCompile Include="ROBOT\MODBUS\BASE\modbus.c">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClCompile>
+    <ClCompile Include="ROBOT\MODBUS\BASE\modbus-data.c">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClCompile>
+    <ClCompile Include="ROBOT\MODBUS\BASE\modbus-rtu.c">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClCompile>
+    <ClCompile Include="ROBOT\MODBUS\BASE\modbus-tcp.c">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClCompile>
+    <ClCompile Include="ROBOT\MODBUS\ModbusTCP.cpp">
+      <Filter>ROBOT\MODBUS</Filter>
+    </ClCompile>
+    <ClCompile Include="ROBOT\RobotCmd.cpp">
+      <Filter>ROBOT</Filter>
+    </ClCompile>
+    <ClCompile Include="ROBOT\RobotIo.cpp">
+      <Filter>ROBOT</Filter>
+    </ClCompile>
+    <ClCompile Include="ROBOT\RobotUpdate.cpp">
+      <Filter>ROBOT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="COM\AntiCollision.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\ApiBuffer.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\Error.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\FSM.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\Log.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\Notice.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\TenkeyOpr.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\UpdateMMI.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\WmxLib.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\IO.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\LampBuzzer.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\Motor.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\Tenkey.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\Vacuum.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\Vision.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\RecipeCopy.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\SharedIO.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\AxisDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\AxisPosDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\ErrNameDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\IODef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\LaserDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\PkgData.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\PneumaticDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\VisionDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\UserMemoryDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\CommonParam.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_01_InPk.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_02_FoamRail.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_03_FoamElev.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_04_FoamConv.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_05_FoamPk.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_07_TrayShuttle.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_08_MBBShuttle.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_09_MBBQC.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\SEQ.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\IPC_LASER.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\IPC_MMI.h">
+      <Filter>SRC</Filter>
+    </ClInclude>
+    <ClInclude Include="COM\SLog.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\Cylinder.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\Laser.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\LogDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\AntiCollisionDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\ApiBufferDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\FsmDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h" />
+    <ClInclude Include="Includes.h" />
+    <ClInclude Include="COM\ProcessCapa.h">
+      <Filter>COM</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF\PneumaticPosDef.h">
+      <Filter>DEF</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_10_BtmFoldConv.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_11_FoldPk.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_12_LabelFeeder.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_13_LabelLaser.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_14_LabelShuttle.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_15_MBBStack.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_16_LtCoBot.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_17_RtCoBot.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\Conveyor.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\PART\_06_FoamBox.h">
+      <Filter>SRC\PART</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\Sealing.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="HW\SealingLib.h">
+      <Filter>HW</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\MODBUS\BASE\config.h">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\MODBUS\BASE\modbus.h">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\MODBUS\BASE\modbus-private.h">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\MODBUS\BASE\modbus-rtu.h">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\MODBUS\BASE\modbus-rtu-private.h">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\MODBUS\BASE\modbus-tcp.h">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\MODBUS\BASE\modbus-tcp-private.h">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\MODBUS\BASE\modbus-version.h">
+      <Filter>ROBOT\MODBUS\BASE</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\MODBUS\ModbusTCP.h">
+      <Filter>ROBOT\MODBUS</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\RainbowRobotics.h">
+      <Filter>ROBOT</Filter>
+    </ClInclude>
+    <ClInclude Include="ROBOT\RainbowRoboticsDef.h">
+      <Filter>ROBOT</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
