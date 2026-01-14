@@ -1,4 +1,4 @@
-﻿#include "..\..\Includes.h"
+#include "..\..\Includes.h"
 
 CRtCobot RT_COBOT;
 
@@ -150,31 +150,42 @@ void CRtCobot::Auto(void)
 
 		if (Exist(_LABEL))
 		{
-			if (MBB_PART_DATA[nvLtMbbStack].exist == enMbbExist ||
-				MBB_PART_DATA[nvRtMbbStack].exist == enMbbExist)
+			if (COBOT_PART_DATA[nvRtCobot].existLabel = enLabelExistQcNg) //## 2026.01 reject
 			{
-				if (IsCanCycleMbbVi())
+				if (IsCanCycleLabelReject())
 				{
-					int nMsgDir = _LT;
-					if (MBB_PART_DATA[nvRtMbbStack].exist == enMbbExist)
-						nMsgDir = _RT;
-
-					m_pFsm->Set(C_MBB_VI_START, nMsgDir);
+					m_pFsm->Set(C_LABEL_REJECT_START);
 					return;
 				}
 			}
-
-			if (MBB_PART_DATA[nvLtMbbStack].exist == enMbbExistQc ||
-				MBB_PART_DATA[nvRtMbbStack].exist == enMbbExistQc)
+			else
 			{
-				if (IsCanCycleLabelAttach())
+				if (MBB_PART_DATA[nvLtMbbStack].exist == enMbbExist ||
+					MBB_PART_DATA[nvRtMbbStack].exist == enMbbExist)
 				{
-					int nMsgDir = _LT;
-					if (MBB_PART_DATA[nvRtMbbStack].exist == enMbbExistQc)
-						nMsgDir = _RT;
+					if (IsCanCycleMbbVi())
+					{
+						int nMsgDir = _LT;
+						if (MBB_PART_DATA[nvRtMbbStack].exist == enMbbExist)
+							nMsgDir = _RT;
 
-					m_pFsm->Set(C_LABEL_ATTACH_START, nMsgDir);
-					return;
+						m_pFsm->Set(C_MBB_VI_START, nMsgDir);
+						return;
+					}
+				}
+
+				if (MBB_PART_DATA[nvLtMbbStack].exist == enMbbExistQc ||
+					MBB_PART_DATA[nvRtMbbStack].exist == enMbbExistQc)
+				{
+					if (IsCanCycleLabelAttach())
+					{
+						int nMsgDir = _LT;
+						if (MBB_PART_DATA[nvRtMbbStack].exist == enMbbExistQc)
+							nMsgDir = _RT;
+
+						m_pFsm->Set(C_LABEL_ATTACH_START, nMsgDir);
+						return;
+					}
 				}
 			}
 		}
@@ -195,8 +206,9 @@ void CRtCobot::Auto(void)
 			}
 			else if (MBB_PART_DATA[nvLtMbbStack].exist || MBB_PART_DATA[nvRtMbbStack].exist)
 			{
-				if (LABEL_SHUTTLE[enlabelLt].Exist() == enLabelExistQc ||
-					LABEL_SHUTTLE[enlabelRt].Exist() == enLabelExistQc)
+				//## 2026.01 조건 변경
+				if (LABEL_SHUTTLE[enlabelLt].Exist() == enLabelExistQc || LABEL_SHUTTLE[enlabelRt].Exist() == enLabelExistQc
+					|| LABEL_SHUTTLE[enlabelLt].Exist() == enLabelExistQcNg || LABEL_SHUTTLE[enlabelRt].Exist() == enLabelExistQcNg)
 				{
 					if (IsCanCycleLabelPick())
 					{
@@ -496,6 +508,13 @@ BOOL CRtCobot::IsCanCycleMbbPlace(void)
 		return FALSE;
 	}
 
+	if (LT_COBOT.m_pFsm->Between(LT_COBOT.C_LABEL_PICK_START, LT_COBOT.C_LABEL_PICK_END))
+	{
+		MSGNOTICE.Set(MSG_CANMOVE, "CLOSE", NULL, NULL, NULL,
+			"Lt Cobot Label Pickup Cycle is Busy");
+		return FALSE;
+	}
+
 	// TODO: 25.09.30
 	//if (MBB_QC.m_pFsm->Between(MBB_QC.C_MBB_QC_VI_START, MBB_QC.C_MBB_QC_VI_CLAMP))
 	//{
@@ -612,38 +631,67 @@ BOOL CRtCobot::IsEmpty(int materialType)
 	return TRUE;
 }
 
-BOOL CRtCobot::GetLabelPickup(void)
+BOOL CRtCobot::GetLabelPickup(void) //## 2026.01 reject
 {
 	for (int nvNo = nvTrayShuttle; nvNo > -1; nvNo--)
 	{
 		if (Between(TRAY_PART_DATA[nvNo].exist, enExistBtmFoam, enExistBtmFoamQc))
 			continue;
 
-		if (TRAY_PART_DATA[nvNo].exist)
+
+		if (NV.use[useRtCobotFirst])
 		{
-			if (TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup &&
-				TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
-				return TRUE;
+			if (TRAY_PART_DATA[nvNo].exist)
+			{
+				if (TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
+					return TRUE;
+				else if (TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup)
+					return FALSE;
+			}
 		}
+		else
+		{
+			if (TRAY_PART_DATA[nvNo].exist)
+			{
+				if (TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup &&
+					TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
+					return TRUE;
+			}
+		}
+
 	}
 
 	return FALSE;
 }
 
-BOOL CRtCobot::SetLabelPickup(void)
+BOOL CRtCobot::SetLabelPickup(void) //## 2026.01 reject
 {
 	for (int nvNo = nvTrayShuttle; nvNo > -1; nvNo--)
 	{
 		if (Between(TRAY_PART_DATA[nvNo].exist, enExistBtmFoam, enExistBtmFoamOpen))
 			continue;
 
-		if (TRAY_PART_DATA[nvNo].exist)
+		if (NV.use[useRtCobotFirst])
 		{
-			if (TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup &&
-				TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
+			if (TRAY_PART_DATA[nvNo].exist)
 			{
-				TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup = true;
-				return TRUE;
+				if (TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
+				{
+					TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup = true;
+					return TRUE;
+				}
+			}
+		}
+		else
+		{
+			if (TRAY_PART_DATA[nvNo].exist)
+			{
+				if (TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup &&
+					TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
+				{
+					TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup = true;
+					return TRUE;
+				}
 			}
 		}
 	}
@@ -656,7 +704,7 @@ void CRtCobot::CycleLabelPick(void)
 	if (!m_pFsm->Between(C_LABEL_PICK_START, C_LABEL_PICK_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_RT_COBOT_LABEL_PICK_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -686,7 +734,7 @@ void CRtCobot::CycleLabelPick(void)
 			if (!CylInit() || !LABEL_SHUTTLE[nMsgDir].CylInit())
 				break;
 
-			if (!IsEmpty(_LABEL))
+			if (!IsEmpty(_LABEL) || !LABEL_SHUTTLE[nMsgDir].IsExist())
 			{
 				m_pFsm->Set(C_ERROR);
 				break;
@@ -698,6 +746,14 @@ void CRtCobot::CycleLabelPick(void)
 					break;
 
 				if (MT_INPOS != MtPosMove(LABEL_SHUTTLE[_RT].mtLabelShuttleY, P_LABEL_SHUTTLE_Y_READY))
+					break;
+			}
+			else
+			{
+				if (LABEL_SHUTTLE[enlabelLt].m_pFsm->IsBusy())
+					break;
+
+				if (MT_INPOS != MtPosMove(LABEL_SHUTTLE[_LT].mtLabelShuttleY, P_LABEL_SHUTTLE_Y_READY))
 					break;
 			}
 
@@ -736,12 +792,12 @@ void CRtCobot::CycleLabelPick(void)
 
 			if (m_pFsm->TimeLimit(_10sec))
 			{
-				if (!VC[vcRtCobotLabel].AOn())
-				{
-					ER.Save(ER_VAC_RT_COBOT_LABEL);
-					m_pFsm->Set(C_ERROR);
-					break;
-				}
+				//if (!VC[vcRtCobotLabel].AOn())
+				//{
+				//	ER.Save(ER_VAC_RT_COBOT_LABEL);
+				//	m_pFsm->Set(C_ERROR);
+				//	break;
+				//}
 
 				if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->AOff())
 				{
@@ -757,8 +813,11 @@ void CRtCobot::CycleLabelPick(void)
 			if (!VC[vcRtCobotLabel].IsOn())
 				VC[vcRtCobotLabel].On(RT_COBOT_LABEL_ON);
 
-			if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->AOff() || !VC[vcRtCobotLabel].AOn())
-				break;
+			if (!m_pFsm->TimeLimit(_10sec))
+			{
+				if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->AOff() || !VC[vcRtCobotLabel].AOn())
+					break;
+			}
 
 			m_pFsm->Set(C_LABEL_PICK_UP);
 			break;
@@ -772,18 +831,39 @@ void CRtCobot::CycleLabelPick(void)
 					NV.ndm[commMbbLabelAttachStart] = COMM_REQ;
 			}
 
+			if (m_pFsm->TimeLimit(_10sec))
+			{
+				if (!VC[vcRtCobotLabel].AOn())
+				{
+					ER.Save(ER_VAC_RT_COBOT_LABEL);
+					m_pFsm->Set(C_ERROR);
+					break;
+				}
+			}
+
 			if (!CYL[cylRtCobotLabelPkUd].IsUp())
 				CYL[cylRtCobotLabelPkUd].Up(RT_COBOT_LABEL_PK_UP);
 
-			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_LABEL_PICK_TO_READY + (nMsgDir * 2)))
+			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_READY))
 			{
-				if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_LABEL_PICK_TO_READY + (nMsgDir * 2)))
-					ROBOT[robotRt].Move(P_RT_COBOT_LT_LABEL_PICK_TO_READY + (nMsgDir * 2));
+				if (ROBOT[robotRt].CanMove(P_RT_COBOT_READY))
+					ROBOT[robotRt].Move(P_RT_COBOT_READY);
 
 				break;
 			}
 			
+			//if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_LABEL_PICK_TO_READY + (nMsgDir * 2)))
+			//{
+			//	if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_LABEL_PICK_TO_READY + (nMsgDir * 2)))
+			//		ROBOT[robotRt].Move(P_RT_COBOT_LT_LABEL_PICK_TO_READY + (nMsgDir * 2));
+
+			//	break;
+			//}
+			
 			if (!CYL[cylRtCobotLabelPkUd].IsUp())
+				break;
+
+			if (!VC[vcRtCobotLabel].AOn())
 				break;
 
 			m_pFsm->Set(C_LABEL_PICK_END);
@@ -795,6 +875,7 @@ void CRtCobot::CycleLabelPick(void)
 				LOG[logSEQ].Message("<%s> C_LABEL_PICK_END [%.3f]", m_strName, m_tmCycleTime.ElapsedSec());
 
 			Exist(_LABEL) = TRUE;
+			Exist(_LABEL) = LABEL_SHUTTLE[nMsgDir].Exist(); //## 2026.01 reject
 			memcpy(&COBOT_PART_DATA[nvRtCobot].labelInfo[_LABEL], &LABEL_PART_DATA[nvLabelLtSuttle + nMsgDir].labelInfo, sizeof(IPC_MMI::SBoxLabelInfo));
 			ZeroMemory(&LABEL_PART_DATA[nvLabelLtSuttle + nMsgDir], sizeof(IPC_MMI::LabelPartData));
 
@@ -819,7 +900,7 @@ void CRtCobot::CycleMbbVi(void)
 	if (!m_pFsm->Between(C_MBB_VI_START, C_MBB_VI_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_RT_COBOT_MBB_VI_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -974,13 +1055,21 @@ void CRtCobot::CycleMbbVi(void)
 			}
 			else
 			{
-				if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_MBB_VI_TO_READY + (nMsgDir * 3)))
+				if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_READY))
 				{
-					if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_MBB_VI_TO_READY + (nMsgDir * 3)))
-						ROBOT[robotRt].Move(P_RT_COBOT_LT_MBB_VI_TO_READY + (nMsgDir * 3));
+					if (ROBOT[robotRt].CanMove(P_RT_COBOT_READY))
+						ROBOT[robotRt].Move(P_RT_COBOT_READY);
 
 					break;
 				}
+
+				//if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_MBB_VI_TO_READY + (nMsgDir * 3)))
+				//{
+				//	if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_MBB_VI_TO_READY + (nMsgDir * 3)))
+				//		ROBOT[robotRt].Move(P_RT_COBOT_LT_MBB_VI_TO_READY + (nMsgDir * 3));
+
+				//	break;
+				//}
 			}
 			
 			m_pFsm->Set(C_MBB_VI_END);
@@ -1008,7 +1097,7 @@ void CRtCobot::CycleLabelAttach(void)
 	if (!m_pFsm->Between(C_LABEL_ATTACH_START, C_LABEL_ATTACH_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_RT_COBOT_LABEL_ATTACH_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1127,13 +1216,21 @@ void CRtCobot::CycleLabelAttach(void)
 			}
 			else
 			{
-				if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_MBB_LABEL_ATTACH_TO_READY + (nMsgDir * 4)))
+				if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_READY))
 				{
-					if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_MBB_LABEL_ATTACH_TO_READY + (nMsgDir * 4)))
-						ROBOT[robotRt].Move(P_RT_COBOT_LT_MBB_LABEL_ATTACH_TO_READY + (nMsgDir * 4));
+					if (ROBOT[robotRt].CanMove(P_RT_COBOT_READY))
+						ROBOT[robotRt].Move(P_RT_COBOT_READY);
 
 					break;
 				}
+
+				//if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_MBB_LABEL_ATTACH_TO_READY + (nMsgDir * 4)))
+				//{
+				//	if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_MBB_LABEL_ATTACH_TO_READY + (nMsgDir * 4)))
+				//		ROBOT[robotRt].Move(P_RT_COBOT_LT_MBB_LABEL_ATTACH_TO_READY + (nMsgDir * 4));
+
+				//	break;
+				//}
 			}
 
 			if (!CYL[cylRtCobotLabelPkTurnFb].IsBwd())
@@ -1167,7 +1264,7 @@ void CRtCobot::CycleLabelAttachVi(void)
 	if (!m_pFsm->Between(C_LABEL_ATTACH_VI_START, C_LABEL_ATTACH_VI_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_RT_COBOT_LABEL_ATTACH_VI_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1344,13 +1441,21 @@ void CRtCobot::CycleLabelAttachVi(void)
 			}
 			else
 			{
-				if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_MBB_LABEL_ATTACH_VI_TO_READY + (nMsgDir * 3)))
+				if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_READY))
 				{
-					if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_MBB_LABEL_ATTACH_VI_TO_READY + (nMsgDir * 3)))
-						ROBOT[robotRt].Move(P_RT_COBOT_LT_MBB_LABEL_ATTACH_VI_TO_READY + (nMsgDir * 3));
+					if (ROBOT[robotRt].CanMove(P_RT_COBOT_READY))
+						ROBOT[robotRt].Move(P_RT_COBOT_READY);
 
 					break;
 				}
+
+				//if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_MBB_LABEL_ATTACH_VI_TO_READY + (nMsgDir * 3)))
+				//{
+				//	if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_MBB_LABEL_ATTACH_VI_TO_READY + (nMsgDir * 3)))
+				//		ROBOT[robotRt].Move(P_RT_COBOT_LT_MBB_LABEL_ATTACH_VI_TO_READY + (nMsgDir * 3));
+
+				//	break;
+				//}
 			}
 
 			m_pFsm->Set(C_LABEL_ATTACH_VI_END);
@@ -1378,7 +1483,7 @@ void CRtCobot::CycleMbbPick(void)
 	if (!m_pFsm->Between(C_MBB_PICK_START, C_MBB_PICK_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_RT_COBOT_MBB_PICK_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1438,15 +1543,15 @@ void CRtCobot::CycleMbbPick(void)
 			if (m_pFsm->Once())
 				LOG[logSEQ].Message("<%s> C_MBB_PICK_VAC", m_strName);
 
-			if (m_pFsm->TimeLimit(_10sec))
-			{
-				if (!VC[vcRtCobotMbb].AOn() || !VC[vcRtCobotMbb2].AOn())
-				{
-					ER.Save(ER_VAC_RT_COBOT_MBB);
-					m_pFsm->Set(C_ERROR);
-					break;
-				}
-			}
+			//if (m_pFsm->TimeLimit(_10sec))
+			//{
+			//	if (!VC[vcRtCobotMbb].AOn() || !VC[vcRtCobotMbb2].AOn())
+			//	{
+			//		ER.Save(ER_VAC_RT_COBOT_MBB);
+			//		m_pFsm->Set(C_ERROR);
+			//		break;
+			//	}
+			//}
 
 			if (!VC[vcRtCobotMbb].IsOn() || !VC[vcRtCobotMbb2].IsOn())
 			{
@@ -1454,9 +1559,12 @@ void CRtCobot::CycleMbbPick(void)
 				VC[vcRtCobotMbb2].On(RT_COBOT_MBB2_ON);
 			}
 
-			if (!VC[vcRtCobotMbb].AOn() || !VC[vcRtCobotMbb2].AOn() ||
-				!VC[vcRtCobotMbb].IsOn() || !VC[vcRtCobotMbb2].IsOn())
-				break;
+			if (!m_pFsm->TimeLimit(_10sec))
+			{
+				if (!VC[vcRtCobotMbb].AOn() || !VC[vcRtCobotMbb2].AOn() ||
+					!VC[vcRtCobotMbb].IsOn() || !VC[vcRtCobotMbb2].IsOn())
+					break;
+			}
 
 			m_pFsm->Set(C_MBB_PICK_UP);
 			break;
@@ -1470,18 +1578,41 @@ void CRtCobot::CycleMbbPick(void)
 					NV.ndm[commMbbTransferStart] = COMM_REQ + nMsgDir;
 			}
 
+			if (m_pFsm->TimeLimit(_10sec))
+			{
+				if (!VC[vcRtCobotMbb].AOn() || !VC[vcRtCobotMbb2].AOn())
+				{
+					ER.Save(ER_VAC_RT_COBOT_MBB);
+					m_pFsm->Set(C_ERROR);
+					break;
+				}
+			}
+
 			if (nMsgDir == _LT)
 				On(oSolLtMbbCstAirBlow);
 			else
 				On(oSolRtMbbCstAirBlow);
 
-			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_MBB_PICK_TO_READY + (nMsgDir * 2)))
+			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_READY))
 			{
-				if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_MBB_PICK_TO_READY + (nMsgDir * 2)))
-					ROBOT[robotRt].Move(P_RT_COBOT_LT_MBB_PICK_TO_READY + (nMsgDir * 2));
+				if (ROBOT[robotRt].CanMove(P_RT_COBOT_READY))
+					ROBOT[robotRt].Move(P_RT_COBOT_READY);
 
 				break;
 			}
+
+
+			//if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LT_MBB_PICK_TO_READY + (nMsgDir * 2)))
+			//{
+			//	if (ROBOT[robotRt].CanMove(P_RT_COBOT_LT_MBB_PICK_TO_READY + (nMsgDir * 2)))
+			//		ROBOT[robotRt].Move(P_RT_COBOT_LT_MBB_PICK_TO_READY + (nMsgDir * 2));
+
+			//	break;
+			//}
+
+			if (!VC[vcRtCobotMbb].AOn() || !VC[vcRtCobotMbb2].AOn() ||
+				!VC[vcRtCobotMbb].IsOn() || !VC[vcRtCobotMbb2].IsOn())
+				break;
 
 			m_pFsm->Set(C_MBB_PICK_END);
 			break;
@@ -1515,7 +1646,7 @@ void CRtCobot::CycleMbbPlace(void)
 	if (!m_pFsm->Between(C_MBB_PLACE_START, C_MBB_PLACE_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_RT_COBOT_MBB_PLACE_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1587,7 +1718,8 @@ void CRtCobot::CycleMbbPlace(void)
 				break;
 
 			Exist(_MBB) = FALSE;
-			TRAY_PART_DATA[nvMbbShuttle].exist = enExistMbb;
+			TRAY_PART_DATA[nvMbbShuttle].exist = enExistMbbRecv; //## 테스트 임시 변경
+			// TRAY_PART_DATA[nvMbbShuttle].exist = enExistMbb; // org
 			memcpy(&TRAY_PART_DATA[nvMbbShuttle].labelInfo, &COBOT_PART_DATA[nvRtCobot].labelInfo[_MBB], sizeof(IPC_MMI::SBoxLabelInfo));
 			ZeroMemory(&COBOT_PART_DATA[nvRtCobot].labelInfo[_MBB], sizeof(IPC_MMI::SBoxLabelInfo));
 			ZeroMemory(&COBOT_PART_DATA[nvRtCobot].flagRt, sizeof(IPC_MMI::RtCobotFlag));
@@ -1603,13 +1735,22 @@ void CRtCobot::CycleMbbPlace(void)
 					NV.ndm[commMbbTransferEnd] = COMM_REQ;
 			}
 
-			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_MBB_PLACE_TO_READY))
+			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_READY))
 			{
-				if (ROBOT[robotRt].CanMove(P_RT_COBOT_MBB_PLACE_TO_READY))
-					ROBOT[robotRt].Move(P_RT_COBOT_MBB_PLACE_TO_READY);
+				if (ROBOT[robotRt].CanMove(P_RT_COBOT_READY))
+					ROBOT[robotRt].Move(P_RT_COBOT_READY);
 
 				break;
 			}
+
+
+			//if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_MBB_PLACE_TO_READY))
+			//{
+			//	if (ROBOT[robotRt].CanMove(P_RT_COBOT_MBB_PLACE_TO_READY))
+			//		ROBOT[robotRt].Move(P_RT_COBOT_MBB_PLACE_TO_READY);
+
+			//	break;
+			//}
 
 			m_pFsm->Set(C_MBB_PLACE_END);
 			break;
@@ -1626,12 +1767,13 @@ void CRtCobot::CycleMbbPlace(void)
 	}
 }
 
+static int labelcnt = 0;
 void CRtCobot::CycleLabelReject(void)
 {
 	if (!m_pFsm->Between(C_LABEL_REJECT_START, C_LABEL_REJECT_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_RT_COBOT_LABEL_REJECT_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1725,13 +1867,21 @@ void CRtCobot::CycleLabelReject(void)
 			if (!CYL[cylRtCobotLabelPkTurnFb].IsBwd())
 				CYL[cylRtCobotLabelPkTurnFb].Bwd(RT_COBOT_LABEL_PK_TURN_BWD);
 
-			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LABEL_REJECT_TO_READY))
+			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_READY))
 			{
-				if (ROBOT[robotRt].CanMove(P_RT_COBOT_LABEL_REJECT_TO_READY))
-					ROBOT[robotRt].Move(P_RT_COBOT_LABEL_REJECT_TO_READY);
+				if (ROBOT[robotRt].CanMove(P_RT_COBOT_READY))
+					ROBOT[robotRt].Move(P_RT_COBOT_READY);
 
 				break;
 			}
+
+			//if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_LABEL_REJECT_TO_READY))
+			//{
+			//	if (ROBOT[robotRt].CanMove(P_RT_COBOT_LABEL_REJECT_TO_READY))
+			//		ROBOT[robotRt].Move(P_RT_COBOT_LABEL_REJECT_TO_READY);
+
+			//	break;
+			//}
 
 			if (!CYL[cylRtCobotLabelPkTurnFb].IsBwd())
 				break;
@@ -1743,6 +1893,10 @@ void CRtCobot::CycleLabelReject(void)
 		{
 			if (m_pFsm->Once())
 				LOG[logSEQ].Message("<%s> C_LABEL_REJECT_END [%.3f]", m_strName, m_tmCycleTime.ElapsedSec());
+
+			//## 테스트 이력 저장
+			labelcnt++;
+			LOG[logSEQ].Message("<%s> C_LABEL_REJECT_END_LABEL_CNT [%d]", m_strName, labelcnt);
 
 			Exist(_LABEL) = FALSE;
 			ZeroMemory(&COBOT_PART_DATA[nvRtCobot].labelInfo[_LABEL], sizeof(IPC_MMI::SBoxLabelInfo));
@@ -1765,12 +1919,13 @@ void CRtCobot::CycleLabelReject(void)
 	}
 }
 
+
 void CRtCobot::CycleMbbReject(void)
 {
 	if (!m_pFsm->Between(C_MBB_REJECT_START, C_MBB_REJECT_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_RT_COBOT_MBB_REJECT_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1845,13 +2000,21 @@ void CRtCobot::CycleMbbReject(void)
 			if (m_pFsm->Once())
 				LOG[logSEQ].Message("<%s> C_MBB_REJECT_UP", m_strName);
 
-			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_MBB_REJECT_TO_READY))
+			if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_READY))
 			{
-				if (ROBOT[robotRt].CanMove(P_RT_COBOT_MBB_REJECT_TO_READY))
-					ROBOT[robotRt].Move(P_RT_COBOT_MBB_REJECT_TO_READY);
+				if (ROBOT[robotRt].CanMove(P_RT_COBOT_READY))
+					ROBOT[robotRt].Move(P_RT_COBOT_READY);
 
 				break;
 			}
+
+			//if (!ROBOT[robotRt].IsRdy(P_RT_COBOT_MBB_REJECT_TO_READY))
+			//{
+			//	if (ROBOT[robotRt].CanMove(P_RT_COBOT_MBB_REJECT_TO_READY))
+			//		ROBOT[robotRt].Move(P_RT_COBOT_MBB_REJECT_TO_READY);
+
+			//	break;
+			//}
 
 			m_pFsm->Set(C_MBB_REJECT_END);
 			break;
