@@ -1,4 +1,4 @@
-﻿#include "..\..\Includes.h"
+#include "..\..\Includes.h"
 
 CLabelLaser LABEL_LASER;
 
@@ -75,6 +75,9 @@ void CLabelLaser::Auto(void)
 	else
 		return;
 
+	if (!NV.use[useLaserLabelPrint])
+		return;
+
 	if (LABEL_PART_DATA[nDir].exist == enLabelExist)
 	{
 		if (!IsCanCyclePrs())
@@ -110,6 +113,7 @@ void CLabelLaser::Cycle(void)
 			m_pFsm->Set(C_IDLE);
 			NV.ndm[ltLabelPrintTest] = FALSE;
 			NV.ndm[rtLabelPrintTest] = FALSE;
+			NV.ndm[laserScaleCal] = FALSE;
 		}
 		return;
 	}
@@ -206,6 +210,22 @@ BOOL CLabelLaser::IsCanCyclePrs(void)
 		return FALSE;
 	}
 
+	//BOOL bCanCycle = FALSE;
+	//for (int nvNo = nvTrayShuttle; nvNo > -1; nvNo--)
+	//{
+	//	if (Between(TRAY_PART_DATA[nvNo].exist, enExistBtmFoam, enExistBtmFoamQc))
+	//		continue;
+
+	//	if (TRAY_PART_DATA[nvNo].exist)
+	//	{
+	//		if (!TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted || !TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup ||
+	//			!TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted || !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
+	//			bCanCycle = TRUE;
+	//	}
+	//}
+	//if (!bCanCycle)
+	//	return FALSE;
+
 	return TRUE;
 }
 
@@ -255,7 +275,7 @@ BOOL CLabelLaser::IsCanCyclePowerMeter(void)
 	return TRUE;
 }
 
-BOOL CLabelLaser::SetLabelPrintReq(int nDir)
+BOOL CLabelLaser::SetLabelPrintReq(int nDir) //## 2026.01 reject
 {
 	for (int nvNo = nvTrayShuttle; nvNo > -1; nvNo--)
 	{
@@ -272,24 +292,42 @@ BOOL CLabelLaser::SetLabelPrintReq(int nDir)
 	return FALSE;
 }
 
-void CLabelLaser::SetLabelPrinted(void)
+void CLabelLaser::SetLabelPrinted(void) //## 2026.01 reject
 {
 	for (int nvNo = nvTrayShuttle; nvNo > -1; nvNo--)
 	{
 		if (Between(TRAY_PART_DATA[nvNo].exist, enExistBtmFoam, enExistBtmFoamQc))
 			continue;
 
-		if (TRAY_PART_DATA[nvNo].exist &&
-			!TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted)
+		if (NV.use[useRtCobotFirst])
 		{
-			TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted = true;
-			return;
+			if (TRAY_PART_DATA[nvNo].exist &&
+				!TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted)
+			{
+				TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted = true;
+				return;
+			}
+			else if (TRAY_PART_DATA[nvNo].exist &&
+				!TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted)
+			{
+				TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted = true;
+				return;
+			}
 		}
-		else if (TRAY_PART_DATA[nvNo].exist &&
-			TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted)
+		else
 		{
-			TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted = true;
-			return;
+			if (TRAY_PART_DATA[nvNo].exist &&
+				!TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted)
+			{
+				TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted = true;
+				return;
+			}
+			else if (TRAY_PART_DATA[nvNo].exist &&
+				TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted)
+			{
+				TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted = true;
+				return;
+			}
 		}
 	}
 	return;
@@ -516,14 +554,24 @@ void CLabelLaser::CycleLaser(void)
 				targetpos.dY = rot.dY + LABEL_PART_DATA[nvLabelLtFeeder + nMsgDir].PrsResult[0].dY;
 				targetpos.dT = dT;
 
+				// 테스트 2026.01 AUTO RUN 시 해제 필요
+				//memcpy(&LABEL_PART_DATA[nMsgDir].labelInfo.sBoxId, &TRAY_PART_DATA[1].labelInfo.sBoxId, sizeof(LABEL_PART_DATA[nMsgDir].labelInfo.sBoxId));
+				//memcpy(&LABEL_PART_DATA[nMsgDir].labelInfo.lotId, &TRAY_PART_DATA[1].labelInfo.lotId, sizeof(LABEL_PART_DATA[nMsgDir].labelInfo.lotId));
+				//memcpy(&LABEL_PART_DATA[nMsgDir].labelInfo.sBoxLabel, &TRAY_PART_DATA[1].labelInfo.sBoxLabel, sizeof(LABEL_PART_DATA[nMsgDir].labelInfo.sBoxLabel));
+
 				LOG[logSEQ].Message("<%s> C_LASER_START LASER SEND DATA X:[%.3f] Y:[%.3f] T:[%.3f]", m_strName, targetpos.dX, targetpos.dY, targetpos.dT);
+				LOG[logSEQ].Message("<%s> C_LASER_START SBOXID [%s]", m_strName, LABEL_PART_DATA[nMsgDir].labelInfo.sBoxId);
+				LOG[logSEQ].Message("<%s> C_LASER_START SBOX_LABEL [%s]", m_strName, LABEL_PART_DATA[nMsgDir].labelInfo.sBoxLabel);
 
 				ZeroMemory(LAS[LASER].m_scanData.laserLabelData.boxId, sizeof(LAS[LASER].m_scanData.laserLabelData.boxId));
 				ZeroMemory(LAS[LASER].m_scanData.laserLabelData.readZpl, sizeof(LAS[LASER].m_scanData.laserLabelData.readZpl));
 				memcpy(&LAS[LASER].m_scanData.laserLabelData.prsData, &targetpos, sizeof(XYT));
 				memcpy(&LAS[LASER].m_scanData.laserLabelData.boxId, &LABEL_PART_DATA[nMsgDir].labelInfo.sBoxId, sizeof(LAS[LASER].m_scanData.laserLabelData.boxId));
 				memcpy(&LAS[LASER].m_scanData.laserLabelData.readZpl, &LABEL_PART_DATA[nMsgDir].labelInfo.sBoxLabel, sizeof(LAS[LASER].m_scanData.laserLabelData.readZpl));
-				LAS[LASER].SetMode(MODE_MARKING_START);
+				if (NV.ndm[laserScaleCal])
+					LAS[LASER].SetMode(MODE_FIELD_CORRECTION);
+				else
+					LAS[LASER].SetMode(MODE_MARKING_START);
 			}
 			else
 			{
@@ -560,7 +608,7 @@ void CLabelLaser::CycleLaser(void)
 				break;
 			}
 
-			if (!LAS[LASER].m_isReadData && !OPR.isNoDevice && !OPR.isDryRun)
+			if (!LAS[LASER].m_isReadData && !NV.ndm[laserScaleCal] && !OPR.isNoDevice && !OPR.isDryRun)
 				break;
 
 			if (!LAS[LASER].m_isWaitCoordData1 && !LAS[LASER].m_isWaitCoordData2)
@@ -641,7 +689,7 @@ void CLabelLaser::CycleLaser(void)
 		{
 			if (OPR.isNoDevice || OPR.isDryRun)
 			{
-				if (!m_pFsm->TimeLimit(_10sec))
+				if (!m_pFsm->TimeLimit(_15sec))
 					break;
 			}
 
