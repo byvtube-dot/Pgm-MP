@@ -1,4 +1,4 @@
-﻿#include "..\..\Includes.h"
+#include "..\..\Includes.h"
 
 CLtCobot LT_COBOT;
 
@@ -131,7 +131,8 @@ void CLtCobot::Auto(void)
 	else
 	{
 		if (!Exist(_LABEL) && GetLabelPickup() &&
-			(LABEL_SHUTTLE[enlabelLt].Exist() == enLabelExistQc || LABEL_SHUTTLE[enlabelRt].Exist() == enLabelExistQc))
+			(LABEL_SHUTTLE[enlabelLt].Exist() == enLabelExistQc || LABEL_SHUTTLE[enlabelRt].Exist() == enLabelExistQc) &&
+			FOAM_PART_DATA[nvFoamSendElev].exist != enFoamExistTopLabel) // 안전 조건 추가 필요
 		{
 			if (IsCanCycleLabelPick())
 			{
@@ -274,6 +275,10 @@ BOOL CLtCobot::Common(void)
 	isMoving = isMoving || (!OPR.isNoDevice && ROBOT[robotLt].m_robotCurPos.joint.joint_0 < 110.0);
 	isMoving = isMoving || ROBOT[robotLt].CmdOrCurIdx(P_LT_COBOT_BTM_PARTIAL_FOAM_PICK);
 	isMoving = isMoving || ROBOT[robotLt].CmdOrCurMovingIdx(P_LT_COBOT_BTM_PARTIAL_FOAM_PICK_TO_READY);
+	isMoving = isMoving || ROBOT[robotLt].CmdOrCurIdx(P_LT_COBOT_LT_LABEL_PICK);
+	isMoving = isMoving || ROBOT[robotLt].CmdOrCurIdx(P_LT_COBOT_LT_LABEL_PICK_TO_PICK_READY);
+	isMoving = isMoving || ROBOT[robotLt].CmdOrCurIdx(P_LT_COBOT_RT_LABEL_PICK);
+	isMoving = isMoving || ROBOT[robotLt].CmdOrCurIdx(P_LT_COBOT_RT_LABEL_PICK_TO_PICK_READY);
 	if (isBusy || isMoving)
 		NV.ndm[ltCobotFoamPkCanMove] = FALSE;
 	else
@@ -470,6 +475,13 @@ BOOL CLtCobot::IsCanCycleBtmFoamPlace(void)
 
 BOOL CLtCobot::IsCanCycleLabelPick(void)
 {
+	if (RT_COBOT.m_pFsm->Between(RT_COBOT.C_MBB_PLACE_START, RT_COBOT.C_MBB_PLACE_END) || RT_COBOT.m_pFsm->Between(RT_COBOT.C_MBB_REJECT_START, RT_COBOT.C_MBB_REJECT_END))
+	{
+		MSGNOTICE.Set(MSG_CANMOVE, "CLOSE", NULL, NULL, NULL,
+			"Rt Cobot MBB Place Cycle is Busy");
+		return FALSE;
+	}
+
 	if (FOAM_PK.m_pFsm->Between(FOAM_PK.C_FOAM_PLACE_START, FOAM_PK.C_FOAM_PLACE_END))
 	{
 		MSGNOTICE.Set(MSG_CANMOVE, "CLOSE", NULL, NULL, NULL,
@@ -718,41 +730,70 @@ BOOL CLtCobot::IsEmpty(int materialType)
 	return TRUE;
 }
 
-BOOL CLtCobot::GetLabelPickup(void)
+BOOL CLtCobot::GetLabelPickup(void) //## 2026.01 reject
 {
 	for (int nvNo = nvTrayShuttle; nvNo > -1; nvNo--)
 	{
 		if (Between(TRAY_PART_DATA[nvNo].exist, enExistBtmFoam, enExistBtmFoamQc))
 			continue;
 
-		if (TRAY_PART_DATA[nvNo].exist)
+		if (NV.use[useRtCobotFirst])
 		{
-			if (TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup)
-				return TRUE;
-			else if (TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
-				return FALSE;
+			if (TRAY_PART_DATA[nvNo].exist)
+			{
+				if (TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup &&
+					TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup)
+					return TRUE;
+			}
+		}
+		else
+		{
+			if (TRAY_PART_DATA[nvNo].exist)
+			{
+				if (TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup)
+					return TRUE;
+				else if (TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
+					return FALSE;
+			}
 		}
 	}
 
 	return FALSE;
 }
 
-BOOL CLtCobot::SetLabelPickup(void)
+
+
+BOOL CLtCobot::SetLabelPickup(void) //## 2026.01 reject
 {
 	for (int nvNo = nvTrayShuttle; nvNo > -1; nvNo--)
 	{
 		if (Between(TRAY_PART_DATA[nvNo].exist, enExistBtmFoam, enExistBtmFoamQc))
 			continue;
 
-		if (TRAY_PART_DATA[nvNo].exist)
+		if (NV.use[useRtCobotFirst])
 		{
-			if (TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup)
+			if (TRAY_PART_DATA[nvNo].exist)
 			{
-				TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup = true;
-				return TRUE;
+				if (TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup &&
+					TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup)
+				{
+					TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup = true;
+					return TRUE;
+				}
 			}
-			else if (TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
-				return FALSE;
+		}
+		else
+		{
+			if (TRAY_PART_DATA[nvNo].exist)
+			{
+				if (TRAY_PART_DATA[nvNo].flag.ltCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup)
+				{
+					TRAY_PART_DATA[nvNo].flag.ltCobotLabelPickup = true;
+					return TRUE;
+				}
+				else if (TRAY_PART_DATA[nvNo].flag.rtCobotLabelPrinted && !TRAY_PART_DATA[nvNo].flag.rtCobotLabelPickup)
+					return FALSE;
+			}
 		}
 	}
 
@@ -764,7 +805,7 @@ void CLtCobot::CycleBtmFoamPick(void)
 	if (!m_pFsm->Between(C_BTM_FOAM_PICK_START, C_BTM_FOAM_PICK_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // 40
 	{
 		ER.Save(ER_LT_COBOT_NORMAL_FOAM_PICK_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -818,7 +859,7 @@ void CLtCobot::CycleBtmFoamPick(void)
 
 			if (nMsgDir)
 			{
-				if (m_pFsm->TimeLimit(_30sec))
+				if (m_pFsm->TimeLimit(_1min)) // 30
 				{
 					ER.Save(ER_VAC_LT_COBOT_FOAM_PK_SAFETY_MOVE_TIMEOVER);
 					m_pFsm->Set(C_ERROR);
@@ -856,6 +897,75 @@ void CLtCobot::CycleBtmFoamPick(void)
 			if (m_pFsm->Once())
 				LOG[logSEQ].Message("<%s> C_BTM_FOAM_PICK_VAC", m_strName);
 
+			//if (m_pFsm->TimeLimit(_10sec))
+			//{
+			//	if (nMsgDir == _NORMAL)
+			//	{
+			//		if (!VC[vcFoamFlip].AOff() || !VC[vcFoamFlip2].AOff())
+			//		{
+			//			if (!VC[vcFoamFlip].AOff())
+			//				ER.Save(ER_VAC_ALARM_FOAM_FLIP);
+			//			else if (!VC[vcFoamFlip2].AOff())
+			//				ER.Save(ER_VAC_ALARM_FOAM_FLIP2);
+
+			//			m_pFsm->Set(C_ERROR);
+			//			break;
+			//		}
+			//	}
+
+			//	if (!VC[vcLtCobotFoam].AOn() || !VC[vcLtCobotFoam2].AOn())
+			//	{
+			//		ER.Save((ErrName)(ER_VAC_LT_COBOT_NORMAL_FAOM + nMsgDir));
+			//		m_pFsm->Set(C_ERROR);
+			//		break;
+			//	}
+			//}
+
+			if (!VC[vcLtCobotFoam].IsOn() || !VC[vcLtCobotFoam2].IsOn())
+			{
+				VC[vcLtCobotFoam].On(LT_COBOT_FOAM_ON);
+				VC[vcLtCobotFoam2].On(LT_COBOT_FOAM2_ON);
+			}
+
+			if (nMsgDir == _NORMAL)
+			{
+				if (!VC[vcFoamFlip].IsOff() || !VC[vcFoamFlip2].IsOff())
+				{
+					VC[vcFoamFlip].Off(FOAM_FLIP_OFF);
+					VC[vcFoamFlip2].Off(FOAM_FLIP2_OFF);
+				}
+
+				//if (!VC[vcFoamFlip].IsOff() || !VC[vcFoamFlip2].IsOff() ||
+				//	VC[vcFoamFlip].AOn() || VC[vcFoamFlip2].AOn())
+				//	break;
+			}
+
+			if (!m_pFsm->TimeLimit(_10sec))
+			{
+				if (nMsgDir == _NORMAL)
+				{
+					if (!VC[vcFoamFlip].IsOff() || !VC[vcFoamFlip2].IsOff() ||
+						VC[vcFoamFlip].AOn() || VC[vcFoamFlip2].AOn())
+						break;
+				}
+
+				if (!VC[vcLtCobotFoam].IsOn() || !VC[vcLtCobotFoam2].IsOn() ||
+					!VC[vcLtCobotFoam].AOn() || !VC[vcLtCobotFoam2].AOn())
+					break;
+			}
+
+			m_pFsm->Set(C_BTM_FOAM_PICK_UP);
+			break;
+		}
+		case C_BTM_FOAM_PICK_UP:
+		{
+			if (m_pFsm->Once())
+			{
+				LOG[logSEQ].Message("<%s> C_BTM_FOAM_PICK_UP", m_strName);
+				if (NV.use[useSecsGem])
+					NV.ndm[commFoamPadTransferStart] = COMM_REQ;
+			}
+
 			if (m_pFsm->TimeLimit(_10sec))
 			{
 				if (nMsgDir == _NORMAL)
@@ -880,48 +990,27 @@ void CLtCobot::CycleBtmFoamPick(void)
 				}
 			}
 
-			if (!VC[vcLtCobotFoam].IsOn() || !VC[vcLtCobotFoam2].IsOn())
-			{
-				VC[vcLtCobotFoam].On(LT_COBOT_FOAM_ON);
-				VC[vcLtCobotFoam2].On(LT_COBOT_FOAM2_ON);
-			}
 
-			if (nMsgDir == _NORMAL)
+			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_READY))
 			{
-				if (!VC[vcFoamFlip].IsOff() || !VC[vcFoamFlip2].IsOff())
-				{
-					VC[vcFoamFlip].Off(FOAM_FLIP_OFF);
-					VC[vcFoamFlip2].Off(FOAM_FLIP2_OFF);
-				}
+				if (ROBOT[robotLt].CanMove(P_LT_COBOT_READY))
+					ROBOT[robotLt].Move(P_LT_COBOT_READY);
 
-				if (!VC[vcFoamFlip].IsOff() || !VC[vcFoamFlip2].IsOff() ||
-					VC[vcFoamFlip].AOn() || VC[vcFoamFlip2].AOn())
-					break;
+				break;
 			}
+			 
+
+			//if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_BTM_FOAM_PICK_TO_READY + (nMsgDir * 2)))
+			//{
+			//	if (ROBOT[robotLt].CanMove(P_LT_COBOT_BTM_FOAM_PICK_TO_READY + (nMsgDir * 2)))
+			//		ROBOT[robotLt].Move(P_LT_COBOT_BTM_FOAM_PICK_TO_READY + (nMsgDir * 2));
+
+			//	break;
+			//}
 
 			if (!VC[vcLtCobotFoam].IsOn() || !VC[vcLtCobotFoam2].IsOn() ||
 				!VC[vcLtCobotFoam].AOn() || !VC[vcLtCobotFoam2].AOn())
 				break;
-
-			m_pFsm->Set(C_BTM_FOAM_PICK_UP);
-			break;
-		}
-		case C_BTM_FOAM_PICK_UP:
-		{
-			if (m_pFsm->Once())
-			{
-				LOG[logSEQ].Message("<%s> C_BTM_FOAM_PICK_UP", m_strName);
-				if (NV.use[useSecsGem])
-					NV.ndm[commFoamPadTransferStart] = COMM_REQ;
-			}
-
-			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_BTM_FOAM_PICK_TO_READY + (nMsgDir * 2)))
-			{
-				if (ROBOT[robotLt].CanMove(P_LT_COBOT_BTM_FOAM_PICK_TO_READY + (nMsgDir * 2)))
-					ROBOT[robotLt].Move(P_LT_COBOT_BTM_FOAM_PICK_TO_READY + (nMsgDir * 2));
-
-				break;
-			}
 
 			m_pFsm->Set(C_BTM_FOAM_PICK_END);
 			break;
@@ -956,7 +1045,7 @@ void CLtCobot::CycleBtmFoamPlace(void)
 	if (!m_pFsm->Between(C_BTM_FOAM_PLACE_START, C_BTM_FOAM_PLACE_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // 40sec
 	{
 		ER.Save(ER_LT_COBOT_BTM_FOAM_PLACE_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1056,13 +1145,21 @@ void CLtCobot::CycleBtmFoamPlace(void)
 			if (nMsg == enFoamExistBtmPartial)
 				nFoamType = _PARTIAL;
 
-			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_BTM_FOAM_PLACE_TO_READY + (nFoamType * 2)))
+			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_READY))
 			{
-				if (ROBOT[robotLt].CanMove(P_LT_COBOT_BTM_FOAM_PLACE_TO_READY + (nFoamType * 2)))
-					ROBOT[robotLt].Move(P_LT_COBOT_BTM_FOAM_PLACE_TO_READY + (nFoamType * 2));
+				if (ROBOT[robotLt].CanMove(P_LT_COBOT_READY))
+					ROBOT[robotLt].Move(P_LT_COBOT_READY);
 
 				break;
 			}
+
+			//if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_BTM_FOAM_PLACE_TO_READY + (nFoamType * 2)))
+			//{
+			//	if (ROBOT[robotLt].CanMove(P_LT_COBOT_BTM_FOAM_PLACE_TO_READY + (nFoamType * 2)))
+			//		ROBOT[robotLt].Move(P_LT_COBOT_BTM_FOAM_PLACE_TO_READY + (nFoamType * 2));
+
+			//	break;
+			//}
 
 			m_pFsm->Set(C_BTM_FOAM_PLACE_END);
 			break;
@@ -1085,7 +1182,7 @@ void CLtCobot::CycleLabelPick(void)
 	if (!m_pFsm->Between(C_LABEL_PICK_START, C_LABEL_PICK_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_1min))
+	if (m_pFsm->TimeLimit(180000)) // _1min
 	{
 		ER.Save(ER_LT_COBOT_LABEL_PICK_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1127,7 +1224,23 @@ void CLtCobot::CycleLabelPick(void)
 
 				if (MT_INPOS != MtPosMove(LABEL_SHUTTLE[_LT].mtLabelShuttleY, P_LABEL_SHUTTLE_Y_READY))
 					break;
+
+				if (!CYL[cylLabelQcViFb].IsBwd())
+				{
+					CYL[cylLabelQcViFb].Bwd(LABEL_QC_VI_BWD);
+					break;
+				}
+
 			}
+			else
+			{
+				if (LABEL_SHUTTLE[enlabelRt].m_pFsm->IsBusy())
+					break;
+
+				if (MT_INPOS != MtPosMove(LABEL_SHUTTLE[_RT].mtLabelShuttleY, P_LABEL_SHUTTLE_Y_READY))
+					break;
+			}
+
 			if (MT_INPOS != MtPosMove(LABEL_SHUTTLE[nMsgDir].mtLabelShuttleY, P_LABEL_SHUTTLE_Y_SEND))
 				break;
 
@@ -1186,22 +1299,22 @@ void CLtCobot::CycleLabelPick(void)
 			if (m_pFsm->Once())
 				LOG[logSEQ].Message("<%s> C_LABEL_PICK_VAC", m_strName);
 
-			if (m_pFsm->TimeLimit(_10sec))
-			{
-				if (!VC[vcLtCobotLabel].AOn())
-				{
-					ER.Save(ER_VAC_LT_COBOT_LABEL);
-					m_pFsm->Set(C_ERROR);
-					break;
-				}
+			//if (m_pFsm->TimeLimit(_10sec))
+			//{
+			//	if (!VC[vcLtCobotLabel].AOn())
+			//	{
+			//		ER.Save(ER_VAC_LT_COBOT_LABEL);
+			//		m_pFsm->Set(C_ERROR);
+			//		break;
+			//	}
 
-				if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->AOff())
-				{
-					ER.Save(ER_VAC_LT_COBOT_LABEL_SHUTTLE);
-					m_pFsm->Set(C_ERROR);
-					break;
-				}
-			}
+			//	if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->AOff())
+			//	{
+			//		ER.Save(ER_VAC_LT_COBOT_LABEL_SHUTTLE);
+			//		m_pFsm->Set(C_ERROR);
+			//		break;
+			//	}
+			//}
 
 			if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->IsOff())
 				LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->BlowOn();
@@ -1209,8 +1322,11 @@ void CLtCobot::CycleLabelPick(void)
 			if (!VC[vcLtCobotLabel].IsOn())
 				VC[vcLtCobotLabel].On(LT_COBOT_LABEL_ON);
 
-			if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->AOff() || !VC[vcLtCobotLabel].AOn())
-				break;
+			if (!m_pFsm->TimeLimit(_10sec))
+			{
+				if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->AOff() || !VC[vcLtCobotLabel].AOn())
+					break;
+			}
 
 			m_pFsm->Set(C_LABEL_PICK_Z_UP);
 			break;
@@ -1221,12 +1337,12 @@ void CLtCobot::CycleLabelPick(void)
 			{
 				LOG[logSEQ].Message("<%s> C_LABEL_PICK_Z_UP", m_strName);
 				
-				Exist(_LABEL) = TRUE;
-				memcpy(&COBOT_PART_DATA[nvLtCobot].labelInfo[_LABEL], &LABEL_PART_DATA[nvLabelLtSuttle + nMsgDir].labelInfo, sizeof(IPC_MMI::SBoxLabelInfo));
-				ZeroMemory(&LABEL_PART_DATA[nvLabelLtSuttle + nMsgDir], sizeof(IPC_MMI::LabelPartData));
+				//Exist(_LABEL) = TRUE;
+				//memcpy(&COBOT_PART_DATA[nvLtCobot].labelInfo[_LABEL], &LABEL_PART_DATA[nvLabelLtSuttle + nMsgDir].labelInfo, sizeof(IPC_MMI::SBoxLabelInfo));
+				//ZeroMemory(&LABEL_PART_DATA[nvLabelLtSuttle + nMsgDir], sizeof(IPC_MMI::LabelPartData));
 
-				if (NV.use[useSecsGem])
-					NV.ndm[commLabelAttachStart] = COMM_REQ;
+				//if (NV.use[useSecsGem])
+				//	NV.ndm[commLabelAttachStart] = COMM_REQ;
 			}
 
 			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_LT_LABEL_PICK_TO_PICK_READY + (nMsgDir * 4)))
@@ -1245,21 +1361,49 @@ void CLtCobot::CycleLabelPick(void)
 			if (m_pFsm->Once())
 				LOG[logSEQ].Message("<%s> C_LABEL_PICK_READY_MOVE", m_strName);
 
+			if (m_pFsm->TimeLimit(_15sec))
+			{
+				if (!VC[vcLtCobotLabel].AOn())
+				{
+					ER.Save(ER_VAC_LT_COBOT_LABEL);
+					m_pFsm->Set(C_ERROR);
+					break;
+				}
+
+				if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->AOff())
+				{
+					ER.Save(ER_VAC_LT_COBOT_LABEL_SHUTTLE);
+					m_pFsm->Set(C_ERROR);
+					break;
+				}
+			}
+
 			if (!CYL[cylLtCobotLabelPkTurnFb].IsBwd())
 				CYL[cylLtCobotLabelPkTurnFb].Bwd(LT_COBOT_LABEL_PK_TURN_BWD);
 
 			if (!CYL[cylLtCobotLabelPkUd].IsUp())
 				CYL[cylLtCobotLabelPkUd].Up(LT_COBOT_LABEL_PK_UP);
 
-			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_LT_LABEL_PICK_READY_TO_READY + (nMsgDir * 4)))
+			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_READY))
 			{
-				if (ROBOT[robotLt].CanMove(P_LT_COBOT_LT_LABEL_PICK_READY_TO_READY + (nMsgDir * 4)))
-					ROBOT[robotLt].Move(P_LT_COBOT_LT_LABEL_PICK_READY_TO_READY + (nMsgDir * 4));
+				if (ROBOT[robotLt].CanMove(P_LT_COBOT_READY))
+					ROBOT[robotLt].Move(P_LT_COBOT_READY);
 
 				break;
 			}
 
+			//if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_LT_LABEL_PICK_READY_TO_READY + (nMsgDir * 4)))
+			//{
+			//	if (ROBOT[robotLt].CanMove(P_LT_COBOT_LT_LABEL_PICK_READY_TO_READY + (nMsgDir * 4)))
+			//		ROBOT[robotLt].Move(P_LT_COBOT_LT_LABEL_PICK_READY_TO_READY + (nMsgDir * 4));
+
+			//	break;
+			//}
+
 			if (!CYL[cylLtCobotLabelPkTurnFb].IsBwd() || !CYL[cylLtCobotLabelPkUd].IsUp())
+				break;
+
+			if (!LABEL_SHUTTLE[nMsgDir].m_pVacLabelRecv->AOff() || !VC[vcLtCobotLabel].AOn())
 				break;
 
 			m_pFsm->Set(C_LABEL_PICK_END);
@@ -1268,7 +1412,16 @@ void CLtCobot::CycleLabelPick(void)
 		case C_LABEL_PICK_END:
 		{
 			if (m_pFsm->Once())
+			{
 				LOG[logSEQ].Message("<%s> C_LABEL_PICK_END [%.3f]", m_strName, m_tmCycleTime.ElapsedSec());
+
+				Exist(_LABEL) = TRUE;
+				memcpy(&COBOT_PART_DATA[nvLtCobot].labelInfo[_LABEL], &LABEL_PART_DATA[nvLabelLtSuttle + nMsgDir].labelInfo, sizeof(IPC_MMI::SBoxLabelInfo));
+				ZeroMemory(&LABEL_PART_DATA[nvLabelLtSuttle + nMsgDir], sizeof(IPC_MMI::LabelPartData));
+
+				if (NV.use[useSecsGem])
+					NV.ndm[commLabelAttachStart] = COMM_REQ;
+			}
 
 			m_state = "";
 
@@ -1291,7 +1444,7 @@ void CLtCobot::CycleLabelAttach(void)
 	if (!m_pFsm->Between(C_LABEL_ATTACH_START, C_LABEL_ATTACH_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_LT_COBOT_LABEL_ATTACH_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1399,13 +1552,21 @@ void CLtCobot::CycleLabelAttach(void)
 			}
 			else
 			{
-				if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_LABEL_ATTACH_TO_READY))
+				if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_READY))
 				{
-					if (ROBOT[robotLt].CanMove(P_LT_COBOT_LABEL_ATTACH_TO_READY))
-						ROBOT[robotLt].Move(P_LT_COBOT_LABEL_ATTACH_TO_READY);
+					if (ROBOT[robotLt].CanMove(P_LT_COBOT_READY))
+						ROBOT[robotLt].Move(P_LT_COBOT_READY);
 
 					break;
 				}
+
+				//if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_LABEL_ATTACH_TO_READY))
+				//{
+				//	if (ROBOT[robotLt].CanMove(P_LT_COBOT_LABEL_ATTACH_TO_READY))
+				//		ROBOT[robotLt].Move(P_LT_COBOT_LABEL_ATTACH_TO_READY);
+
+				//	break;
+				//}
 			}
 
 			if (!CYL[cylLtCobotLabelPkUd].IsUp())
@@ -1444,7 +1605,7 @@ void CLtCobot::CycleTopFoamPick(void)
 	if (!m_pFsm->Between(C_TOP_FOAM_PICK_START, C_TOP_FOAM_PICK_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_LT_COBOT_TOP_FOAM_PICK_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1501,10 +1662,19 @@ void CLtCobot::CycleTopFoamPick(void)
 			if (m_pFsm->Once())
 				LOG[logSEQ].Message("<%s> C_TOP_FOAM_PICK_VAC", m_strName);
 
-			if (m_pFsm->TimeLimit(_10sec))
+			if (m_pFsm->TimeLimit(_15sec))
 			{
 				if (!VC[vcLtCobotFoam].AOn() || !VC[vcLtCobotFoam2].AOn())
 				{
+					// 안전조건 추가
+					if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_TOP_FOAM_PICK_TO_READY))
+					{
+						if (ROBOT[robotLt].CanMove(P_LT_COBOT_TOP_FOAM_PICK_TO_READY))
+							ROBOT[robotLt].Move(P_LT_COBOT_TOP_FOAM_PICK_TO_READY);
+
+						break;
+					}
+
 					ER.Save(ER_VAC_LT_COBOT_TOP_FAOM);
 					m_pFsm->Set(C_ERROR);
 					break;
@@ -1523,10 +1693,16 @@ void CLtCobot::CycleTopFoamPick(void)
 			}
 
 			if (!CYL[cylFoamSendElevLtAlignFb].IsBwd() ||
-				!CYL[cylFoamSendElevRtAlignFb].IsBwd() || 
-				!VC[vcLtCobotFoam].AOn() || !VC[vcLtCobotFoam2].AOn() ||
-				!VC[vcLtCobotFoam].IsOn() || !VC[vcLtCobotFoam2].IsOn())
+				!CYL[cylFoamSendElevRtAlignFb].IsBwd())
 				break;
+
+			if (!m_pFsm->TimeLimit(_10sec))
+			{
+				if (!VC[vcLtCobotFoam].AOn() || !VC[vcLtCobotFoam2].AOn() ||
+					!VC[vcLtCobotFoam].IsOn() || !VC[vcLtCobotFoam2].IsOn())
+					break;
+			}
+
 
 			m_pFsm->Set(C_TOP_FOAM_PICK_UP);
 			break;
@@ -1536,13 +1712,35 @@ void CLtCobot::CycleTopFoamPick(void)
 			if (m_pFsm->Once())
 				LOG[logSEQ].Message("<%s> C_TOP_FOAM_PICK_UP", m_strName);
 
-			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_TOP_FOAM_PICK_TO_READY))
+			if (m_pFsm->TimeLimit(_15sec))
 			{
-				if (ROBOT[robotLt].CanMove(P_LT_COBOT_TOP_FOAM_PICK_TO_READY))
-					ROBOT[robotLt].Move(P_LT_COBOT_TOP_FOAM_PICK_TO_READY);
+				if (!VC[vcLtCobotFoam].AOn() || !VC[vcLtCobotFoam2].AOn())
+				{
+					ER.Save(ER_VAC_LT_COBOT_TOP_FAOM);
+					m_pFsm->Set(C_ERROR);
+					break;
+				}
+			}
+
+			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_READY))
+			{
+				if (ROBOT[robotLt].CanMove(P_LT_COBOT_READY))
+					ROBOT[robotLt].Move(P_LT_COBOT_READY);
 
 				break;
 			}
+
+			//if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_TOP_FOAM_PICK_TO_READY))
+			//{
+			//	if (ROBOT[robotLt].CanMove(P_LT_COBOT_TOP_FOAM_PICK_TO_READY))
+			//		ROBOT[robotLt].Move(P_LT_COBOT_TOP_FOAM_PICK_TO_READY);
+
+			//	break;
+			//}
+
+			if (!VC[vcLtCobotFoam].AOn() || !VC[vcLtCobotFoam2].AOn() ||
+				!VC[vcLtCobotFoam].IsOn() || !VC[vcLtCobotFoam2].IsOn())
+				break;
 
 			m_pFsm->Set(C_TOP_FOAM_PICK_END);
 			break;
@@ -1571,7 +1769,7 @@ void CLtCobot::CycleTopFoamPlace(void)
 	if (!m_pFsm->Between(C_TOP_FOAM_PLACE_START, C_TOP_FOAM_PLACE_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_LT_COBOT_TOP_FOAM_PLACE_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1657,13 +1855,22 @@ void CLtCobot::CycleTopFoamPlace(void)
 					NV.ndm[commFoamPadTransferEnd] = COMM_REQ;
 			}
 
-			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_TOP_FOAM_PLACE_TO_READY))
+
+			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_READY))
 			{
-				if (ROBOT[robotLt].CanMove(P_LT_COBOT_TOP_FOAM_PLACE_TO_READY))
-					ROBOT[robotLt].Move(P_LT_COBOT_TOP_FOAM_PLACE_TO_READY);
+				if (ROBOT[robotLt].CanMove(P_LT_COBOT_READY))
+					ROBOT[robotLt].Move(P_LT_COBOT_READY);
 
 				break;
 			}
+
+			//if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_TOP_FOAM_PLACE_TO_READY))
+			//{
+			//	if (ROBOT[robotLt].CanMove(P_LT_COBOT_TOP_FOAM_PLACE_TO_READY))
+			//		ROBOT[robotLt].Move(P_LT_COBOT_TOP_FOAM_PLACE_TO_READY);
+
+			//	break;
+			//}
 
 			m_pFsm->Set(C_TOP_FOAM_PLACE_END);
 			break;
@@ -1691,7 +1898,7 @@ void CLtCobot::CycleFoamReject(void)
 	if (!m_pFsm->Between(C_FOAM_REJECT_START, C_FOAM_REJECT_END))
 		return;
 
-	if (m_pFsm->TimeLimit(_40sec))
+	if (m_pFsm->TimeLimit(90000)) // _40sec
 	{
 		ER.Save(ER_LT_COBOT_FOAM_REJECT_CYCLE_TIME_OVER);
 		m_pFsm->Set(C_ERROR);
@@ -1766,13 +1973,21 @@ void CLtCobot::CycleFoamReject(void)
 			if (m_pFsm->Once())
 				LOG[logSEQ].Message("<%s> C_FOAM_REJECT_UP", m_strName);
 
-			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_FOAM_REJECT_TO_READY))
+			if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_READY))
 			{
-				if (ROBOT[robotLt].CanMove(P_LT_COBOT_FOAM_REJECT_TO_READY))
-					ROBOT[robotLt].Move(P_LT_COBOT_FOAM_REJECT_TO_READY);
+				if (ROBOT[robotLt].CanMove(P_LT_COBOT_READY))
+					ROBOT[robotLt].Move(P_LT_COBOT_READY);
 
 				break;
 			}
+
+			//if (!ROBOT[robotLt].IsRdy(P_LT_COBOT_FOAM_REJECT_TO_READY))
+			//{
+			//	if (ROBOT[robotLt].CanMove(P_LT_COBOT_FOAM_REJECT_TO_READY))
+			//		ROBOT[robotLt].Move(P_LT_COBOT_FOAM_REJECT_TO_READY);
+
+			//	break;
+			//}
 
 			m_pFsm->Set(C_FOAM_REJECT_END);
 			break;
