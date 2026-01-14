@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "DEF\AntiCollisionDef.h"
 #include "DEF\ApiBufferDef.h"
 #include "DEF\AxisDef.h"
@@ -282,6 +282,7 @@ enum enExist
 	enMbbExistQc			= 2,	// Mbb + Qc
 	enMbbExistLabel			= 3,	// Mbb + Label
 	enMbbExistLabelQc		= 4,	// Mbb + Label + Qc
+	//enLabelExistEject		= 5,	// Label Reject //## 2026.01
 };
 
 enum enFoamElevList
